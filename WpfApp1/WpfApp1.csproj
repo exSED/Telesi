@@ -55,6 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\InveExtractor.cs" />
+    <Compile Include="Helpers\NewLines.cs" />
+    <Compile Include="Types\Products.cs" />
+    <Compile Include="Views\InvoicesView.xaml.cs">
+      <DependentUpon>InvoicesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +79,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\InvoicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +117,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\F2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NewArchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OpenArchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SaveArchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DelIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\editIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MoreIcons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sinFondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

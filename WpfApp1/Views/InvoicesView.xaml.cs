@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.Views;
 
-namespace WpfApp1
+namespace WpfApp1.Views
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para InvoicesView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InvoicesView : UserControl
     {
-        public UIElement views
-        {
-            get { return mainContainer.Child; }
-            set { mainContainer.Child = value; }
-        }
-        public MainWindow()
+        public InvoicesView()
         {
             InitializeComponent();
-            views = new MainView();
         }
     }
 }
