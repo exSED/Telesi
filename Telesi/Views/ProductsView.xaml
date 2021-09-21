@@ -172,12 +172,12 @@
                        MouseDown="ClickButtonSave" FontSize="8"/>
             </Grid>
         </Grid>
-        <Grid Grid.Row="1" Margin="20 5">
+        <Grid Grid.Row="1" Margin="20 5 20 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="70 1 165 1">
+            <Grid Grid.Row="0" Margin="70 1 150 1">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -194,16 +194,16 @@
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="75"/>
-                    <ColumnDefinition Width="175"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White"/>
-                <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White"/>
-                <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="11" Foreground="White"/>
-                <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White"/>
+                <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
+                <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
+                <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" Height="22" Width="58" FontSize="11"/>
+                <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
-            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0" >
+            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0 0 30" >
                 <Grid x:Name="ProductsPanel" >
 
                 </Grid>
@@ -247,6 +247,7 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <Image x:Name="DelRef" Visibility="Hidden" Source="/images/DelIcon.png" Grid.Row="2" />
+        <Image x:Name="Deleted" Visibility="Hidden" Source="/images/DelIcon.png" Grid.Row="2" Margin="1"/>
         <Image x:Name="EditRef" Visibility="Hidden" Source="/images/editIcon.png" Margin="20" Grid.Row="2" Cursor="Hand"/>
         <Image x:Name="MoreRef" Visibility="Hidden" Source="/images/MoreIcons.png" Margin="4 20" Grid.Row="2"/>
         <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="2"/>

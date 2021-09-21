@@ -8,30 +8,44 @@ using System.Threading.Tasks;
 
 namespace Telesi.Helpers
 {
-    class OneLine
-    {
+    class OneLine{
         private DataLength dl = new DataLength();
-        public string oneLine(string path_)
-        {
-            if (File.Exists(path_))
-            {
+        public string oneLine(string path_){
+            if (File.Exists(path_)){
                 string refe = String.Empty;
                 string[] dataInventory = File.ReadAllLines(path_);
-                if (dataInventory.Length != 0)
-                {
-                    for (int i = 0; i < dl.dataLength(path_); i++)
-                    {
+                if (dataInventory.Length != 0 && dataInventory[0] != String.Empty){
+                    for (int i = 0; i < dl.dataLength(path_); i++){
                         refe += dataInventory[i] + "\n";
                     }
                     return refe;
+                }else{
+                    return String.Empty;
                 }
-                else
-                {
-                    return "";
-                }
+            }else{
+                MessageBox.Show("El vacio es inexistencia");
+                return null;
             }
-            else
-            {
+        }
+        public string NewInv(string path_, string what){
+            if (File.Exists(path_)){
+                string refe = String.Empty;
+                string[] dataInventor = File.ReadAllLines(path_);
+                List<string> dataInventory = new List<string>();
+                if (what != String.Empty ){
+                    for (int i = 0; i < dataInventor.Length; i++){
+                        dataInventory.Add(dataInventor[i]);
+                    }
+                    dataInventory.Remove(what);
+                    for (int i = 0; i < dataInventory.Count-1; i++){
+                        refe += dataInventory[i] + "\n";
+                    }
+                    refe += dataInventory[dataInventory.Count-1];
+                    return refe;
+                }else{
+                    return String.Empty;
+                }
+            }else{
                 MessageBox.Show("El vacio es inexistencia");
                 return null;
             }

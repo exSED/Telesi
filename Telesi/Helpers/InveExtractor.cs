@@ -18,10 +18,9 @@ namespace Telesi.Helpers
                 if (File.Exists(path_))
                 {
                     string[] dataInventory = File.ReadAllLines(path_);
-                    if (dataInventory.Length != 0)
+                    if (dataInventory.Length != 0 && (dataInventory[0] != String.Empty || dataInventory[0] != ""))
                     {
-                        for (int i = 0; i < dataInventory.Length; i++)
-                        {
+                        for (int i = 0; i < dataInventory.Length; i++){
                             string dP = dataInventory[i].Replace("\t", "\r\n");
                             string[]  dataProduct = dP.Split("\r\n");
                             ListInventory.Add(new Products
