@@ -111,7 +111,6 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <TextBox DataContext="dfagfdg" Tag="qwerty"/>
             <Grid Grid.Column="1">
                 <Image x:Name="NewLogButton"
                        Margin="5" 
