@@ -155,11 +155,37 @@ namespace Telesi.Views
             }
             ProductsPanel.Children.Add(content_);
         }
+        private void ClickButtonNew(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void ClickButtonOpen(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void ClickButtonSave(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void p_edit(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void p_del(object sender, MouseButtonEventArgs e)
+        {
+
+        }
         private void moreProducts(object sender, MouseButtonEventArgs e)
         {
             content_.Children.Remove(more_);
             content_.Children.Add(form_);
             form_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
+        }
+        private void cancel(object sender, MouseButtonEventArgs e)
+        {
+            content_.Children.Remove(form_);
+            content_.Children.Add(more_);
+            more_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
         }
         private void moreP(object sender, MouseButtonEventArgs e)
         {
@@ -261,31 +287,6 @@ namespace Telesi.Views
         private void priceLF(object sender, RoutedEventArgs e)
         {
             price__.Text = "Precio";
-        }
-
-        private void ClickButtonNew(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void ClickButtonOpen(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void ClickButtonSave(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void p_edit(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void p_del(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void cancel(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }
