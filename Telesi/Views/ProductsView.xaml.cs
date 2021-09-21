@@ -63,12 +63,12 @@ namespace Telesi.Views
             form_.Children.Add(price__);
             price__.SetValue(Grid.ColumnProperty, 3);
 
-            icons = new Image { Source = MoreRef.Source, Name = "IconM", Cursor = EditRef.Cursor };
+            icons = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
             icons.MouseDown += new MouseButtonEventHandler(moreP);
             form_.Children.Add(icons);
             icons.SetValue(Grid.ColumnProperty, 4);
 
-            icons = new Image { Source = DelRef.Source, Name = "IconC", Cursor = EditRef.Cursor };
+            icons = new Image { Source = DelRef.Source, Name = "IC", Cursor = EditRef.Cursor };
             icons.MouseDown += new MouseButtonEventHandler(cancel);
             form_.Children.Add(icons);
             icons.SetValue(Grid.ColumnProperty, 5);
@@ -101,33 +101,34 @@ namespace Telesi.Views
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
 
-                    text = new Label { Content = inventory_[i].id_, Name = "l" + i+1, VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = inventory_[i].id_, Name = "id_" + i, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 0);
 
-                    text = new Label { Content = inventory_[i].name_, Name = "l" + i+2, VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = inventory_[i].name_, Name = "name_" + i, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 1);
 
-                    text = new Label { Content = inventory_[i].count_, Name = "l" + i+3, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = inventory_[i].count_, Name = "count_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 2);
 
-                    text = new Label { Content = inventory_[i].price_, Name = "l" + i+4, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = inventory_[i].price_, Name = "price_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 3);
 
-                    icons = new Image { Source = DelRef.Source, Name = "i" + i+5, Cursor = EditRef.Cursor };
+                    icons = new Image { Source = DelRef.Source, Name = "Delet_" + i, Cursor = EditRef.Cursor };
                     icons.MouseDown += new MouseButtonEventHandler(p_del);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 5);
 
-                    icons = new Image { Source = EditRef.Source, Name = "i" + i+6, Cursor = EditRef.Cursor };
+                    icons = new Image { Source = EditRef.Source, Name = "Edit_" + i, Cursor = EditRef.Cursor };
                     icons.MouseDown += new MouseButtonEventHandler(p_edit);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 4);
 
                     product_.Background = BlackReference.Background;
+
                     product_.SetValue(Grid.RowProperty, i);
                     content_.Children.Add(product_);
                 }
@@ -147,7 +148,7 @@ namespace Telesi.Views
         {
             content_.Children.Remove(more_);
             content_.Children.Add(form_);
-            form_.SetValue(Grid.RowProperty, ie.Inventario(ap.Inve_()).Count);
+            form_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
         }
         private void moreP(object sender, MouseButtonEventArgs e)
         {
@@ -161,28 +162,28 @@ namespace Telesi.Views
             product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
             product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
 
-            text = new Label { Content = id__.Text, Name = "l" + index_+1, VerticalAlignment = Alli.VerticalAlignment };
+            text = new Label { Content = id__.Text, Name = "id_" + index_, VerticalAlignment = Alli.VerticalAlignment };
             product_.Children.Add(text);
             text.SetValue(Grid.ColumnProperty, 0);
 
-            text = new Label { Content = name__.Text, Name = "l" + index_+2, VerticalAlignment = Alli.VerticalAlignment };
+            text = new Label { Content = name__.Text, Name = "name_" + index_, VerticalAlignment = Alli.VerticalAlignment };
             product_.Children.Add(text);
             text.SetValue(Grid.ColumnProperty, 1);
 
-            text = new Label { Content = count__.Text, Name = "l" + index_+3, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+            text = new Label { Content = count__.Text, Name = "count_" + index_, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
             product_.Children.Add(text);
             text.SetValue(Grid.ColumnProperty, 2);
 
-            text = new Label { Content = price__.Text, Name = "l" + index_+4, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+            text = new Label { Content = price__.Text, Name = "price_" + index_, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
             product_.Children.Add(text);
             text.SetValue(Grid.ColumnProperty, 3);
 
-            icons = new Image { Source = DelRef.Source, Name = "i" + index_+5, Cursor = EditRef.Cursor };
+            icons = new Image { Source = DelRef.Source, Name = "Delete_" + index_, Cursor = EditRef.Cursor };
             icons.MouseDown += new MouseButtonEventHandler(p_del);
             product_.Children.Add(icons);
             icons.SetValue(Grid.ColumnProperty, 5);
 
-            icons = new Image { Source = EditRef.Source, Name = "i" + index_+6, Cursor = EditRef.Cursor };
+            icons = new Image { Source = EditRef.Source, Name = "Edit_" + index_, Cursor = EditRef.Cursor };
             icons.MouseDown += new MouseButtonEventHandler(p_edit);
             product_.Children.Add(icons);
             icons.SetValue(Grid.ColumnProperty, 4);
@@ -191,15 +192,20 @@ namespace Telesi.Views
 
             content_.Children.Remove(form_);
             content_.Children.Add(product_);
+
             product_.SetValue(Grid.RowProperty, index_);
 
             nl.writer(ol.oneLine(ap.Inve_()) +
-            "0\tPrueba\t0\t0",
+            id__.Text+"\t"+
+            name__.Text+"\t"+
+            count__.Text+"\t"+
+            price__.Text,
             ap.Inve_());
+
             index_++;
             content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
             content_.Children.Add(more_);
-            more_.SetValue(Grid.RowProperty, ie.Inventario(ap.Inve_()).Count);
+            more_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
         }
         private void ClickButtonNew(object sender, MouseButtonEventArgs e)
         {

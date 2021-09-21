@@ -14,7 +14,7 @@ namespace Telesi.Helpers
         public List<Products> Inventario(string path_)
         {
             try
-            {
+            {               
                 if (File.Exists(path_))
                 {
                     string[] dataInventory = File.ReadAllLines(path_);
@@ -23,7 +23,7 @@ namespace Telesi.Helpers
                         for (int i = 0; i < dataInventory.Length; i++)
                         {
                             string dP = dataInventory[i].Replace("\t", "\r\n");
-                            string[] dataProduct = dP.Split("\r\n");
+                            string[]  dataProduct = dP.Split("\r\n");
                             ListInventory.Add(new Products
                             {
                                 id_ = dataProduct[0],

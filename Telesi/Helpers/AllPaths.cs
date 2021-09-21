@@ -9,7 +9,6 @@ namespace Telesi.Helpers
 {
     class AllPaths
     {
-        private string pathInve_ = , pathInvo_ = ;
         public string Inve_() {
             return Directory.GetCurrentDirectory() + "/packageInventory.log";
         }
@@ -19,7 +18,7 @@ namespace Telesi.Helpers
         }
         public string Temp_()
         {
-            return Directory.GetCurrentDirectory() + "/tem.log"
+            return Directory.GetCurrentDirectory() + "/tem.log";
         }
     }
 }

@@ -13,15 +13,15 @@ namespace Telesi.Helpers
         private DataLength dl = new DataLength();
         public string oneLine(string path_)
         {
-            string refe = String.Empty;
             if (File.Exists(path_))
             {
-                if (dl.dataLength(path_) != 0)
+                string refe = String.Empty;
+                string[] dataInventory = File.ReadAllLines(path_);
+                if (dataInventory.Length != 0)
                 {
                     for (int i = 0; i < dl.dataLength(path_); i++)
                     {
-                        string[] dataInventory = File.ReadAllLines(path_);
-                        refe += dataInventory[i] + "\n\r";
+                        refe += dataInventory[i] + "\n";
                     }
                     return refe;
                 }
