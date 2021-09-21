@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telesi.Helpers;
 
 namespace Telesi.Views
 {
@@ -21,10 +23,13 @@ namespace Telesi.Views
     public partial class MainView : UserControl
     {
         private GridLength SizeOriginal;
+        private InveExtractor ie = new InveExtractor();
+        private string pathInve_ = Directory.GetCurrentDirectory() + "/packageInventory.log", pathInvo_ = Directory.GetCurrentDirectory() + "/packageInvoice.log";
         public MainView()
         {
             InitializeComponent();
             SizeOriginal = MenuColumn.Width;
+            ie.Inventario(pathInve_);
         }
         public UIElement view
         {

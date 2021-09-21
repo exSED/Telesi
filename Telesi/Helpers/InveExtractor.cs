@@ -10,7 +10,6 @@ using Telesi.Types;
 namespace Telesi.Helpers
 {
     class InveExtractor{
-        private Products ProdAccess = new Products();
         private List<Products> ListInventory = new List<Products>();
         public List<Products> Inventario(string path_)
         {
@@ -50,31 +49,6 @@ namespace Telesi.Helpers
             catch (Exception e_)
             {
                 MessageBox.Show(e_ + "");
-                return null;
-            }
-        }
-        public string oneLine(string path_)
-        {
-            string refe = String.Empty;
-            if (File.Exists(path_))
-            {
-                string[] dataInventory = File.ReadAllLines(path_);
-                if (dataInventory.Length != 0)
-                {
-                    for (int i = 0; i < dataInventory.Length; i++)
-                    {
-                        refe += dataInventory[i] + "\r\n";
-                    }
-                    return refe;
-                }
-                else
-                {
-                    return "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("El vacio es inexistencia");
                 return null;
             }
         }
