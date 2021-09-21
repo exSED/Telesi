@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Telesi.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="720" d:DesignWidth="1080">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
@@ -93,70 +93,91 @@
 
     <UserControl.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#66FFFFFF" Offset="0.8"/>
+            <GradientStop Color="#33FFFFFF" Offset="0.8"/>
             <GradientStop Color="#00000000" Offset="1"/>
         </LinearGradientBrush>
     </UserControl.Background>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.6*"/>
             <RowDefinition Height="6*" />
             <RowDefinition Height="0" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="0.6*"/>
             </Grid.ColumnDefinitions>
+            <Grid Margin="80 20 10 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Background="#33FFFFFF">
+                    <Image />
+                </Grid>
+                <TextBox x:Name="searchP"
+                         Grid.Column="0" 
+                         Background="#33FFFFFF" 
+                         BorderBrush="{x:Null}" 
+                         BorderThickness="0,0,0,0"  
+                         FontSize="24" 
+                         Text="Buscar" 
+                         FontFamily="Arial Rounded MT Bold"
+                         TextAlignment="Left" 
+                         GotFocus="searchF" 
+                         LostFocus="searchLF"/>
+
+            </Grid>
             <Grid Grid.Column="1">
                 <Image x:Name="NewLogButton"
                        Margin="5" 
                        Source="/images/NewArchIcon.png"
-                       Opacity="0.5" 
+                       Opacity="0.8" 
                        MouseDown="ClickButtonNew"
                        Cursor="Hand"/>
                 <Label Content="Nuevo"
-                       VerticalAlignment="Center"
+                       VerticalAlignment="Top"
                        HorizontalAlignment="Center"
                        Cursor="Hand"
-                       MouseDown="ClickButtonNew"/>
+                       MouseDown="ClickButtonNew" FontSize="8"/>
             </Grid>
             <Grid Grid.Column="2">
                 <Image x:Name="OpenLogButton"
                        Margin="5" 
                        Source="/images/OpenArchIcon.png" 
-                       Opacity="0.5"
+                       Opacity="0.8"
                        MouseDown="ClickButtonOpen"
                        Cursor="Hand"/>
                 <Label Content="Abrir"
-                       VerticalAlignment="Center"
+                       VerticalAlignment="top"
                        HorizontalAlignment="Center"
                        Cursor="Hand"
-                       MouseDown="ClickButtonOpen"/>
+                       MouseDown="ClickButtonOpen" FontSize="8"/>
             </Grid>
             <Grid Grid.Column="3">
                 <Image x:Name="SaveLogButton"
                        Margin="5" 
                        Source="/images/SaveArchIcon.png" 
-                       Opacity="0.5"
+                       Opacity="0.8"
                        MouseDown="ClickButtonSave"
                        Cursor="Hand"/>
                 <Label Content="Guardar"
-                       VerticalAlignment="Center"
+                       VerticalAlignment="top"
                        HorizontalAlignment="Center"
                        Cursor="Hand"
-                       MouseDown="ClickButtonSave"/>
+                       MouseDown="ClickButtonSave" FontSize="8"/>
             </Grid>
         </Grid>
-        <Grid Grid.Row="1" Margin="20">
+        <Grid Grid.Row="1" Margin="20 5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="70 1 85 1">
+            <Grid Grid.Row="0" Margin="70 1 165 1">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -167,8 +188,8 @@
                                 <TranslateTransform/>
                             </TransformGroup>
                         </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#33000000" Offset="1"/>
-                        <GradientStop Color="#7FFF0000" Offset="0"/>
+                        <GradientStop Color="#00000000"/>
+                        <GradientStop Color="#B2620000" Offset="0.078"/>
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
@@ -176,13 +197,11 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="75"/>
                     <ColumnDefinition Width="175"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
-                <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
-                <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="11"/>
-                <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White"/>
+                <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White"/>
+                <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="11" Foreground="White"/>
+                <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White"/>
             </Grid>
             <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0" >
                 <Grid x:Name="ProductsPanel" >
@@ -210,8 +229,8 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#33000000" Offset="1"/>
-                    <GradientStop Color="#7FFF0000" Offset="0"/>
+                    <GradientStop Color="#00000000" Offset="0"/>
+                    <GradientStop Color="#99FF0000" Offset="0.3"/>
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
@@ -231,7 +250,7 @@
         <Image x:Name="EditRef" Visibility="Hidden" Source="/images/editIcon.png" Margin="20" Grid.Row="2" Cursor="Hand"/>
         <Image x:Name="MoreRef" Visibility="Hidden" Source="/images/MoreIcons.png" Margin="4 20" Grid.Row="2"/>
         <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="2"/>
-        <Label x:Name="Alli" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox  x:Name="TBoxRef" Visibility="Hidden" Grid.Row="2" Background="#3FFFFFFF" Margin="5 15"/>
+        <Label x:Name="Alli" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
+        <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="2" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>
 </UserControl>
