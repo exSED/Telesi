@@ -1,0 +1,26 @@
+﻿<Window x:Class="Telesi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:local="clr-namespace:Telesi"
+        
+        ResizeMode="CanMinimize"
+        
+        FontSize="16"
+        FontFamily="Arial Rounded MT"
+        
+        mc:Ignorable="d"
+        Title="Fascinanate" Height="720" Width="1280"
+        WindowStartupLocation="CenterScreen" Icon="/images/F2.png" 
+        ShowInTaskbar="False" 
+        ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+        ScrollViewer.VerticalScrollBarVisibility="Auto" 
+        Foreground="{x:Null}" >
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/backP.jpg" />
+    </Window.Background>
+
+    <Border x:Name="mainContainer"/>
+</Window>

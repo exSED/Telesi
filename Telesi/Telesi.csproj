@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+<ItemGroup>
+    <Resource Include="Images\backP.jpg" />
+    <Resource Include="Images\F2.png" />
+    <Resource Include="Images\inventario.png" />
+    <Resource Include="Images\Invoice.png" />
+    <Resource Include="Images\Menu2.png" />
+    <Resource Include="Images\sinFondo.png" />
+    <Resource Include="Images\NewArchIcon.png" />
+    <Resource Include="Images\OpenArchIcon.png" />
+    <Resource Include="Images\SaveArchIcon.png" />
+    <Resource Include="Images\DelIcon.png" />
+    <Resource Include="Images\editIcon.png" />
+    <Resource Include="Images\MoreIcons.png" />
+  </ItemGroup>
+</Project>
