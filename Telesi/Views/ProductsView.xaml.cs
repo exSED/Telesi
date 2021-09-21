@@ -28,6 +28,7 @@ namespace Telesi.Views
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
         private int index_;
+        private string value_;
         private NewLines nl = new NewLines();
         private Grid content_ = new Grid(), product_, more_, form_;
         private Image icons;
@@ -47,23 +48,27 @@ namespace Telesi.Views
             form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
             form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
 
-            id__ = new TextBox { Text = "Ref", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            id__.GotFocus += new RoutedEventHandler(idF);
+            id__ = new TextBox { Text = "Ref", Name = "Ref", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
+            id__.GotFocus += new RoutedEventHandler(TBoxF);
+            id__.LostFocus += new RoutedEventHandler(TBoxLF);
             form_.Children.Add(id__);
             id__.SetValue(Grid.ColumnProperty, 0);
 
-            name__ = new TextBox { Text = "Nombre", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            name__.GotFocus += new RoutedEventHandler(nameF);
+            name__ = new TextBox { Text = "Nombre", Name = "Nombre", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
+            name__.GotFocus += new RoutedEventHandler(TBoxF);
+            name__.LostFocus += new RoutedEventHandler(TBoxLF);
             form_.Children.Add(name__);
             name__.SetValue(Grid.ColumnProperty, 1);
 
-            count__ = new TextBox { Text = "Cantidad", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            count__.GotFocus += new RoutedEventHandler(countF);
+            count__ = new TextBox { Text = "Cantidad", Name = "Cantidad", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
+            count__.GotFocus += new RoutedEventHandler(TBoxF);
+            count__.LostFocus += new RoutedEventHandler(TBoxLF);
             form_.Children.Add(count__);
             count__.SetValue(Grid.ColumnProperty, 2);
 
-            price__ = new TextBox { Text = "Price", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            price__.GotFocus += new RoutedEventHandler(priceF);
+            price__ = new TextBox { Text = "Precio", Name = "Precio", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
+            price__.GotFocus += new RoutedEventHandler(TBoxF);
+            price__.LostFocus += new RoutedEventHandler(TBoxLF);
             form_.Children.Add(price__);
             price__.SetValue(Grid.ColumnProperty, 3);
 
@@ -173,7 +178,9 @@ namespace Telesi.Views
         }
         private void p_del(object sender, MouseButtonEventArgs e)
         {
-
+            var c = e.OriginalSource as FrameworkElement;
+            string o = c.Name;
+            o = o.Replace("Delet_","");
         }
         private void moreProducts(object sender, MouseButtonEventArgs e)
         {
@@ -247,46 +254,16 @@ namespace Telesi.Views
             more_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
         }
 
-        private void searchF(object sender, RoutedEventArgs e)
+        private void TBoxF(object sender, RoutedEventArgs e)
         {
-            searchP.Text = "";
+            var c = e.OriginalSource as FrameworkElement;
+            value_ = c.Name;
+            c.SetValue( TextBox.TextProperty, "");
         }
-        private void idF(object sender, RoutedEventArgs e)
+        private void TBoxLF(object sender, RoutedEventArgs e)
         {
-            id__.Text = "";
-        }
-        private void nameF(object sender, RoutedEventArgs e)
-        {
-            name__.Text = "";
-        }
-        private void countF(object sender, RoutedEventArgs e)
-        {
-            count__.Text = "";
-        }
-        private void priceF(object sender, RoutedEventArgs e)
-        {
-            price__.Text = "";
-        }
-
-        private void searchLF(object sender, RoutedEventArgs e)
-        {
-            searchP.Text = "Buscar";
-        }
-        private void idLF(object sender, RoutedEventArgs e)
-        {
-            id__.Text = "Ref";
-        }
-        private void nameLF(object sender, RoutedEventArgs e)
-        {
-            name__.Text = "Nombre";
-        }
-        private void countLF(object sender, RoutedEventArgs e)
-        {
-            count__.Text = "Cantidad";
-        }
-        private void priceLF(object sender, RoutedEventArgs e)
-        {
-            price__.Text = "Precio";
+            var c = e.OriginalSource as FrameworkElement;
+            c.SetValue(TextBox.TextProperty, value_);
         }
     }
 }

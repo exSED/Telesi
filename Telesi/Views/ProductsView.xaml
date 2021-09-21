@@ -119,7 +119,7 @@
                 <Grid Grid.Column="1" Background="#33FFFFFF">
                     <Image />
                 </Grid>
-                <TextBox x:Name="searchP"
+                <TextBox x:Name="Buscar"
                          Grid.Column="0" 
                          Background="#33FFFFFF" 
                          BorderBrush="{x:Null}" 
@@ -128,8 +128,8 @@
                          Text="Buscar" 
                          FontFamily="Arial Rounded MT Bold"
                          TextAlignment="Left" 
-                         GotFocus="searchF" 
-                         LostFocus="searchLF"/>
+                         GotFocus="TBoxF" 
+                         LostFocus="TBoxLF"/>
 
             </Grid>
             <Grid Grid.Column="1">
