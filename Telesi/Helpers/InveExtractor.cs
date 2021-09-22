@@ -10,6 +10,7 @@ using Telesi.Types;
 namespace Telesi.Helpers
 {
     class InveExtractor{
+        private DataLength dl = new DataLength();
         private List<Products> ListInventory = new List<Products>();
         public List<Products> Inventario(string path_)
         {
@@ -18,13 +19,12 @@ namespace Telesi.Helpers
                 if (File.Exists(path_))
                 {
                     string[] dataInventory = File.ReadAllLines(path_);
-                    if (dataInventory.Length != 0 && (dataInventory[0] != String.Empty || dataInventory[0] != ""))
+                    if (dataInventory.Length > 0 && dataInventory[0]!=String.Empty)
                     {
                         for (int i = 0; i < dataInventory.Length; i++){
                             string dP = dataInventory[i].Replace("\t", "\r\n");
                             string[]  dataProduct = dP.Split("\r\n");
-                            ListInventory.Add(new Products
-                            {
+                            ListInventory.Add(new Products{
                                 id_ = dataProduct[0],
                                 name_ = dataProduct[1],
                                 count_ = dataProduct[2],
@@ -47,7 +47,7 @@ namespace Telesi.Helpers
             }
             catch (Exception e_)
             {
-                MessageBox.Show(e_ + "");
+                MessageBox.Show(e_ + "\n\nLPM");
                 return null;
             }
         }

@@ -172,9 +172,9 @@ namespace Telesi.Views
             int oc = Int32.Parse(o);
             if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                nl.writer(ol.NewInv(ap.Inve_(), dataInventor[oc]),
-                        ap.Inve_());
-
+                nl.writer(  ol.NewInv(ap.Inve_(), dataInventor[oc]),
+                            ap.Inve_());
+                
                 content_.RowDefinitions.Clear();
             }
         }

@@ -23,7 +23,7 @@ namespace Telesi.Helpers
                 }
                 else
                 {
-                    MessageBox.Show("No se encuentra el paquete especificado, verifique su paquete de archivos.\n\n" + path_);
+                    MessageBox.Show("No se encuentra el paquete especificado (Inventario), verifique su paquete de archivos.\n\n");
                 }
             }
             catch (Exception e_)
