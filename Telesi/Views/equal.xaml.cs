@@ -16,91 +16,32 @@ using System.Windows.Shapes;
 using Telesi.Types;
 using Telesi.Helpers;
 
+
 namespace Telesi.Views
 {
     /// <summary>
-    /// Lógica de interacción para Lista.xaml
+    /// Lógica de interacción para equal.xaml
     /// </summary>
-    public partial class Lista : UserControl
+    public partial class equal : UserControl
     {
         private InveExtractor ie = new InveExtractor();
-        private DataLength dl = new DataLength();
+        private List<Products> list = new List<Products>();
         private AllPaths ap = new AllPaths();
+        private DataLength dl = new DataLength();
         private OneLine ol = new OneLine();
-        private string[] dataInventor;
-        private string value_;
-        private int oc;
         private NewLines nl = new NewLines();
         private Grid content_ = new Grid(), product_, more_, form_, ed;
+        private TextBox id_E, name_E, count_E, price_E;
         private Image icons, acc;
         private Label text;
-        private TextBox id__, name__, count__, price__;
-        private TextBox id_E, name_E, count_E, price_E;
-
-        public Lista()
+        private string value_;
+        private string[] dataInventor;
+        private int oc;
+        public equal()
         {
             InitializeComponent();
+
             dataInventor = File.ReadAllLines(ap.Inve_());
-            dl.dataLength(ap.Inve_());
-
-            form_ = new Grid { Margin = MarginReference.Margin };
-            form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = idRef.Width });
-            form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = nameRef.Width });
-            form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = countRef.Width });
-            form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = priceRef.Width });
-            form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
-            form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
-
-            id__ = new TextBox { Text = "Ref", Name = "Ref", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            id__.GotFocus += new RoutedEventHandler(TBoxF);
-            id__.LostFocus += new RoutedEventHandler(TBoxLF);
-            form_.Children.Add(id__);
-            id__.SetValue(Grid.ColumnProperty, 0);
-
-            name__ = new TextBox { Text = "Nombre", Name = "Nombre", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            name__.GotFocus += new RoutedEventHandler(TBoxF);
-            name__.LostFocus += new RoutedEventHandler(TBoxLF);
-            form_.Children.Add(name__);
-            name__.SetValue(Grid.ColumnProperty, 1);
-
-            count__ = new TextBox { Text = "Cantidad", Name = "Cantidad", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            count__.GotFocus += new RoutedEventHandler(TBoxF);
-            count__.LostFocus += new RoutedEventHandler(TBoxLF);
-            form_.Children.Add(count__);
-            count__.SetValue(Grid.ColumnProperty, 2);
-
-            price__ = new TextBox { Text = "Precio", Name = "Precio", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
-            price__.GotFocus += new RoutedEventHandler(TBoxF);
-            price__.LostFocus += new RoutedEventHandler(TBoxLF);
-            form_.Children.Add(price__);
-            price__.SetValue(Grid.ColumnProperty, 3);
-
-            icons = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
-
-            icons.MouseDown += new MouseButtonEventHandler(accept);
-            form_.Children.Add(icons);
-            icons.SetValue(Grid.ColumnProperty, 4);
-
-            icons = new Image { Source = DelRef.Source, Name = "IC", Cursor = EditRef.Cursor };
-            icons.MouseDown += new MouseButtonEventHandler(cancel);
-            form_.Children.Add(icons);
-            icons.SetValue(Grid.ColumnProperty, 5);
-
-            form_.Background = BlackReference.Background;
-
-            more_ = new Grid { Margin = MarginReference.Margin };
-            more_.ColumnDefinitions.Add(new ColumnDefinition() { Width = nameRef.Width });
-            more_.ColumnDefinitions.Add(new ColumnDefinition() { Width = idRef.Width });
-            more_.ColumnDefinitions.Add(new ColumnDefinition() { Width = nameRef.Width });
-
-            icons = new Image { Source = MoreRef.Source, Cursor = EditRef.Cursor };
-            icons.MouseDown += new MouseButtonEventHandler(moreProducts);
-
-            more_.Children.Add(icons);
-
-            icons.SetValue(Grid.ColumnProperty, 1);
-
-            more_.Background = WhiteReference.Background;
 
             ed = new Grid { Margin = MarginReference.Margin };
             ed.ColumnDefinitions.Add(new ColumnDefinition() { Width = idRef.Width });
@@ -148,8 +89,6 @@ namespace Telesi.Views
             icons.SetValue(Grid.ColumnProperty, 5);
 
             ed.Background = BRef.Background;
-
-            NewGrids(ie.Inventario(ap.Inve_()));
         }
         public void NewGrids(List<Products> inventory_)
         {
@@ -208,7 +147,7 @@ namespace Telesi.Views
                 more_.SetValue(Grid.RowProperty, 0);
                 content_.Children.Add(more_);
             }
-            ProductsPanel.Children.Add(content_);
+            PanelS.Children.Add(content_);
         }
         private void p_edit(object sender, MouseButtonEventArgs e)
         {
@@ -236,39 +175,23 @@ namespace Telesi.Views
             int ocl = Int32.Parse(o);
             if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                nl.writer(  ol.NewInv(ap.Inve_(), dataInventor[ocl]),
+                nl.writer(ol.NewInv(ap.Inve_(), dataInventor[ocl]),
                             ap.Inve_());
-                
+
                 content_.RowDefinitions.Clear();
             }
-        }
-        private void moreProducts(object sender, MouseButtonEventArgs e)
-        {
-            content_.Children.Remove(ed);
-            content_.Children.Remove(more_);
-            content_.Children.Add(form_);
-            form_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
         }
         private void cancel(object sender, MouseButtonEventArgs e)
         {
             content_.RowDefinitions.Clear();
         }
-        private void accept(object sender, MouseButtonEventArgs e)
+        private void cam(object sender, MouseButtonEventArgs e)
         {
-            nl.writer( ol.oneLine(ap.Inve_()) +
-                        id__.Text + "\t" +
-                        name__.Text + "\t" +
-                        count__.Text + "\t" +
-                        price__.Text,
-                        ap.Inve_());
-            content_.RowDefinitions.Clear();
-        }
-        private void cam(object sender, MouseButtonEventArgs e){
             string o = id_E.Text + "\t" +
                 name_E.Text + "\t" +
                 count_E.Text + "\t" +
                 price_E.Text;
-            nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o , (oc+1)),
+            nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o, (oc + 1)),
                         ap.Inve_());
             content_.RowDefinitions.Clear();
         }
@@ -278,7 +201,8 @@ namespace Telesi.Views
             value_ = c.Name;
             c.SetValue(TextBox.TextProperty, "");
         }
-        private void TBoxLF(object sender, RoutedEventArgs e){
+        private void TBoxLF(object sender, RoutedEventArgs e)
+        {
             var c = e.OriginalSource as FrameworkElement;
             if (c.GetValue(TextBox.TextProperty).ToString() == "")
             {
@@ -289,7 +213,7 @@ namespace Telesi.Views
         {
             if (e.Key == Key.Enter)
             {
-                cam(null, null) ;
+                cam(null, null);
             }
         }
     }

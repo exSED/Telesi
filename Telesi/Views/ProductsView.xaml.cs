@@ -24,6 +24,11 @@ namespace Telesi.Views
     /// </summary>
     public partial class ProductsView : UserControl{
         private string value_;
+        private InveExtractor ie = new InveExtractor();
+        private AllPaths ap = new AllPaths();
+        private OneLine ol = new OneLine();
+
+        private List<Products> list = new List<Products>();
         public UIElement ListaP
         {
             get { return PPanel.Child; }
@@ -33,6 +38,7 @@ namespace Telesi.Views
         {
             InitializeComponent();
             ListaP = new Lista();
+            list = null;
         }
         private void ClickButtonNew(object sender, MouseButtonEventArgs e)
         {
@@ -57,10 +63,20 @@ namespace Telesi.Views
             var c = e.OriginalSource as FrameworkElement;
             c.SetValue(TextBox.TextProperty, value_);
         }
-
         private void UpdateList(object sender, SizeChangedEventArgs e)
         {
             ListaP = new Lista();
+        }
+        private void searchP(object sender, TextChangedEventArgs e)
+        {
+            list = null;
+            list = ie.Inventario(ap.Inve_());
+            for (int i = 0; i < list.Count(); i++)
+            {
+                if (list[i].id_ == Search.Text)
+                {
+                }
+            }
         }
     }
 }
