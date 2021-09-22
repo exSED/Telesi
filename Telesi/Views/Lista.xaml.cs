@@ -74,7 +74,7 @@ namespace Telesi.Views
 
             icons = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
 
-            icons.MouseDown += new MouseButtonEventHandler(moreP);
+            icons.MouseDown += new MouseButtonEventHandler(accept);
             form_.Children.Add(icons);
             icons.SetValue(Grid.ColumnProperty, 4);
 
@@ -193,11 +193,9 @@ namespace Telesi.Views
         }
         private void cancel(object sender, MouseButtonEventArgs e)
         {
-            content_.Children.Remove(form_);
-            content_.Children.Add(more_);
-            more_.SetValue(Grid.RowProperty, dl.dataLength(ap.Inve_()));
+            content_.RowDefinitions.Clear();
         }
-        private void moreP(object sender, MouseButtonEventArgs e)
+        private void accept(object sender, MouseButtonEventArgs e)
         {
             nl.writer(ol.oneLine(ap.Inve_()) +
                         id__.Text + "\t" +
@@ -205,6 +203,8 @@ namespace Telesi.Views
                         count__.Text + "\t" +
                         price__.Text,
                         ap.Inve_());
+
+            content_.RowDefinitions.Clear();
 
             dataInventor = File.ReadAllLines(ap.Inve_());
         }
