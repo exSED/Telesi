@@ -58,7 +58,7 @@ namespace Telesi.Views
             c.SetValue(TextBox.TextProperty, value_);
         }
 
-        private void seráEsto(object sender, SizeChangedEventArgs e)
+        private void UpdateList(object sender, SizeChangedEventArgs e)
         {
             ListaP = new Lista();
         }

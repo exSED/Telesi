@@ -204,7 +204,7 @@
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
             <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0 0 30" >
-                <Border x:Name="PPanel" Margin="5" VerticalAlignment="Top" SizeChanged="seráEsto" >
+                <Border x:Name="PPanel" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList" >
 
                 </Border>
             </ScrollViewer>

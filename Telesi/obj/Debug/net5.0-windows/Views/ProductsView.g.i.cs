@@ -192,7 +192,7 @@ namespace Telesi.Views {
             this.PPanel = ((System.Windows.Controls.Border)(target));
             
             #line 207 "..\..\..\..\Views\ProductsView.xaml"
-            this.PPanel.SizeChanged += new System.Windows.SizeChangedEventHandler(this.seráEsto);
+            this.PPanel.SizeChanged += new System.Windows.SizeChangedEventHandler(this.UpdateList);
             
             #line default
             #line hidden

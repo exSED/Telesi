@@ -172,16 +172,9 @@ namespace Telesi.Views
             int oc = Int32.Parse(o);
             if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if (oc != 0)
-                {
-                    nl.writer(ol.NewInv(ap.Inve_(), dataInventor[oc]),
+                nl.writer(ol.NewInv(ap.Inve_(), dataInventor[oc]),
                         ap.Inve_());
-                }
-                else
-                {
-                    nl.writer(ol.NewInv(ap.Inve_(), String.Empty),
-                        ap.Inve_());
-                }
+
                 content_.RowDefinitions.Clear();
             }
         }
@@ -205,8 +198,6 @@ namespace Telesi.Views
                         ap.Inve_());
 
             content_.RowDefinitions.Clear();
-
-            dataInventor = File.ReadAllLines(ap.Inve_());
         }
         private void TBoxF(object sender, RoutedEventArgs e)
         {
