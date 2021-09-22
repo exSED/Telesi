@@ -47,7 +47,7 @@ namespace Telesi.Helpers
             }
             catch (Exception e_)
             {
-                MessageBox.Show(e_ + "\n\nLPM");
+                MessageBox.Show(e_ + "");
                 return null;
             }
         }

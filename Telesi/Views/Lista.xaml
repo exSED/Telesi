@@ -36,6 +36,22 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
+        <Grid x:Name="BRef" Visibility="Hidden" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#E5FF0000" Offset="0"/>
+                    <GradientStop Color="#E5000000" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
         <Grid Visibility="Hidden" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="ColumnReference" Width="75"/>
@@ -52,7 +68,7 @@
         <Image x:Name="Deleted" Visibility="Hidden" Source="/images/DelIcon.png" Grid.Row="1" Margin="1"/>
         <Image x:Name="EditRef" Visibility="Hidden" Source="/images/editIcon.png" Margin="20" Grid.Row="1" Cursor="Hand"/>
         <Image x:Name="MoreRef" Visibility="Hidden" Source="/images/MoreIcons.png" Margin="4 20" Grid.Row="1"/>
-        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1"/>
+        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1" AutomationProperties.AccessKey="+" AutomationProperties.AcceleratorKey="+"/>
         <Label x:Name="Alli" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
         <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="1" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>
