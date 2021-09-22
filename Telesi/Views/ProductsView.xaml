@@ -204,54 +204,10 @@
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
             <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0 0 30" >
-                <Grid x:Name="ProductsPanel" >
+                <Border x:Name="PPanel" Margin="5" VerticalAlignment="Top" SizeChanged="seráEsto" >
 
-                </Grid>
+                </Border>
             </ScrollViewer>
         </Grid>
-        <Grid x:Name="MarginReference" Visibility="Hidden" Grid.Row="2" Margin="50 10"/>
-        <Grid x:Name="WhiteReference" Visibility="Hidden" Grid.Row="2">
-            <Grid.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#CCFFFFFF" Offset="0"/>
-                    <GradientStop Color="#00FF0000" Offset="1"/>
-                </RadialGradientBrush>
-            </Grid.Background>
-        </Grid>
-        <Grid x:Name="BlackReference" Visibility="Hidden" Grid.Row="2">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#00000000" Offset="0"/>
-                    <GradientStop Color="#99FF0000" Offset="0.3"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-        </Grid>
-        <Grid Visibility="Hidden" Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="ColumnReference" Width="75"/>
-                <ColumnDefinition x:Name="idRef" Width="100"/>
-                <ColumnDefinition x:Name="nameRef" Width="1*"/>
-                <ColumnDefinition x:Name="countRef" Width="75"/>
-                <ColumnDefinition x:Name="priceRef" Width="175"/>
-                <ColumnDefinition x:Name="editIconRef" Width="40"/>
-                <ColumnDefinition x:Name="delIconRef" Width="40"/>
-                <ColumnDefinition x:Name="newIconRef" Width="40"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <Image x:Name="DelRef" Visibility="Hidden" Source="/images/DelIcon.png" Grid.Row="2" />
-        <Image x:Name="Deleted" Visibility="Hidden" Source="/images/DelIcon.png" Grid.Row="2" Margin="1"/>
-        <Image x:Name="EditRef" Visibility="Hidden" Source="/images/editIcon.png" Margin="20" Grid.Row="2" Cursor="Hand"/>
-        <Image x:Name="MoreRef" Visibility="Hidden" Source="/images/MoreIcons.png" Margin="4 20" Grid.Row="2"/>
-        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="2"/>
-        <Label x:Name="Alli" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
-        <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="2" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>
 </UserControl>

@@ -40,7 +40,10 @@ namespace Telesi.Helpers
                     for (int i = 0; i < dataInventory.Count-1; i++){
                         refe += dataInventory[i] + "\n";
                     }
-                    refe += dataInventory[dataInventory.Count-1];
+                    if (dataInventory.Count !=0 &&(dataInventory[0] != String.Empty || dataInventory[0] != ""))
+                    {
+                        refe += dataInventory[dataInventory.Count - 1];
+                    }
                     return refe;
                 }else{
                     return String.Empty;
