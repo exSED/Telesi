@@ -36,6 +36,7 @@ namespace Telesi.Views
         private Label text;
         private TextBox id__, name__, count__, price__;
         private TextBox id_E, name_E, count_E, price_E;
+
         public Lista()
         {
             InitializeComponent();
@@ -109,6 +110,8 @@ namespace Telesi.Views
             ed.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
             ed.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
 
+            ed.KeyDown += new KeyEventHandler(KD);
+
             id_E = new TextBox { Text = "Ref", Name = "Ref", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             id_E.GotFocus += new RoutedEventHandler(TBoxF);
             id_E.LostFocus += new RoutedEventHandler(TBoxLF);
@@ -135,7 +138,7 @@ namespace Telesi.Views
 
             acc = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
             acc.MouseDown += new MouseButtonEventHandler(cam);
-            acc.KeyDown
+            acc.KeyDown += new KeyEventHandler(KD);
             ed.Children.Add(acc);
             acc.SetValue(Grid.ColumnProperty, 4);
 
@@ -281,39 +284,14 @@ namespace Telesi.Views
             {
                 c.SetValue(TextBox.TextProperty, value_);
             }
+
         }
-        private void ShTBox(object sender, KeyEventArgs e)
+        private void KD(object sender, KeyEventArgs e)
         {
-            // The text box grabs all input.
-            e.Handled = true;
-
-            // Fetch the actual shortcut key.
-            Key key = (e.Key == Key.Enter ? e.SystemKey : e.Key);
-
-            // Ignore modifier keys.
-            if (key == Key.LeftShift || key == Key.RightShift
-                || key == Key.LeftCtrl || key == Key.RightCtrl
-                || key == Key.LeftAlt || key == Key.RightAlt
-                || key == Key.LWin || key == Key.RWin)
+            if (e.Key == Key.Enter)
             {
-                return;
+                cam(null, null) ;
             }
-
-            // Build the shortcut key name.
-            StringBuilder shortcutText = new StringBuilder();
-            if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
-            {
-                shortcutText.Append("Ctrl+");
-            }
-            if ((Keyboard.Modifiers & ModifierKeys.Shift) != 0)
-            {
-                shortcutText.Append("Shift+");
-            }
-            if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
-            {
-                shortcutText.Append("Alt+");
-            }
-            shortcutText.Append(key.ToString());
         }
     }
 }
