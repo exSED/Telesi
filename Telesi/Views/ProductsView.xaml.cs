@@ -27,7 +27,6 @@ namespace Telesi.Views
         private InveExtractor ie = new InveExtractor();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
-
         private List<Products> list = new List<Products>();
         public UIElement ListaP
         {

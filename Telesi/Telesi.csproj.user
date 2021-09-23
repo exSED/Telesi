@@ -2,11 +2,17 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\equal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Lista.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\equal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Lista.xaml">
       <SubType>Designer</SubType>
     </Page>

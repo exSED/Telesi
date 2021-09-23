@@ -30,7 +30,7 @@ namespace Telesi.Views
         private DataLength dl = new DataLength();
         private OneLine ol = new OneLine();
         private NewLines nl = new NewLines();
-        private Grid content_ = new Grid(), product_, more_, form_, ed;
+        private Grid content_ = new Grid(), product_, ed;
         private TextBox id_E, name_E, count_E, price_E;
         private Image icons, acc;
         private Label text;
@@ -137,24 +137,16 @@ namespace Telesi.Views
 
                     content_.Children.Add(product_);
                 }
-                content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                more_.SetValue(Grid.RowProperty, inventory_.Count);
-                content_.Children.Add(more_);
             }
             else
             {
-                content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                more_.SetValue(Grid.RowProperty, 0);
-                content_.Children.Add(more_);
+                content_.Children.Add(product_);
             }
             PanelS.Children.Add(content_);
         }
         private void p_edit(object sender, MouseButtonEventArgs e)
         {
-            content_.Children.Remove(form_);
-            content_.Children.Remove(more_);
             content_.Children.Remove(ed);
-            content_.Children.Add(more_);
             var c = e.OriginalSource as FrameworkElement;
             string o = c.Name;
             o = o.Replace("Edit_", "");
