@@ -33,6 +33,7 @@ namespace Telesi.Views
         public ProductsView()
         {
             InitializeComponent();
+            react_ = false;
             ListaP = new Lista();
             list = null;
             list = ie.Inventario(ap.Inve_());
