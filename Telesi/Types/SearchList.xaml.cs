@@ -1,6 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +16,12 @@ using System.Windows.Shapes;
 using Telesi.Types;
 using Telesi.Helpers;
 
-
-namespace Telesi.Views
+namespace Telesi.Types
 {
     /// <summary>
-    /// Lógica de interacción para equal.xaml
+    /// Lógica de interacción para SearchList.xaml
     /// </summary>
-    public partial class equal : UserControl
+    public partial class SearchList : UserControl
     {
         private InveExtractor ie = new InveExtractor();
         private List<Products> list = new List<Products>();
@@ -37,7 +36,7 @@ namespace Telesi.Views
         private string[] dataInventor;
         private string value_;
         private int oc;
-        public equal(List<Products> s)
+        public SearchList(List<Products> s)
         {
             InitializeComponent();
 

@@ -34,7 +34,7 @@ namespace Telesi.Views
         {
             InitializeComponent();
             react_ = false;
-            ListaP = new Lista();
+            ListaP = new InventoryList();
             list = null;
             list = ie.Inventario(ap.Inve_());
         }
@@ -70,7 +70,7 @@ namespace Telesi.Views
         {
             if (react_ == false)
             {
-                ListaP = new Lista();
+                ListaP = new InventoryList();
             }
         }
         private void K(object sender, TextChangedEventArgs e)
@@ -85,10 +85,14 @@ namespace Telesi.Views
             }
             if (s.Count() != 0 && Buscar.Text != "")
             {
-                ListaP = new equal(s);
+                ListaP = new SearchList(s);
                 react_ = true;
-            } else
+            } else 
             {
+                if (react_==true)
+                {
+                    ListaP = new InventoryList();
+                }
                 react_ = false;
             }
         }

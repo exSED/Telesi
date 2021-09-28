@@ -26,9 +26,7 @@ C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Vi
 C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\MainView.baml
 C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\ProductsView.baml
 C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\InvoicesView.baml
-C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\Lista.g.cs
-C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\Lista.baml
-C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\equal.g.cs
-C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\equal.baml
-C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\wellcomeView.g.cs
-C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Views\wellcomeView.baml
+C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\InventoryList.g.cs
+C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\InventoryList.baml
+C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\SearchList.g.cs
+C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\SearchList.baml

@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 using Telesi.Types;
 using Telesi.Helpers;
 
-namespace Telesi.Views
+namespace Telesi.Types
 {
     /// <summary>
-    /// Lógica de interacción para Lista.xaml
+    /// Lógica de interacción para InventoryList.xaml
     /// </summary>
-    public partial class Lista : UserControl
+    public partial class InventoryList : UserControl
     {
         private InveExtractor ie = new InveExtractor();
         private DataLength dl = new DataLength();
@@ -37,7 +37,7 @@ namespace Telesi.Views
         private TextBox id__, name__, count__, price__;
         private TextBox id_E, name_E, count_E, price_E;
 
-        public Lista()
+        public InventoryList()
         {
             InitializeComponent();
             dataInventor = File.ReadAllLines(ap.Inve_());
@@ -242,9 +242,9 @@ namespace Telesi.Views
             int ocl = Int32.Parse(o);
             if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                nl.writer(  ol.NewInv(ap.Inve_(), dataInventor[ocl]),
+                nl.writer(ol.NewInv(ap.Inve_(), dataInventor[ocl]),
                             ap.Inve_());
-                
+
                 content_.RowDefinitions.Clear();
             }
         }
@@ -261,7 +261,7 @@ namespace Telesi.Views
         }
         private void accept(object sender, MouseButtonEventArgs e)
         {
-            nl.writer( ol.oneLine(ap.Inve_()) +
+            nl.writer(ol.oneLine(ap.Inve_()) +
                         id__.Text + "\t" +
                         name__.Text + "\t" +
                         count__.Text + "\t" +
@@ -269,12 +269,13 @@ namespace Telesi.Views
                         ap.Inve_());
             content_.RowDefinitions.Clear();
         }
-        private void cam(object sender, MouseButtonEventArgs e){
+        private void cam(object sender, MouseButtonEventArgs e)
+        {
             string o = id_E.Text + "\t" +
                 name_E.Text + "\t" +
                 count_E.Text + "\t" +
                 price_E.Text;
-            nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o , (oc+1)),
+            nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o, (oc + 1)),
                         ap.Inve_());
             content_.RowDefinitions.Clear();
         }
@@ -284,7 +285,8 @@ namespace Telesi.Views
             value_ = c.Name;
             c.SetValue(TextBox.TextProperty, "");
         }
-        private void TBoxLF(object sender, RoutedEventArgs e){
+        private void TBoxLF(object sender, RoutedEventArgs e)
+        {
             var c = e.OriginalSource as FrameworkElement;
             if (c.GetValue(TextBox.TextProperty).ToString() == "")
             {
@@ -295,7 +297,7 @@ namespace Telesi.Views
         {
             if (e.Key == Key.Enter)
             {
-                cam(null, null) ;
+                cam(null, null);
             }
         }
         private void KD2(object sender, KeyEventArgs e)

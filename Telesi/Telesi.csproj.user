@@ -2,24 +2,18 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\equal.xaml.cs">
+    <Compile Update="Types\InventoryList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Lista.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\wellcomeView.xaml.cs">
+    <Compile Update="Types\SearchList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\equal.xaml">
+    <Page Update="Types\InventoryList.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Lista.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\wellcomeView.xaml">
+    <Page Update="Types\SearchList.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
