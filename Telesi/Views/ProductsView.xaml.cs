@@ -24,21 +24,24 @@ namespace Telesi.Views
     /// </summary>
     public partial class ProductsView : UserControl{
         private string value_;
+        private bool react_;
         private InveExtractor ie = new InveExtractor();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
         private List<Products> list = new List<Products>();
-        public UIElement ListaP
-        {
-            get { return PPanel.Child; }
-            set { PPanel.Child = value; }
-        }
+
         public ProductsView()
         {
             InitializeComponent();
             ListaP = new Lista();
             list = null;
+            list = ie.Inventario(ap.Inve_());
         }
+        public UIElement ListaP
+        {
+            get { return Pp.Child; }
+            set { Pp.Child = value; }
+        }        
         private void ClickButtonNew(object sender, MouseButtonEventArgs e)
         {
 
@@ -64,17 +67,25 @@ namespace Telesi.Views
         }
         private void UpdateList(object sender, SizeChangedEventArgs e)
         {
-            ListaP = new Lista();
+            if (react_ == false)
+            {
+                ListaP = new Lista();
+            }
         }
-        private void searchP(object sender, TextChangedEventArgs e)
+        private void K(object sender, TextChangedEventArgs e)
         {
-            list = null;
-            list = ie.Inventario(ap.Inve_());
+            List<Products> s = new List<Products>();
             for (int i = 0; i < list.Count(); i++)
             {
-                if (list[i].id_ == Search.Text)
+                if (list[i].id_ == Buscar.Text)
                 {
+                    s.Add(list[i]);
                 }
+            }
+            if (s.Count() != 0 && Buscar.Text != "")
+            {
+                ListaP = new equal(s);
+                react_ = true;
             }
         }
     }

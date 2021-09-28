@@ -34,10 +34,10 @@ namespace Telesi.Views
         private TextBox id_E, name_E, count_E, price_E;
         private Image icons, acc;
         private Label text;
-        private string value_;
         private string[] dataInventor;
+        private string value_;
         private int oc;
-        public equal()
+        public equal(List<Products> s)
         {
             InitializeComponent();
 
@@ -89,12 +89,15 @@ namespace Telesi.Views
             icons.SetValue(Grid.ColumnProperty, 5);
 
             ed.Background = BRef.Background;
+
+            NewGrids(s);
+
         }
         public void NewGrids(List<Products> inventory_)
         {
             if (inventory_ != null)
             {
-                for (int i = 0; i < dl.dataLength(ap.Inve_()); i++)
+                for (int i = 0; i < inventory_.Count; i++)
                 {
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
 

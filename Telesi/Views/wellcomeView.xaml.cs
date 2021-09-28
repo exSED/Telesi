@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Telesi.Views
 {
     /// <summary>
-    /// Lógica de interacción para Lista_de_Productos.xaml
+    /// Lógica de interacción para wellcomeView.xaml
     /// </summary>
-    public partial class Lista_de_Productos : UserControl
+    public partial class wellcomeView : UserControl
     {
-        public Lista_de_Productos()
+        public wellcomeView()
         {
             InitializeComponent();
         }

@@ -41,7 +41,6 @@ namespace Telesi.Views
         {
             InitializeComponent();
             dataInventor = File.ReadAllLines(ap.Inve_());
-            dl.dataLength(ap.Inve_());
 
             form_ = new Grid { Margin = MarginReference.Margin };
             form_.ColumnDefinitions.Add(new ColumnDefinition() { Width = idRef.Width });
@@ -54,6 +53,7 @@ namespace Telesi.Views
             id__ = new TextBox { Text = "Ref", Name = "Ref", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             id__.GotFocus += new RoutedEventHandler(TBoxF);
             id__.LostFocus += new RoutedEventHandler(TBoxLF);
+            id__.KeyDown += new KeyEventHandler(NumberLim);
             form_.Children.Add(id__);
             id__.SetValue(Grid.ColumnProperty, 0);
 
@@ -66,18 +66,21 @@ namespace Telesi.Views
             count__ = new TextBox { Text = "Cantidad", Name = "Cantidad", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             count__.GotFocus += new RoutedEventHandler(TBoxF);
             count__.LostFocus += new RoutedEventHandler(TBoxLF);
+            count__.KeyDown += new KeyEventHandler(NumberLim);
             form_.Children.Add(count__);
             count__.SetValue(Grid.ColumnProperty, 2);
 
             price__ = new TextBox { Text = "Precio", Name = "Precio", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             price__.GotFocus += new RoutedEventHandler(TBoxF);
             price__.LostFocus += new RoutedEventHandler(TBoxLF);
+            price__.KeyDown += new KeyEventHandler(NumberLim);
             form_.Children.Add(price__);
             price__.SetValue(Grid.ColumnProperty, 3);
 
             icons = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
 
             icons.MouseDown += new MouseButtonEventHandler(accept);
+            icons.KeyDown += new KeyEventHandler(KD2);
             form_.Children.Add(icons);
             icons.SetValue(Grid.ColumnProperty, 4);
 
@@ -115,6 +118,7 @@ namespace Telesi.Views
             id_E = new TextBox { Text = "Ref", Name = "Ref", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             id_E.GotFocus += new RoutedEventHandler(TBoxF);
             id_E.LostFocus += new RoutedEventHandler(TBoxLF);
+            id_E.KeyDown += new KeyEventHandler(NumberLim);
             ed.Children.Add(id_E);
             id_E.SetValue(Grid.ColumnProperty, 0);
 
@@ -127,12 +131,14 @@ namespace Telesi.Views
             count_E = new TextBox { Text = "Cantidad", Name = "Cantidad", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             count_E.GotFocus += new RoutedEventHandler(TBoxF);
             count_E.LostFocus += new RoutedEventHandler(TBoxLF);
+            count_E.KeyDown += new KeyEventHandler(NumberLim);
             ed.Children.Add(count_E);
             count_E.SetValue(Grid.ColumnProperty, 2);
 
             price_E = new TextBox { Text = "Precio", Name = "Precio", Margin = TBoxRef.Margin, Background = TBoxRef.Background };
             price_E.GotFocus += new RoutedEventHandler(TBoxF);
             price_E.LostFocus += new RoutedEventHandler(TBoxLF);
+            price_E.KeyDown += new KeyEventHandler(NumberLim);
             ed.Children.Add(price_E);
             price_E.SetValue(Grid.ColumnProperty, 3);
 
@@ -175,7 +181,7 @@ namespace Telesi.Views
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 1);
 
-                    text = new Label { Content = inventory_[i].count_, Name = "count_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment, FontSize = Alli.FontSize };
+                    text = new Label { Content = inventory_[i].count_, Name = "count_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 2);
 
@@ -291,6 +297,20 @@ namespace Telesi.Views
             {
                 cam(null, null) ;
             }
+        }
+        private void KD2(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                accept(null, null);
+            }
+        }
+        private void NumberLim(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

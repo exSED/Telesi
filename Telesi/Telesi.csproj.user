@@ -8,12 +8,18 @@
     <Compile Update="Views\Lista.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\wellcomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\equal.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Lista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\wellcomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

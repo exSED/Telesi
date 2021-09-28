@@ -119,17 +119,18 @@
                 <Grid Grid.Column="1" Background="#33FFFFFF">
                     <Image />
                 </Grid>
-                <TextBox x:Name="Search"
+                <TextBox x:Name="Buscar"
                          Grid.Column="0" 
                          Background="#33FFFFFF" 
                          BorderBrush="{x:Null}" 
                          BorderThickness="0,0,0,0"
                          FontSize="24" 
                          Text="Buscar" 
-                         FontFamily="Arial Rounded MT Bold"
+                         FontFamily="Arial Rounded MT Bold" 
                          TextAlignment="Left" 
                          GotFocus="TBoxF" 
-                         LostFocus="TBoxLF" TextChanged="searchP"/>
+                         LostFocus="TBoxLF" 
+                         TextChanged="K"/>
 
             </Grid>
             <Grid Grid.Column="1">
@@ -204,7 +205,7 @@
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
             <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0 0 30" >
-                <Border x:Name="PPanel" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList" >
+                <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">
 
                 </Border>
             </ScrollViewer>
