@@ -86,6 +86,9 @@ namespace Telesi.Views
             {
                 ListaP = new equal(s);
                 react_ = true;
+            } else
+            {
+                react_ = false;
             }
         }
     }
