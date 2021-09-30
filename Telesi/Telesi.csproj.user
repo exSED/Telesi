@@ -5,12 +5,18 @@
     <Compile Update="Types\InventoryList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Types\InvoiceList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Types\SearchList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Types\InventoryList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Types\InvoiceList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Types\SearchList.xaml">

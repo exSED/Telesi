@@ -29,13 +29,11 @@ namespace Telesi.Types
         private OneLine ol = new OneLine();
         private string[] dataInventor;
         private string value_;
-        private int oc;
         private NewLines nl = new NewLines();
         private Grid content_ = new Grid(), product_, more_, form_;
-        private Image icons, acc;
+        private Image icons;
         private Label text;
         private TextBox id__, name__, count__, price__;
-        private TextBox id_E, name_E, count_E, price_E;
 
         public InvoiceList()
         {

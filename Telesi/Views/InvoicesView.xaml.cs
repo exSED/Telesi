@@ -34,7 +34,7 @@ namespace Telesi.Views
         {
             InitializeComponent();
         }
-        public UIElement ListaP
+        public UIElement ListaI
         {
             get { return Pp.Child; }
             set { Pp.Child = value; }
@@ -66,7 +66,7 @@ namespace Telesi.Views
         {
             if (react_ == false)
             {
-
+                ListaI = new InvoiceList();
             }
         }
         private void K(object sender, TextChangedEventArgs e)
