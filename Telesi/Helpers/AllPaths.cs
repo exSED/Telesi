@@ -16,6 +16,10 @@ namespace Telesi.Helpers
         {
             return Directory.GetCurrentDirectory() + "/packageInvoice.log";
         }
+        public string ProdInvo_()
+        {
+            return Directory.GetCurrentDirectory() + "/packageProdsInvoice.log";
+        }
         public string Temp_()
         {
             return Directory.GetCurrentDirectory() + "/tem.log";
