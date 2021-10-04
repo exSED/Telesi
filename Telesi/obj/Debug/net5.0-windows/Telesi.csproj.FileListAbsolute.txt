@@ -32,3 +32,5 @@ C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Ty
 C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\SearchList.baml
 C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\InvoiceList.g.cs
 C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\InvoiceList.baml
+C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\NewInvoice.g.cs
+C:\Users\sebas\Desktop\°\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\NewInvoice.baml

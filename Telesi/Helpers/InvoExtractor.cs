@@ -42,7 +42,7 @@ namespace Telesi.Helpers
                 else
                 {
                     File.Create(path_);
-                    MessageBox.Show("El paquete de inventario a sido escrito por el vacio");
+                    MessageBox.Show("El paquete de facturas a sido escrito por el vacio");
                     return null;
                 }
             }

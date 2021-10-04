@@ -15,7 +15,7 @@
         <Grid x:Name="WhiteReference" Visibility="Hidden" Grid.Row="1">
             <Grid.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#CCFFFFFF" Offset="0"/>
+                    <GradientStop Color="#CCFFFFFF" Offset="0.15"/>
                     <GradientStop Color="#00FF0000" Offset="1"/>
                 </RadialGradientBrush>
             </Grid.Background>

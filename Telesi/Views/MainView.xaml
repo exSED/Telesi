@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
-        <ImageBrush ImageSource="/images/sinFondo.png" Stretch="UniformToFill" Opacity="0.5"/>
+        <ImageBrush ImageSource="/images/sinFondo.png" Stretch="Uniform" Opacity="0.6"/>
     </UserControl.Background>
     <Grid>
         <Grid.Background>
