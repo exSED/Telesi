@@ -10,5 +10,6 @@ namespace Telesi.Types
         public string number_ { get; set; }
         public string date_ { get; set; }
         public string total_ { get; set; }
+        public List<Products> Product = new List<Products>();
     }
 }

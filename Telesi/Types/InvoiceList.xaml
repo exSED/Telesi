@@ -55,10 +55,10 @@
         <Grid Visibility="Hidden" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="ColumnReference" Width="75"/>
-                <ColumnDefinition x:Name="idRef" Width="100"/>
-                <ColumnDefinition x:Name="nameRef" Width="1*"/>
-                <ColumnDefinition x:Name="countRef" Width="75"/>
-                <ColumnDefinition x:Name="priceRef" Width="175"/>
+                <ColumnDefinition x:Name="numRef" Width="110"/>
+                <ColumnDefinition x:Name="dateRef" Width="200"/>
+                <ColumnDefinition x:Name="totalRef" Width="1*"/>
+                <ColumnDefinition x:Name="prRef" Width="80"/>
                 <ColumnDefinition x:Name="editIconRef" Width="40"/>
                 <ColumnDefinition x:Name="delIconRef" Width="40"/>
                 <ColumnDefinition x:Name="newIconRef" Width="40"/>

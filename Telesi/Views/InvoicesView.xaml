@@ -183,21 +183,22 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Column="1" Grid.Row="0">
-                <Label Content="Nuevo"
-                    VerticalAlignment="top"
-                    HorizontalAlignment="Center"
-                    Cursor="Hand"
-                    MouseDown="ClickButtonSave" 
-                    FontSize="8"/>
                 <Image x:Name="NewInvo_"
-                    Margin="10" 
-                    Source="/images/SaveArchIcon.png" 
-                    Opacity="0.5"
-                    MouseDown="ClickButtonSave"
-                    Cursor="Hand" Stretch="UniformToFill"/>
+                        Margin="5
+                       " 
+                        Source="/images/SaveArchIcon.png" 
+                        Opacity="0.5"
+                        MouseDown="ClickButtonSave"
+                        Cursor="Hand" 
+                       Stretch="UniformToFill"/>
+                <Label Content="Nuevo"
+                        VerticalAlignment="top"
+                        HorizontalAlignment="Center"
+                        Cursor="Hand"
+                        MouseDown="ClickButtonSave" 
+                        FontSize="8"/>
             </Grid>
-            
-            <Grid Grid.Row="0" Margin="100,1,350,1" Grid.Column="0">
+            <Grid Grid.Row="0" Margin="100,1,200,1" Grid.Column="0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -213,15 +214,15 @@
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Número" Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Fecha" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Total pagado" Grid.Column="2" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="20" Margin="0,0,-38,0"/>
             </Grid>
-            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="50,0,10,30" Grid.ColumnSpan="2" >
+            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="50,0,10,30" Grid.Column="0" >
                 <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">
 
                 </Border>
