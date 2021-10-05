@@ -184,21 +184,19 @@
             </Grid.RowDefinitions>
             <Grid Grid.Column="1" Grid.Row="0">
                 <Image x:Name="NewInvo_"
-                        Margin="5
-                       " 
+                        Margin="5" 
                         Source="/images/SaveArchIcon.png" 
                         Opacity="0.5"
-                        MouseDown="ClickButtonSave"
                         Cursor="Hand" 
-                       Stretch="UniformToFill"/>
+                       Stretch="UniformToFill" MouseDown="NInvoice"/>
                 <Label Content="Nuevo"
                         VerticalAlignment="top"
                         HorizontalAlignment="Center"
                         Cursor="Hand"
-                        MouseDown="ClickButtonSave" 
+                        MouseDown="NInvoice" 
                         FontSize="8"/>
             </Grid>
-            <Grid Grid.Row="0" Margin="100,1,200,1" Grid.Column="0">
+            <Grid x:Name="Til" Grid.Row="0" Margin="100,1,200,1" Grid.Column="0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>

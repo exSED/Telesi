@@ -11,6 +11,9 @@
     <Compile Update="Types\NewInvoice.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Types\NInvoice.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Types\SearchList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +26,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Types\NewInvoice.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Types\NInvoice.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Types\SearchList.xaml">

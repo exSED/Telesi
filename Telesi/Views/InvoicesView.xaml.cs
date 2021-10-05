@@ -66,7 +66,7 @@ namespace Telesi.Views
         {
             if (react_ == false)
             {
-                ListaI = new InvoiceList();
+               
             }
         }
         private void K(object sender, TextChangedEventArgs e)
@@ -89,6 +89,25 @@ namespace Telesi.Views
                 if (react_ == true)
                 {
                     
+                }
+                react_ = false;
+            }
+        }
+        private void NInvoice(object sender, MouseButtonEventArgs e)
+        {
+
+            if (Til.Visibility != Visibility.Hidden)
+            {
+                ListaI = new NInvoice();
+                Til.Visibility = Visibility.Hidden;
+                react_ = true; 
+            }
+            else
+            {
+                if (react_ == true)
+                {
+                    ListaI = new InvoiceList();
+                    Til.Visibility = Visibility.Visible;
                 }
                 react_ = false;
             }

@@ -34,7 +34,6 @@ namespace Telesi.Types
         private Grid content_ = new Grid(), product_;
         private Image icons;
         private Label text;
-        private TextBox Num__, Date__, Total__;
 
         public InvoiceList()
         {
