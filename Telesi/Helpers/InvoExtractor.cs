@@ -29,11 +29,12 @@ namespace Telesi.Helpers
                     {
                         for (int i = 0; i < dataInvoice1.Length; i++)
                         {
+                            ListProds.Clear();
                             string dI = dataInvoice1[i].Replace("\t", "\r\n");
                             string[] dataInvoice = dI.Split("\r\n");
                             string dP = dataProduct1[i].Replace("|", "\r\n");
                             string[] dataProduct = dP.Split("\r\n");
-                            for (int j = 0; j < dl.dataLength(ap.ProdInvo_())-1; j++){
+                            for (int j = 0; j < dataProduct.Length; j++){
                                 string dPr = dataProduct[j].Replace("-", "\r\n");
                                 string[] dataProd = dPr.Split("\r\n");
                                 ListProds.Add(new Products

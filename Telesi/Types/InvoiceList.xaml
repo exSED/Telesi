@@ -68,7 +68,7 @@
         <Image x:Name="Deleted" Visibility="Hidden" Source="/images/DelIcon.png" Grid.Row="1" Margin="1"/>
         <Image x:Name="EditRef" Visibility="Hidden" Source="/images/editIcon.png" Margin="20" Grid.Row="1" Cursor="Hand"/>
         <Image x:Name="MoreRef" Visibility="Hidden" Source="/images/MoreIcons.png" Margin="4 20" Grid.Row="1"/>
-        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1"/>
+        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1" Margin="4"/>
         <Label x:Name="Alli" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
         <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="1" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>

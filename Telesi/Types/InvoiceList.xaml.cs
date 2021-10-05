@@ -46,7 +46,7 @@ namespace Telesi.Types
         {
             if (invoices_ != null)
             {
-                for (int i = 0; i < dl.dataLength(ap.Invo_()); i++)
+                for (int i = 0; i < dataInventor.Length; i++)
                 {
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
 
@@ -56,7 +56,6 @@ namespace Telesi.Types
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = totalRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = prRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
-                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
 
                     text = new Label { Content = invoices_[i].number_, Name = "num_" + i, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
@@ -70,22 +69,17 @@ namespace Telesi.Types
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 2);
 
-                    icons = new Image { Source = DelRef.Source, Name = "Prods_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment, VerticalAlignment = Alli.VerticalAlignment };
-                    text = new Label { Content = invoices_[i].Product.Count(), Name = "Prodss_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
+                    icons = new Image { Source = DelRef.Source, Name = "Prodss_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = invoices_[i].Product.Count(), Name = "Prodsss_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     product_.Children.Add(icons);
                     text.SetValue(Grid.ColumnProperty, 3);
                     icons.SetValue(Grid.ColumnProperty, 3);
 
-                    icons = new Image { Source = DelRef.Source, Name = "Delete_" + i, Cursor = EditRef.Cursor };
-                    icons.MouseDown += new MouseButtonEventHandler(i_del);
-                    product_.Children.Add(icons);
-                    icons.SetValue(Grid.ColumnProperty, 4);
-
-                    icons = new Image { Source = EditRef.Source, Name = "Edit_" + i, Cursor = EditRef.Cursor };
+                    icons = new Image { Source = EditRef.Source, Name = "Edit_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
                     icons.MouseDown += new MouseButtonEventHandler(i_view);
                     product_.Children.Add(icons);
-                    icons.SetValue(Grid.ColumnProperty, 5);
+                    icons.SetValue(Grid.ColumnProperty, 4);
 
                     product_.Background = BlackReference.Background;
                     product_.SetValue(Grid.RowProperty, i);
