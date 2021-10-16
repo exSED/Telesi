@@ -97,7 +97,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBox x:Name="NInvo" Text="Número de factura" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" TextChanged="NumInv">
+                    <TextBox x:Name="No_Factura" Text="No_factura" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" TextChanged="NumInv">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
@@ -118,21 +118,21 @@
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" LostFocus="TBoxLF">
-                    <TextBox x:Name="RefProd" Text="Referencia" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefProdT">
+                    <TextBox x:Name="Referencia" Text="Referencia" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefProdT">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="1" LostFocus="TBoxLF">
-                    <TextBox x:Name="CountProd" Text="Cantidad" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefCountT">
+                    <TextBox x:Name="Cantidad" Text="Cantidad" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefCountT">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="2" GotFocus="TBoxF" LostFocus="TBoxLF">
-                    <TextBox x:Name="DescuProd" Text="Descuento" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefDesT">
+                    <TextBox x:Name="Descuento" Text="Descuento" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefDesT">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
@@ -149,8 +149,10 @@
                 </Grid>
             </Grid>
             <ScrollViewer Margin="10" Grid.Row="2">
-                <Border Name="Pi" Margin="5" VerticalAlignment="Top">
-                    <Grid x:Name="PPP"></Grid>
+                <Border Margin="5" VerticalAlignment="Top">
+                    <Grid x:Name="PPP">
+                        
+                    </Grid>
                 </Border>
             </ScrollViewer>
             <Grid Grid.Row="3" Margin="20">
@@ -176,6 +178,11 @@
                        MouseDown="Acs"/>
                 </Grid>
             </Grid>
+        </Grid>
+        <Grid Visibility="Hidden" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnReference" Width="75"/>
+            </Grid.ColumnDefinitions>
         </Grid>
     </Grid>
 </UserControl>

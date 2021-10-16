@@ -29,17 +29,15 @@ namespace Telesi.Types
         private AllPaths ap = new AllPaths();
         private List<Invoice> dataInvo;
         private List<Products> dataInve, lim;
-        private Label content_ = new Label();
+        private Grid content_ = new Grid();
+        private Label pin_ = new Label();
         private string value_;
         public NInvoice()
         {
             dataInvo = ieo.Invoices(ap.Invo_(), ap.ProdInvo_());
             dataInve = iee.Inventario(ap.Inve_());
+            lim = new List<Products>();
             InitializeComponent();
-        }
-        private void UpdateList(object sender, SizeChangedEventArgs e)
-        {
-
         }
         private void TBoxF(object sender, RoutedEventArgs e)
         {
@@ -72,53 +70,78 @@ namespace Telesi.Types
         }
         private void cans(object sender, MouseButtonEventArgs e)
         {
-            content_.Content = ;
+            PPP.
+            string d;
+            for (int i = 0; i < lim.Count; i++)
+            {
+                content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
+                d = lim[i].id_ + "\t" + lim[i].name_ + "\t\t\t" + CountProd.Text + "\t" + DescuProd.Text + "\r\n";
+                pin_ = new Label { Content = d, Name = "id_" + i };
+                pin_.SetValue(Grid.RowProperty, i);
+                content_.Children.Add(pin_);
+            }
             PPP.Children.Add(content_);
         }
         private void NumInv(object sender, TextChangedEventArgs e)
         {
-            if (NInvo.Text != String.Empty && NInvo.Text != "Número de factura")
+            if (No_Factura.Text != String.Empty && No_Factura.Text != "No_Factura")
             {
                 for (int i=0; i < dataInvo.Count; i++)
                 {
-                    if (NInvo.Text == dataInvo[i].number_)
+                    if (No_Factura.Text == dataInvo[i].number_)
                     {
-                        RefProd.Visibility = Visibility.Hidden;
+                        Referencia.Visibility = Visibility.Hidden;
                     }
                     else
                     {
-                        RefProd.Visibility = Visibility.Visible;
+                        Referencia.Visibility = Visibility.Visible;
                     }
                 }
             }
         }
         private void RefProdT(object sender, TextChangedEventArgs e)
         {
-            if (RefProd.Text != String.Empty && RefProd.Text != "Referencia")
+            if (Referencia.Text != String.Empty && Referencia.Text != "Referencia")
             {
 
                 for (int i = 0; i < dataInve.Count; i++)
                 {
-                    if (RefProd.Text == dataInve[i].id_)
+                    if (Referencia.Text == dataInve[i].id_)
                     {
-                        CountProd.Visibility = Visibility.Visible;
-                        lim.Add(dataInve[i]);
+                        Cantidad.Visibility = Visibility.Visible;
+                        lim.Add(new Products { 
+                            id_=dataInve[i].id_, 
+                            name_=dataInve[i].name_, 
+                            count_=dataInve[i].count_,
+                            price_=dataInve[i].price_});
+                    }
+                    else
+                    {
+                        Cantidad.Visibility = Visibility.Hidden;
                     }
                 }
             }
         }
         private void RefCountT(object sender, TextChangedEventArgs e)
         {
-            if ((CountProd.Text != String.Empty && CountProd.Text != "Cantidad") && CountProd.Visibility == Visibility.Visible)
+            if (Cantidad.Text != String.Empty && Cantidad.Text != "Cantidad")
             {
-                DescuProd.Visibility = Visibility.Visible;
+                Descuento.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Descuento.Visibility = Visibility.Hidden;
             }
         }
         private void RefDesT(object sender, TextChangedEventArgs e)
         {
-            if ((DescuProd.Text != String.Empty && DescuProd.Text != "Descuento") && DescuProd.Visibility == Visibility.Visible)
+            if (Descuento.Text != String.Empty && Descuento.Text != "Descuento")
             {
                 NewInvoOk.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NewInvoOk.Visibility = Visibility.Hidden;
             }
         }
     }
