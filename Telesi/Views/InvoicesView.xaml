@@ -188,7 +188,8 @@
                         Source="/images/SaveArchIcon.png" 
                         Opacity="0.5"
                         Cursor="Hand" 
-                       Stretch="UniformToFill" MouseDown="NInvoice"/>
+                       Stretch="UniformToFill" 
+                       MouseDown="NInvoice"/>
                 <Label Content="Nuevo"
                         VerticalAlignment="top"
                         HorizontalAlignment="Center"

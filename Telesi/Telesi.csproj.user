@@ -8,9 +8,6 @@
     <Compile Update="Types\InvoiceList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Types\NewInvoice.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Types\NInvoice.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,9 +20,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Types\InvoiceList.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Types\NewInvoice.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Types\NInvoice.xaml">

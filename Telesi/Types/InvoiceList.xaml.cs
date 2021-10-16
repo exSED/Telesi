@@ -24,7 +24,6 @@ namespace Telesi.Types
     public partial class InvoiceList : UserControl
     {
         private InvoExtractor ie = new InvoExtractor();
-        private NewInvoice ni = new NewInvoice();
         private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
@@ -108,7 +107,7 @@ namespace Telesi.Types
         }
         private void moreProducts(object sender, MouseButtonEventArgs e)
         {
-            ni.ShowDialog();
+ 
         }
         private void cancel(object sender, MouseButtonEventArgs e)
         {

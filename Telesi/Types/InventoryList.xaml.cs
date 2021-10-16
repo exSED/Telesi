@@ -302,17 +302,17 @@ namespace Telesi.Types
         }
         private void KD2(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
+            if (e.Key == Key.Enter){
                 accept(null, null);
             }
         }
         private void NumberLim(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9){
                 e.Handled = false;
-            else
+            }else{
                 e.Handled = true;
+            }
         }
     }
 }

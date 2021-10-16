@@ -33,6 +33,7 @@ namespace Telesi.Views
         public InvoicesView()
         {
             InitializeComponent();
+            ListaI = new InvoiceList();
         }
         public UIElement ListaI
         {
