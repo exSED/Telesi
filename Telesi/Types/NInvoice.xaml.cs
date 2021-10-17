@@ -27,6 +27,8 @@ namespace Telesi.Types
         private InveExtractor iee = new InveExtractor();
         private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
+        private OneLine ol = new OneLine();
+        private NewLines nl = new NewLines();
         private List<Invoice> dataInvo;
         private List<Products> dataInve, lim;
         private Grid content_ = new Grid();
@@ -235,7 +237,20 @@ namespace Telesi.Types
         }
         private void Acs(object sender, MouseButtonEventArgs e)
         {
-
+            for (int i=0; i<dataInve.Count; i++)
+            {
+                for (int j=0; j<lim.Count; j++)
+                {
+                    if (lim[j].id_ == dataInve[i].id_)
+                    {
+                        dataInve[i].count_ = (Int32.Parse(dataInve[i].count_)- Int32.Parse(lim[j].count_)).ToString();
+                    }
+                }
+            }
+            string dr = No_Factura.Text+"\t"+DateL.Content.ToString()+"\t"+"0";
+            nl.writer(ol.oneLine(ap.Invo_())+dr,ap.Invo_());
+            nl.writer(ol.oneLine(ap.ProdInvo_()) + ol.newPorsIvo_(lim), ap.ProdInvo_());
+            nl.writer(ol.newInven_(dataInve),ap.Inve_());
         }
     }
 }

@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telesi.Types;
+using Telesi.Helpers;
 
 namespace Telesi.Helpers
 {
     class OneLine{
         private DataLength dl = new DataLength();
+        private AllPaths ap = new AllPaths();
         public string oneLine(string path_){
             if (File.Exists(path_)){
                 string refe = String.Empty;
@@ -100,6 +103,26 @@ namespace Telesi.Helpers
                 MessageBox.Show("El vacio es inexistencia");
                 return null;
             }
+        }
+        public string newPorsIvo_(List<Products> PL)
+        {
+            string dr = "";
+            for (int i= 0; i < PL.Count-1 ;i++)
+            {
+                dr += PL[i].id_ + "-" + PL[i].name_ + "-" + PL[i].count_ + "-" + PL[i].price_ + "|";
+            }
+            dr += PL[PL.Count-1].id_ + "-" + PL[PL.Count-1].name_ + "-" + PL[PL.Count-1].count_ + "-" + PL[PL.Count-1].price_;
+            return dr;
+        }
+        public string newInven_(List<Products> PL)
+        {
+            string dr = "";
+            for (int i = 0; i < PL.Count - 1; i++)
+            {
+                dr += PL[i].id_ + "\t" + PL[i].name_ + "\t" + PL[i].count_ + "\t" + PL[i].price_ + "\r\n";
+            }
+            dr += PL[PL.Count-1].id_ + "\t" + PL[PL.Count-1].name_ + "\t" + PL[PL.Count-1].count_ + "\t" + PL[PL.Count-1].price_;
+            return dr;
         }
     }
 }

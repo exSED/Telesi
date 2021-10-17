@@ -276,7 +276,7 @@ namespace Telesi.Types
                 count_E.Text + "\t" +
                 price_E.Text;
             nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o, (oc + 1)),
-                        ap.Inve_());
+                      ap.Inve_());
             content_.RowDefinitions.Clear();
         }
         private void TBoxF(object sender, RoutedEventArgs e)
