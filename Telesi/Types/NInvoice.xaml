@@ -95,19 +95,30 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBox x:Name="No_Factura" Text="No_factura" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" TextChanged="NumInv">
+                    <TextBox x:Name="No_Factura" Text="No_Factura" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" TextChanged="NumInv">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Label x:Name="DateL" Margin="5"/>
+                    <Label x:Name="DateL" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <Label x:Name="TotalL" Margin="5"/>
+                    <Label x:Name="TotalL" Content="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Image x:Name="CtlZ"
+                           Margin="2,2,2,0"
+                           Source="/images/SaveArchIcon.png" 
+                           Opacity="0.8"
+                           Cursor="Hand" 
+                           MouseDown="EresEnd" 
+                           Height="26" 
+                           VerticalAlignment="Top" />
                 </Grid>
             </Grid>
             <Grid Margin="10" Grid.Row="1">
@@ -144,17 +155,15 @@
                        Source="/images/SaveArchIcon.png" 
                        Opacity="0.8"
                        Cursor="Hand" 
-                       MouseDown="cans"
+                       MouseDown="AddProds"
                        Visibility="Hidden"/>
                 </Grid>
             </Grid>
-            <ScrollViewer Margin="10" Grid.Row="2">
-                <Border Margin="5" VerticalAlignment="Top">
-                    <Grid x:Name="PPP">
-                        
-                    </Grid>
-                </Border>
-            </ScrollViewer>
+            <Border  Margin="10" VerticalAlignment="Top" Grid.Row="2">
+                <Grid x:Name="PPP">
+
+                </Grid>
+            </Border>
             <Grid Grid.Row="3" Margin="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -166,8 +175,7 @@
                        Margin="5" 
                        Source="/images/SaveArchIcon.png" 
                        Opacity="0.8"
-                       Cursor="Hand" 
-                       MouseDown="cans"/>
+                       Cursor="Hand" />
                 </Grid>
                 <Grid Grid.Column="2" Margin="10">
                     <Image x:Name="Can"
