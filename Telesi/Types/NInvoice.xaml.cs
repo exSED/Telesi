@@ -66,10 +66,6 @@ namespace Telesi.Types
                 e.Handled = true;
             }
         }
-        private void Acs(object sender, MouseButtonEventArgs e)
-        {
-
-        }
         private void AddProds(object sender, MouseButtonEventArgs e)
         {
             lim.Add(new Products
@@ -92,7 +88,7 @@ namespace Telesi.Types
                 pin_ = new Label { Content = d, Name = "id_" + i };
                 pin_.SetValue(Grid.RowProperty, i);
                 content_.Children.Add(pin_);
-                TotalL.Content = (Int32.Parse(TotalL.Content.ToString()) + Int32.Parse(lim[i].count_));
+                TotalL.Content = "$"+(Int32.Parse(TotalL.Content.ToString().Replace("$","")) + Int32.Parse(lim[i].count_));
             }
             PPP.Children.Add(content_);
             
@@ -199,9 +195,13 @@ namespace Telesi.Types
                 pin_ = new Label { Content = d, Name = "id_" + i };
                 pin_.SetValue(Grid.RowProperty, i);
                 content_.Children.Add(pin_);
-                TotalL.Content = (Int32.Parse(TotalL.Content.ToString()) + Int32.Parse(lim[i].count_));
+                TotalL.Content ="$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].count_));
             }
             PPP.Children.Add(content_);
+        }
+        private void Acs(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

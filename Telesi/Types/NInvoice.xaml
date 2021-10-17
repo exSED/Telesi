@@ -108,7 +108,7 @@
                     <Label x:Name="DateL" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <Label x:Name="TotalL" Content="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
+                    <Label x:Name="TotalL" Content="$0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
                 </Grid>
                 <Grid Grid.Column="3">
                     <Image x:Name="CtlZ"
@@ -117,8 +117,7 @@
                            Opacity="0.8"
                            Cursor="Hand" 
                            MouseDown="EresEnd" 
-                           Height="26" 
-                           VerticalAlignment="Top" />
+                           Height="26" VerticalAlignment="Top" />
                 </Grid>
             </Grid>
             <Grid Margin="10" Grid.Row="1">
