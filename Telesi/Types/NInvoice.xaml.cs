@@ -121,6 +121,10 @@ namespace Telesi.Types
                     if (No_Factura.Text == dataInvo[i].number_)
                     {
                         Referencia.Visibility = Visibility.Hidden;
+                        Cantidad.Visibility = Visibility.Hidden;
+                        Descuento.Visibility = Visibility.Hidden;
+                        NewInvoOk.Visibility = Visibility.Hidden;
+
                     }
                     else
                     {
@@ -133,6 +137,9 @@ namespace Telesi.Types
                 if (Referencia != null)
                 {
                     Referencia.Visibility = Visibility.Hidden;
+                    Cantidad.Visibility = Visibility.Hidden;
+                    Descuento.Visibility = Visibility.Hidden;
+                    NewInvoOk.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -150,12 +157,11 @@ namespace Telesi.Types
                     {
                         Cantidad.Visibility = Visibility.Visible;
                         f = i;
+                        RefCountT(null, null);
                         break;
                     }
                     else
                     {
-                        Cantidad.Text = "";
-                        Descuento.Text = "";
                         Cantidad.Visibility = Visibility.Hidden;
                         Descuento.Visibility = Visibility.Hidden;
                         NewInvoOk.Visibility = Visibility.Hidden;
@@ -165,8 +171,6 @@ namespace Telesi.Types
             else 
             {
                 if (Cantidad != null && Descuento != null) {
-                    Cantidad.Text = "";
-                    Descuento.Text = "";
                     Cantidad.Visibility = Visibility.Hidden;
                     Descuento.Visibility = Visibility.Hidden;
                     NewInvoOk.Visibility = Visibility.Hidden;
@@ -175,15 +179,12 @@ namespace Telesi.Types
         }
         private void RefCountT(object sender, TextChangedEventArgs e)
         {
-            if (Cantidad.Text == " ")
-            {
-                Cantidad.Text = "";
-            }
-            if ((Cantidad.Text != String.Empty && Cantidad.Text != "Cantidad"))
+            if (Cantidad.Text != String.Empty && Cantidad.Text != "Cantidad")
             {
                 if (Cantidad.Text != "0")
                 {
                     Descuento.Visibility = Visibility.Visible;
+                    RefDesT(null,null);
                 }
                 else
                 {
@@ -200,10 +201,6 @@ namespace Telesi.Types
         }
         private void RefDesT(object sender, TextChangedEventArgs e)
         {
-            if (Descuento.Text == " ")
-            {
-                Descuento.Text = "";
-            }
             if (Descuento.Text != String.Empty && Descuento.Text != "Descuento")
             {
                 NewInvoOk.Visibility = Visibility.Visible;

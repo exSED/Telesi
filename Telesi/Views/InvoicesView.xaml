@@ -194,7 +194,7 @@
                         VerticalAlignment="top"
                         HorizontalAlignment="Center"
                         Cursor="Hand"
-                        MouseDown="NInvoice" 
+                        MouseDown="NInvoice"
                         FontSize="8"/>
             </Grid>
             <Grid x:Name="Til" Grid.Row="0" Margin="100,1,200,1" Grid.Column="0">

@@ -82,14 +82,13 @@ namespace Telesi.Views
             }
             if (s.Count() != 0 && Buscar.Text != "")
             {
-                
                 react_ = true;
             }
             else
             {
                 if (react_ == true)
                 {
-                    
+                    ListaI = new InvoiceList();
                 }
                 react_ = false;
             }
