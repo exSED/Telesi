@@ -57,7 +57,7 @@ namespace Telesi.Types
         }
         private void NumberLim(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+           if (e.Key >= Key.Tab || (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
             {
                 e.Handled = false;
             }
@@ -68,33 +68,52 @@ namespace Telesi.Types
         }
         private void AddProds(object sender, MouseButtonEventArgs e)
         {
-            lim.Add(new Products
+            bool q = false;
+            for (int j = 0; j < lim.Count; j++)
             {
-                id_ = dataInve[f].id_,
-                name_ = dataInve[f].name_,
-                count_ = Cantidad.Text,
-                price_ = (Int32.Parse(dataInve[f].price_) - Int32.Parse(Descuento.Text)).ToString()
-            });
-            TotalL.Content = "0";
-            PPP.Children.Remove(content_);
-            PPP.Children.Clear();
-            content_.RowDefinitions.Clear();
-            content_.Children.Clear();
-            string d;
-            for (int i = 0; i < lim.Count; i++)
-            {
-                content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                d = lim[i].id_ + "\t" +  "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
-                pin_ = new Label { Content = d, Name = "id_" + i };
-                pin_.SetValue(Grid.RowProperty, i);
-                content_.Children.Add(pin_);
-                TotalL.Content = "$"+(Int32.Parse(TotalL.Content.ToString().Replace("$","")) + Int32.Parse(lim[i].count_));
+                if (lim[j].id_==Referencia.Text)
+                {
+                    q = true;
+                    break;
+                }
             }
-            PPP.Children.Add(content_);
-            
+            if (q==false)
+            {
+                lim.Add(new Products
+                {
+                    id_ = dataInve[f].id_,
+                    name_ = dataInve[f].name_,
+                    count_ = Cantidad.Text,
+                    price_ = (Int32.Parse(dataInve[f].price_) - Int32.Parse(Descuento.Text)).ToString()
+                });
+                TotalL.Content = "0";
+                PPP.Children.Remove(content_);
+                PPP.Children.Clear();
+                content_.RowDefinitions.Clear();
+                content_.Children.Clear();
+                string d;
+                for (int i = 0; i < lim.Count; i++)
+                {
+                    content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
+                    d = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
+                    pin_ = new Label { Content = d, Name = "id_" + i };
+                    pin_.SetValue(Grid.RowProperty, i);
+                    content_.Children.Add(pin_);
+                    TotalL.Content = "$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
+                }
+                PPP.Children.Add(content_);
+            }
+            else
+            {
+                MessageBox.Show(" Este articulo ya existe en la factura, porfavor verifique");
+            }
         }
         private void NumInv(object sender, TextChangedEventArgs e)
         {
+            if (No_Factura.Text == " ")
+            {
+                No_Factura.Text = "";
+            }
             if (No_Factura.Text != String.Empty && No_Factura.Text != "No_Factura")
             {
                 for (int i=0; i < dataInvo.Count; i++)
@@ -119,6 +138,10 @@ namespace Telesi.Types
         }
         private void RefProdT(object sender, TextChangedEventArgs e)
         {
+            if (Referencia.Text == " ")
+            {
+                Referencia.Text = "";
+            }
             if (Referencia.Text != String.Empty && Referencia.Text != "Referencia")
             {
                 for (int i = 0; i < dataInve.Count; i++)
@@ -131,21 +154,31 @@ namespace Telesi.Types
                     }
                     else
                     {
+                        Cantidad.Text = "";
+                        Descuento.Text = "";
                         Cantidad.Visibility = Visibility.Hidden;
                         Descuento.Visibility = Visibility.Hidden;
+                        NewInvoOk.Visibility = Visibility.Hidden;
                     }
                 }
             }
             else 
             {
                 if (Cantidad != null && Descuento != null) {
+                    Cantidad.Text = "";
+                    Descuento.Text = "";
                     Cantidad.Visibility = Visibility.Hidden;
                     Descuento.Visibility = Visibility.Hidden;
+                    NewInvoOk.Visibility = Visibility.Hidden;
                 }
             }
         }
         private void RefCountT(object sender, TextChangedEventArgs e)
         {
+            if (Cantidad.Text == " ")
+            {
+                Cantidad.Text = "";
+            }
             if ((Cantidad.Text != String.Empty && Cantidad.Text != "Cantidad"))
             {
                 if (Cantidad.Text != "0")
@@ -167,6 +200,10 @@ namespace Telesi.Types
         }
         private void RefDesT(object sender, TextChangedEventArgs e)
         {
+            if (Descuento.Text == " ")
+            {
+                Descuento.Text = "";
+            }
             if (Descuento.Text != String.Empty && Descuento.Text != "Descuento")
             {
                 NewInvoOk.Visibility = Visibility.Visible;
@@ -195,7 +232,7 @@ namespace Telesi.Types
                 pin_ = new Label { Content = d, Name = "id_" + i };
                 pin_.SetValue(Grid.RowProperty, i);
                 content_.Children.Add(pin_);
-                TotalL.Content ="$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].count_));
+                TotalL.Content ="$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
             }
             PPP.Children.Add(content_);
         }
