@@ -1,5 +1,5 @@
 ﻿Telesi
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\App.xaml
 8-1828069956
 
-20161218510
+18-1697321531
 193-1891726104
 MainWindow.xaml;Types\InventoryList.xaml;Types\InvoiceList.xaml;Types\NInvoice.xaml;Types\SearchList.xaml;Views\InvoicesView.xaml;Views\MainView.xaml;Views\ProductsView.xaml;
 
-True
+False
 

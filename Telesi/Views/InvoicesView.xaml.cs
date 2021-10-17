@@ -25,7 +25,7 @@ namespace Telesi.Views
     public partial class InvoicesView : UserControl
     {
         private string value_;
-        private bool react_;
+        private bool react_,relax;
         private InveExtractor ie = new InveExtractor();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
@@ -88,7 +88,9 @@ namespace Telesi.Views
             {
                 if (react_ == true)
                 {
+
                     ListaI = new InvoiceList();
+                    
                 }
                 react_ = false;
             }
@@ -100,16 +102,16 @@ namespace Telesi.Views
             {
                 ListaI = new NInvoice();
                 Til.Visibility = Visibility.Hidden;
-                react_ = true; 
+                relax = true; 
             }
             else
             {
-                if (react_ == true)
+                if (relax == true)
                 {
                     ListaI = new InvoiceList();
                     Til.Visibility = Visibility.Visible;
                 }
-                react_ = false;
+                relax = false;
             }
         }
     }
