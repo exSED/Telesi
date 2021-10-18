@@ -29,23 +29,41 @@ namespace Telesi.Views
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
         private List<Products> list = new List<Products>();
+        private bool relax;
 
         public ProductsView()
         {
             InitializeComponent();
             react_ = false;
+            relax = false;
             ListaP = new InventoryList();
             list = null;
             list = ie.Inventario(ap.Inve_());
         }
         public UIElement ListaP
         {
-            get { return Pp.Child; }
-            set { Pp.Child = value; }
+            get { return Pp_.Child; }
+            set { Pp_.Child = value; }
         }        
         private void ClickButtonNew(object sender, MouseButtonEventArgs e)
         {
-            ListaP = new NInvoiceP();
+            if (Tls.Visibility != Visibility.Hidden)
+            {
+                ListaP = new NInvoiceP();
+                Tls.Visibility = Visibility.Hidden;
+                react_ = true;
+                relax = true;
+            }
+            else
+            {
+                if (relax == true)
+                {
+                    ListaP = new InventoryList();
+                    Tls.Visibility = Visibility.Visible;
+                }
+                relax = false;
+                react_ = false;
+            }
         }
         private void ClickButtonSave(object sender, MouseButtonEventArgs e)
         {

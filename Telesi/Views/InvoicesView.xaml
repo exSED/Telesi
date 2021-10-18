@@ -111,7 +111,7 @@
                 <ColumnDefinition Width="0.6*"/>
                 <ColumnDefinition Width="0.6*"/>
             </Grid.ColumnDefinitions>
-            <Grid Margin="80 20 10 5">
+            <Grid Margin="80 20 10 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="40"/>
@@ -128,8 +128,8 @@
                          Text="Buscar" 
                          FontFamily="Arial Rounded MT Bold" 
                          TextAlignment="Left" 
-                         GotFocus="TBoxF" 
-                         LostFocus="TBoxLF" 
+                         GotFocus="TBoxFA" 
+                         LostFocus="TBoxLFA" 
                          TextChanged="K"/>
 
             </Grid>
@@ -138,66 +138,55 @@
                        Margin="5" 
                        Source="/images/NewArchIcon.png"
                        Opacity="0.8" 
-                       MouseDown="ClickButtonNew"
+                       MouseDown="ClickButtonNewA"
                        Cursor="Hand"/>
                 <Label Content="Nuevo"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center"
                        Cursor="Hand"
-                       MouseDown="ClickButtonNew" FontSize="8"/>
+                       MouseDown="ClickButtonNewA" FontSize="8"/>
             </Grid>
             <Grid Grid.Column="2">
                 <Image x:Name="OpenLogButton"
                        Margin="5" 
                        Source="/images/OpenArchIcon.png" 
                        Opacity="0.8"
-                       MouseDown="ClickButtonOpen"
+                       MouseDown="ClickButtonOpenA"
                        Cursor="Hand"/>
                 <Label Content="Abrir"
                        VerticalAlignment="top"
                        HorizontalAlignment="Center"
                        Cursor="Hand"
-                       MouseDown="ClickButtonOpen" FontSize="8"/>
+                       MouseDown="ClickButtonOpenA" FontSize="8"/>
             </Grid>
             <Grid Grid.Column="3">
                 <Image x:Name="SaveLogButton"
                        Margin="5" 
                        Source="/images/SaveArchIcon.png" 
                        Opacity="0.8"
-                       MouseDown="ClickButtonSave"
+                       MouseDown="ClickButtonSaveA"
                        Cursor="Hand"/>
                 <Label Content="Guardar"
                        VerticalAlignment="top"
                        HorizontalAlignment="Center"
                        Cursor="Hand"
-                       MouseDown="ClickButtonSave" FontSize="8"/>
+                       MouseDown="ClickButtonSaveA" FontSize="8"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Margin="20 5 20 20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="50"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Column="1" Grid.Row="0">
-                <Image x:Name="NewInvo_"
-                        Margin="5" 
-                        Source="/images/SaveArchIcon.png" 
-                        Opacity="0.5"
-                        Cursor="Hand" 
-                       Stretch="UniformToFill" 
-                       MouseDown="NInvoice"/>
-                <Label Content="Nuevo"
-                        VerticalAlignment="top"
-                        HorizontalAlignment="Center"
-                        Cursor="Hand"
-                        MouseDown="NInvoice"
-                        FontSize="8"/>
+            <Grid Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,0,10">
+                <Image x:Name="NewInvoP"
+                       Margin="5" 
+                       Source="/images/SaveArchIcon.png" 
+                       Opacity="0.8"
+                       MouseDown="ClickButtonNewA"
+                       Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Til" Grid.Row="0" Margin="100,1,200,1" Grid.Column="0">
+            <Grid x:Name="Til" Grid.Row="0" Margin="100,1,200,10" Grid.Column="0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -221,8 +210,8 @@
                 <Label Content="Fecha" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Total pagado" Grid.Column="2" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="20" Margin="0,0,-38,0"/>
             </Grid>
-            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="50,0,10,30" Grid.Column="0" >
-                <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">
+            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="50,0,10,30">
+                <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateListA">
 
                 </Border>
             </ScrollViewer>

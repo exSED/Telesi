@@ -40,30 +40,44 @@ namespace Telesi.Views
             get { return Pp.Child; }
             set { Pp.Child = value; }
         }
-        private void ClickButtonNew(object sender, MouseButtonEventArgs e)
+        private void ClickButtonNewA(object sender, MouseButtonEventArgs e)
+        {
+            if (Til.Visibility != Visibility.Hidden)
+            {
+                ListaI = new NInvoice();
+                Til.Visibility = Visibility.Hidden;
+                relax = true;
+            }
+            else
+            {
+                if (relax == true)
+                {
+                    ListaI = new InvoiceList();
+                    Til.Visibility = Visibility.Visible;
+                }
+                relax = false;
+            }
+        }
+        private void ClickButtonOpenA(object sender, MouseButtonEventArgs e)
         {
 
         }
-        private void ClickButtonOpen(object sender, MouseButtonEventArgs e)
+        private void ClickButtonSaveA(object sender, MouseButtonEventArgs e)
         {
 
         }
-        private void ClickButtonSave(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        private void TBoxF(object sender, RoutedEventArgs e)
+        private void TBoxFA(object sender, RoutedEventArgs e)
         {
             var c = e.OriginalSource as FrameworkElement;
             value_ = c.Name;
             c.SetValue(TextBox.TextProperty, "");
         }
-        private void TBoxLF(object sender, RoutedEventArgs e)
+        private void TBoxLFA(object sender, RoutedEventArgs e)
         {
             var c = e.OriginalSource as FrameworkElement;
             c.SetValue(TextBox.TextProperty, value_);
         }
-        private void UpdateList(object sender, SizeChangedEventArgs e)
+        private void UpdateListA(object sender, SizeChangedEventArgs e)
         {
             if (react_ == false)
             {
@@ -93,25 +107,6 @@ namespace Telesi.Views
                     
                 }
                 react_ = false;
-            }
-        }
-        private void NInvoice(object sender, MouseButtonEventArgs e)
-        {
-
-            if (Til.Visibility != Visibility.Hidden)
-            {
-                ListaI = new NInvoice();
-                Til.Visibility = Visibility.Hidden;
-                relax = true; 
-            }
-            else
-            {
-                if (relax == true)
-                {
-                    ListaI = new InvoiceList();
-                    Til.Visibility = Visibility.Visible;
-                }
-                relax = false;
             }
         }
     }

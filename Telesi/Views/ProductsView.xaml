@@ -109,7 +109,7 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="0.6*"/>
             </Grid.ColumnDefinitions>
-            <Grid Margin="80 20 1005">
+            <Grid Margin="80 20 100 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="40"/>
@@ -149,7 +149,15 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="70,1,130,1">
+            <Grid Grid.Column="0" HorizontalAlignment="Right">
+                <Image x:Name="NewInvoP"
+                       Margin="5" 
+                       Source="/images/SaveArchIcon.png" 
+                       Opacity="0.8"
+                       MouseDown="ClickButtonNew"
+                       Cursor="Hand"/>
+            </Grid>
+            <Grid x:Name="Tls" Grid.Row="0" Margin="70,1,130,1">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -169,24 +177,15 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" Height="22" Width="58" FontSize="11"/>
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
-                <Grid Grid.Column="4">
-                    <Image x:Name="NewInvoP"
-                       Margin="5" 
-                       Source="/images/SaveArchIcon.png" 
-                       Opacity="0.8"
-                       MouseDown="ClickButtonNew"
-                       Cursor="Hand"/>
-                </Grid>
             </Grid>
-            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0 0 30" >
-                <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">
-
+            <ScrollViewer x:Name="ScrViwer_" Grid.Row="1" Margin="20 0 0 30" >
+                <Border  Name="Pp_" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">
+                    
                 </Border>
             </ScrollViewer>
         </Grid>
