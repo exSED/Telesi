@@ -108,10 +108,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="0.6*"/>
-                <ColumnDefinition Width="0.6*"/>
-                <ColumnDefinition Width="0.6*"/>
             </Grid.ColumnDefinitions>
-            <Grid Margin="80 20 10 5">
+            <Grid Margin="80 20 1005">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="40"/>
@@ -131,35 +129,8 @@
                          GotFocus="TBoxF" 
                          LostFocus="TBoxLF" 
                          TextChanged="K"/>
-
-            </Grid>
-            <Grid Grid.Column="1">
-                <Image x:Name="NewLogButton"
-                       Margin="5" 
-                       Source="/images/NewArchIcon.png"
-                       Opacity="0.8" 
-                       MouseDown="ClickButtonNew"
-                       Cursor="Hand"/>
-                <Label Content="Nuevo"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Center"
-                       Cursor="Hand"
-                       MouseDown="ClickButtonNew" FontSize="8"/>
             </Grid>
             <Grid Grid.Column="2">
-                <Image x:Name="OpenLogButton"
-                       Margin="5" 
-                       Source="/images/OpenArchIcon.png" 
-                       Opacity="0.8"
-                       MouseDown="ClickButtonOpen"
-                       Cursor="Hand"/>
-                <Label Content="Abrir"
-                       VerticalAlignment="top"
-                       HorizontalAlignment="Center"
-                       Cursor="Hand"
-                       MouseDown="ClickButtonOpen" FontSize="8"/>
-            </Grid>
-            <Grid Grid.Column="3">
                 <Image x:Name="SaveLogButton"
                        Margin="5" 
                        Source="/images/SaveArchIcon.png" 
@@ -178,7 +149,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="70 1 150 1">
+            <Grid Grid.Row="0" Margin="70,1,130,1">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -198,11 +169,20 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" Height="22" Width="58" FontSize="11"/>
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
+                <Grid Grid.Column="4">
+                    <Image x:Name="NewInvoP"
+                       Margin="5" 
+                       Source="/images/SaveArchIcon.png" 
+                       Opacity="0.8"
+                       MouseDown="ClickButtonNew"
+                       Cursor="Hand"/>
+                </Grid>
             </Grid>
             <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="20 0 0 30" >
                 <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">

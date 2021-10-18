@@ -45,11 +45,7 @@ namespace Telesi.Views
         }        
         private void ClickButtonNew(object sender, MouseButtonEventArgs e)
         {
-
-        }
-        private void ClickButtonOpen(object sender, MouseButtonEventArgs e)
-        {
-
+            ListaP = new NInvoiceP();
         }
         private void ClickButtonSave(object sender, MouseButtonEventArgs e)
         {

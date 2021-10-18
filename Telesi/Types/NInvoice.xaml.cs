@@ -41,7 +41,7 @@ namespace Telesi.Types
             dataInve = iee.Inventario(ap.Inve_());
             lim = new List<Products>();
             InitializeComponent();
-            DateL.Content = DateTime.Today;
+            DateL.Content = DateTime.Today.Day + "-" + DateTime.Today.Month + "-" + DateTime.Today.Year;
         }
         private void TBoxF(object sender, RoutedEventArgs e)
         {
@@ -71,16 +71,16 @@ namespace Telesi.Types
         }
         private void AddProds(object sender, MouseButtonEventArgs e)
         {
-            bool q = false;
+            bool q2 = false;
             for (int j = 0; j < lim.Count; j++)
             {
-                if (lim[j].id_==Referencia.Text)
+                if (lim[j].id_ == Referencia.Text)
                 {
-                    q = true;
+                    q2 = true;
                     break;
                 }
             }
-            if (q==false)
+            if (q2 == false)
             {
                 lim.Add(new Products
                 {
@@ -94,22 +94,24 @@ namespace Telesi.Types
                 PPP.Children.Clear();
                 content_.RowDefinitions.Clear();
                 content_.Children.Clear();
-                string d;
+                string d2;
                 for (int i = 0; i < lim.Count; i++)
                 {
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                    d = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
-                    pin_ = new Label { Content = d, Name = "id_" + i };
+                    d2 = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
+                    pin_ = new Label { Content = d2, Name = "id_" + i };
                     pin_.SetValue(Grid.RowProperty, i);
                     content_.Children.Add(pin_);
                     TotalL.Content = "$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
                 }
                 PPP.Children.Add(content_);
+                RetraRee.Visibility = Visibility.Visible;
             }
             else
             {
                 MessageBox.Show(" Este articulo ya existe en la factura, porfavor verifique");
             }
+            
         }
         private void NumInv(object sender, TextChangedEventArgs e)
         {
@@ -127,7 +129,14 @@ namespace Telesi.Types
                         Cantidad.Visibility = Visibility.Hidden;
                         Descuento.Visibility = Visibility.Hidden;
                         NewInvoOk.Visibility = Visibility.Hidden;
-
+                        lim.Clear();
+                        TotalL.Content = "0";
+                        PPP.Children.Remove(content_);
+                        PPP.Children.Clear();
+                        content_.RowDefinitions.Clear();
+                        content_.Children.Clear();
+                        PPP.Children.Add(content_);
+                        break;
                     }
                     else
                     {
@@ -143,6 +152,13 @@ namespace Telesi.Types
                     Cantidad.Visibility = Visibility.Hidden;
                     Descuento.Visibility = Visibility.Hidden;
                     NewInvoOk.Visibility = Visibility.Hidden;
+                    lim.Clear();
+                    TotalL.Content = "0";
+                    PPP.Children.Remove(content_);
+                    PPP.Children.Clear();
+                    content_.RowDefinitions.Clear();
+                    content_.Children.Clear();
+                    PPP.Children.Add(content_);
                 }
             }
         }
@@ -192,6 +208,7 @@ namespace Telesi.Types
                 else
                 {
                     Descuento.Visibility = Visibility.Hidden;
+                    NewInvoOk.Visibility = Visibility.Hidden;
                 }
             }
             else
@@ -199,6 +216,7 @@ namespace Telesi.Types
                 if (Descuento != null)
                 {
                     Descuento.Visibility = Visibility.Hidden;
+                    NewInvoOk.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -218,40 +236,58 @@ namespace Telesi.Types
         }
         private void EresEnd(object sender, MouseButtonEventArgs e)
         {
-            lim.Remove(lim.Last());
-            TotalL.Content = "0";
-            PPP.Children.Remove(content_);
-            PPP.Children.Clear();
-            content_.RowDefinitions.Clear();
-            content_.Children.Clear();
-            string d;
-            for (int i = 0; i < lim.Count; i++)
+            if (lim.Count == 0)
             {
-                content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                d = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
-                pin_ = new Label { Content = d, Name = "id_" + i };
-                pin_.SetValue(Grid.RowProperty, i);
-                content_.Children.Add(pin_);
-                TotalL.Content ="$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
+                RetraRee.Visibility = Visibility.Hidden;
             }
-            PPP.Children.Add(content_);
+            else
+            {
+                lim.Remove(lim.Last());
+                TotalL.Content = "0";
+                PPP.Children.Remove(content_);
+                PPP.Children.Clear();
+                content_.RowDefinitions.Clear();
+                content_.Children.Clear();
+                string d2;
+                for (int i = 0; i < lim.Count; i++)
+                {
+                    content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
+                    d2 = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
+                    pin_ = new Label { Content = d2, Name = "id_" + i };
+                    pin_.SetValue(Grid.RowProperty, i);
+                    content_.Children.Add(pin_);
+                    TotalL.Content = "$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
+                }
+                PPP.Children.Add(content_);
+                RetraRee.Visibility = Visibility.Visible;
+            }
         }
         private void Acs(object sender, MouseButtonEventArgs e)
         {
-            for (int i=0; i<dataInve.Count; i++)
+            if (No_Factura.Text != "" && No_Factura.Text != "No_Factura")
             {
-                for (int j=0; j<lim.Count; j++)
+                if (lim.Count != 0)
                 {
-                    if (lim[j].id_ == dataInve[i].id_)
+                    for (int i = 0; i < dataInve.Count; i++)
                     {
-                        dataInve[i].count_ = (Int32.Parse(dataInve[i].count_)- Int32.Parse(lim[j].count_)).ToString();
+                        for (int j = 0; j < lim.Count; j++)
+                        {
+                            if (lim[j].id_ == dataInve[i].id_)
+                            {
+                                dataInve[i].count_ = (Int32.Parse(dataInve[i].count_) - Int32.Parse(lim[j].count_)).ToString();
+                            }
+                        }
                     }
+                    string dr2 = No_Factura.Text + "\t" + DateL.Content.ToString() + "\t" + "0";
+                    nl.writer(ol.oneLine(ap.Invo_()) + dr2, ap.Invo_());
+                    nl.writer(ol.oneLine(ap.ProdInvo_()) + ol.newPorsIvo_(lim), ap.ProdInvo_());
+                    nl.writer(ol.newInven_(dataInve), ap.Inve_());
+                }
+                else
+                {
+                    MessageBox.Show("Na hay productos, añade algunos", "Error");
                 }
             }
-            string dr = No_Factura.Text+"\t"+DateL.Content.ToString()+"\t"+"0";
-            nl.writer(ol.oneLine(ap.Invo_())+dr,ap.Invo_());
-            nl.writer(ol.oneLine(ap.ProdInvo_()) + ol.newPorsIvo_(lim), ap.ProdInvo_());
-            nl.writer(ol.newInven_(dataInve),ap.Inve_());
         }
         private void Descart(object sender, MouseButtonEventArgs e)
         {

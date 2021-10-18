@@ -72,3 +72,5 @@ C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\T
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\ref\Telesi.dll
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Telesi.pdb
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Telesi.genruntimeconfig.cache
+C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\NInvoiceP.g.cs
+C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\NInvoiceP.baml
