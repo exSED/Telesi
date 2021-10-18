@@ -77,7 +77,7 @@ namespace Telesi.Views
         {
             if (react_ == false)
             {
-               
+                ListaI = new InvoiceList();
             }
         }
         private void K(object sender, TextChangedEventArgs e)
@@ -92,6 +92,7 @@ namespace Telesi.Views
             }
             if (s.Count() != 0 && Buscar.Text != "")
             {
+                //ListaP = new SearchList(s);
                 react_ = true;
             }
             else

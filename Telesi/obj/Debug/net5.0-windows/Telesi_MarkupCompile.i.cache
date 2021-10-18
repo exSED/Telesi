@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\App.xaml
-9-1676286433
+10-1846275656
 
-21-348854196
+22451447186
 193-1891726104
-MainWindow.xaml;Types\InventoryList.xaml;Types\InvoiceList.xaml;Types\NInvoice.xaml;Types\NInvoiceP.xaml;Types\SearchList.xaml;Views\InvoicesView.xaml;Views\MainView.xaml;Views\ProductsView.xaml;
+MainWindow.xaml;Types\InventoryList.xaml;Types\InvoiceList.xaml;Types\NInvoice.xaml;Types\NInvoiceP.xaml;Types\SearchList.xaml;Types\Window1.xaml;Views\InvoicesView.xaml;Views\MainView.xaml;Views\ProductsView.xaml;
 
 False
 

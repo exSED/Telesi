@@ -96,7 +96,10 @@ namespace Telesi.Types
         }
         private void i_view(object sender, MouseButtonEventArgs e)
         {
-
+            MainWindow s1 = new MainWindow();
+            Window1 s = new Window1();
+            s.Owner = s1.Owner;
+            s.ShowDialog();
         }
         private void i_del(object sender, MouseButtonEventArgs e)
         {
@@ -111,10 +114,6 @@ namespace Telesi.Types
 
                 content_.RowDefinitions.Clear();
             }
-        }
-        private void moreProducts(object sender, MouseButtonEventArgs e)
-        {
- 
         }
         private void cancel(object sender, MouseButtonEventArgs e)
         {
