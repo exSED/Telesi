@@ -59,7 +59,8 @@ namespace Telesi.Types
         }
         private void NumberLim(object sender, KeyEventArgs e)
         {
-           if (e.Key >= Key.Tab || (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
+
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
                 e.Handled = false;
             }
@@ -251,6 +252,19 @@ namespace Telesi.Types
             nl.writer(ol.oneLine(ap.Invo_())+dr,ap.Invo_());
             nl.writer(ol.oneLine(ap.ProdInvo_()) + ol.newPorsIvo_(lim), ap.ProdInvo_());
             nl.writer(ol.newInven_(dataInve),ap.Inve_());
+        }
+        private void Descart(object sender, MouseButtonEventArgs e)
+        {
+            if (MessageBox.Show("¿Desea eliminar todos los productos ingresados a la factura actual", "Descartar productos", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                lim.Clear();
+                TotalL.Content = "0";
+                PPP.Children.Remove(content_);
+                PPP.Children.Clear();
+                content_.RowDefinitions.Clear();
+                content_.Children.Clear();
+                PPP.Children.Add(content_);
+            }
         }
     }
 }

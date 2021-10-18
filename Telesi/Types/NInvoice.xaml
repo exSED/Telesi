@@ -167,8 +167,16 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
                 </Grid.ColumnDefinitions>
-
+                <Grid Grid.Column="1" Margin="10">
+                    <Image x:Name="Descart"
+                       Margin="5" 
+                       Source="/images/SaveArchIcon.png" 
+                       Opacity="0.8"
+                       Cursor="Hand" 
+                       MouseDown="Descart"/>
+                </Grid>
                 <Grid Grid.Column="2" Margin="10">
                     <Image x:Name="Can"
                        Margin="5" 
