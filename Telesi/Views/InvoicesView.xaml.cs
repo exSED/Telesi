@@ -58,10 +58,6 @@ namespace Telesi.Views
                 relax = false;
             }
         }
-        private void ClickButtonOpenA(object sender, MouseButtonEventArgs e)
-        {
-
-        }
         private void ClickButtonSaveA(object sender, MouseButtonEventArgs e)
         {
 

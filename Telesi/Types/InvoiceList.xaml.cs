@@ -27,7 +27,7 @@ namespace Telesi.Types
         private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
-        private string[] dataInventor;
+        private string[] dataInvoic;
         private string value_;
         private NewLines nl = new NewLines();
         private Grid content_ = new Grid(), product_;
@@ -37,14 +37,14 @@ namespace Telesi.Types
         public InvoiceList()
         {
             InitializeComponent();
-            dataInventor = File.ReadAllLines(ap.Invo_());
+            dataInvoic = File.ReadAllLines(ap.Invo_());
             NewGrids(ie.Invoices(ap.Invo_(), ap.ProdInvo_()));
         }
         public void NewGrids(List<Invoice> invoices_)
         {
             if (invoices_ != null)
             {
-                for (int i = 0; i < dataInventor.Length; i++)
+                for (int i = 0; i < dataInvoic.Length; i++)
                 {
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
 
@@ -53,6 +53,7 @@ namespace Telesi.Types
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = dateRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = totalRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = prRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
 
                     text = new Label { Content = invoices_[i].number_, Name = "num_" + i, VerticalAlignment = Alli.VerticalAlignment };
@@ -74,10 +75,16 @@ namespace Telesi.Types
                     text.SetValue(Grid.ColumnProperty, 3);
                     icons.SetValue(Grid.ColumnProperty, 3);
 
-                    icons = new Image { Source = EditRef.Source, Name = "Edit_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
-                    icons.MouseDown += new MouseButtonEventHandler(i_view);
+                    icons = new Image { Source = EditRef.Source, Name = "Deletes_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
+                    icons.MouseDown += new MouseButtonEventHandler(i_del);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 4);
+
+                    icons = new Image { Source = EditRef.Source, Name = "View_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
+                    icons.MouseDown += new MouseButtonEventHandler(i_view);
+                    product_.Children.Add(icons);
+                    icons.SetValue(Grid.ColumnProperty, 5);
+
 
                     product_.Background = BlackReference.Background;
                     product_.SetValue(Grid.RowProperty, i);
@@ -95,11 +102,11 @@ namespace Telesi.Types
         {
             var c = e.OriginalSource as FrameworkElement;
             string o = c.Name;
-            o = o.Replace("Delete_", "");
+            o = o.Replace("Deletes_", "");
             int ocl = Int32.Parse(o);
-            if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("¿Desea eliminar permanentemente la factura?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                nl.writer(ol.NewInv(ap.Invo_(), dataInventor[ocl]),
+                nl.writer(ol.NewInv(ap.Invo_(), dataInvoic[ocl]),
                             ap.Invo_());
 
                 content_.RowDefinitions.Clear();
