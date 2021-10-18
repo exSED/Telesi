@@ -21,15 +21,8 @@ namespace Telesi.Types
     /// </summary>
     public partial class InvoicePreView : Window
     {
-        private InveExtractor ie = new InveExtractor();
-        private DataLength dl = new DataLength();
-        private AllPaths ap = new AllPaths();
-        private NewLines nl = new NewLines();
-        private OneLine ol = new OneLine();
-        private string value_;
-        private int oc;
-        private Grid content_ = new Grid(), product_, ed;
-        private Image icons, acc;
+        private Grid content_ = new Grid(), product_;
+        private Image icons;
         private Label text;
         public InvoicePreView(Invoice InvoiceList)
         {

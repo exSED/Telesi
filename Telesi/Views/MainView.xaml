@@ -60,7 +60,7 @@
                     <Image x:Name="buttonMenuP" 
                            Grid.Column="1" 
                            Margin="1" 
-                           Source="/images/Menu2.png" 
+                           Source="/Image/OkFondoNegro.png" 
                            Cursor="Hand" 
                            MouseEnter="FocusIconMenu"/>
                 </Grid>
@@ -74,7 +74,7 @@
                 </Grid.RowDefinitions>
                 <Grid x:Name="InventoryItemsGrid" Grid.Row="0">
                     <Grid x:Name="TemeSelected2">
-                        <Image Source = "/images/inventario.png"
+                        <Image Source = "/Image/Inventario.png"
                                Margin="10 10 100 10"
                                Opacity="0.4"/>
                         <Label x:Name="InventoryButton" 
@@ -91,7 +91,7 @@
                 </Grid>
                 <Grid x:Name="InvoiceItemsGrid" Grid.Row="1" Margin="0 5">
                     <Grid x:Name="TemeSelected3">
-                        <Image Source = "/images/Invoice.png" 
+                        <Image Source = "/Image/Documentos.png" 
                                Grid.Row="0"
                                Margin="10 10 120 10"
                                Opacity="0.4"/>

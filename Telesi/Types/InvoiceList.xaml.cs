@@ -48,6 +48,7 @@ namespace Telesi.Types
             {
                 for (int i = 0; i < il.Count; i++)
                 {
+                    int y = 0;
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
 
                     product_ = new Grid { Name = "p" + i, Margin = MarginReference.Margin };
@@ -66,23 +67,27 @@ namespace Telesi.Types
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 1);
 
-                    text = new Label { Content = invoices_[i].total_, Name = "total_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    for (int ex=0; ex<il[i].Product.Count; ex++ )
+                    {
+                        y += Int32.Parse(il[i].Product[ex].price_);
+                    }
+                    text = new Label { Content = y, Name = "total_" + i, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 2);
 
-                    icons = new Image { Source = DelRef.Source, Name = "Pro_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    icons = new Image { Source = ImageRef.Source, Name = "Pro_" + i, VerticalAlignment = Alli.VerticalAlignment };
                     text = new Label { Content = il[i].Product.Count(), Name = "xProd_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     product_.Children.Add(icons);
                     text.SetValue(Grid.ColumnProperty, 3);
                     icons.SetValue(Grid.ColumnProperty, 3);
 
-                    icons = new Image { Source = EditRef.Source, Name = "Deletes_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
+                    icons = new Image { Source = DelRef.Source, Name = "Deletes_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
                     icons.MouseDown += new MouseButtonEventHandler(i_del);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 4);
 
-                    icons = new Image { Source = EditRef.Source, Name = "View_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
+                    icons = new Image { Source = Ok.Source, Name = "View_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
                     icons.MouseDown += new MouseButtonEventHandler(i_view);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 5);

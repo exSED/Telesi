@@ -134,7 +134,7 @@
             <Grid Grid.Column="3">
                 <Image x:Name="SaveLogButton"
                        Margin="5" 
-                       Source="/images/SaveArchIcon.png" 
+                       Source="/Image/GuardarNegro.png" 
                        Opacity="0.8"
                        MouseDown="ClickButtonSaveA"
                        Cursor="Hand"/>
@@ -152,8 +152,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,0,10">
                 <Image x:Name="NewInvoP"
-                       Margin="5" 
-                       Source="/images/SaveArchIcon.png" 
+                       Source="/Image/NuevoDocumento.png" 
                        Opacity="0.8"
                        MouseDown="ClickButtonNewA"
                        Cursor="Hand"/>

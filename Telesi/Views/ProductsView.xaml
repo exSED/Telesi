@@ -133,7 +133,7 @@
             <Grid Grid.Column="2">
                 <Image x:Name="SaveLogButton"
                        Margin="5" 
-                       Source="/images/SaveArchIcon.png" 
+                       Source="/Image/GuardarNegro.png" 
                        Opacity="0.8"
                        MouseDown="ClickButtonSave"
                        Cursor="Hand"/>
@@ -151,14 +151,12 @@
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" HorizontalAlignment="Right">
                 <Image x:Name="NewInvoP"
-                       Margin="5" 
-                       Source="/images/SaveArchIcon.png" 
+                       Source="/Image/NuevoDocumento.png" 
                        Opacity="0.8"
                        MouseDown="ClickButtonNew"
                        Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Tls" Grid.Row="0" Margin="150
-                  ,1,130,1">
+            <Grid x:Name="Tls" Grid.Row="0" Margin="100,1,230,1">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -184,7 +182,7 @@
                 <Label Content="Cantidad" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" Height="22" Width="58" FontSize="11"/>
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
-            <ScrollViewer x:Name="ScrViwer_" Grid.Row="1" Margin="100 0 0 30" >
+            <ScrollViewer x:Name="ScrViwer_" Grid.Row="1" Margin="50 0 50 30" >
                 <Border  Name="Pp_" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateList">
                     
                 </Border>

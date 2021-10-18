@@ -77,7 +77,7 @@ namespace Telesi.Types
             form_.Children.Add(price__);
             price__.SetValue(Grid.ColumnProperty, 3);
 
-            icons = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
+            icons = new Image { Source = Paloma.Source, Name = "IM", Cursor = EditRef.Cursor };
 
             icons.MouseDown += new MouseButtonEventHandler(accept);
             icons.KeyDown += new KeyEventHandler(KD2);
@@ -142,7 +142,7 @@ namespace Telesi.Types
             ed.Children.Add(price_E);
             price_E.SetValue(Grid.ColumnProperty, 3);
 
-            acc = new Image { Source = MoreRef.Source, Name = "IM", Cursor = EditRef.Cursor };
+            acc = new Image { Source = Ok.Source, Name = "IM", Cursor = EditRef.Cursor, Margin=Ok.Margin};
             acc.MouseDown += new MouseButtonEventHandler(cam);
             acc.KeyDown += new KeyEventHandler(KD);
             ed.Children.Add(acc);
@@ -194,7 +194,7 @@ namespace Telesi.Types
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 5);
 
-                    icons = new Image { Source = EditRef.Source, Name = "Edit_" + i, Cursor = EditRef.Cursor };
+                    icons = new Image { Source = EditRef.Source, Name = "Edit_" + i, Cursor = EditRef.Cursor, Margin=EditRef.Margin };
                     icons.MouseDown += new MouseButtonEventHandler(p_edit);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 4);
