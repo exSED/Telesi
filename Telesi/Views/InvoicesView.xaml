@@ -158,7 +158,7 @@
                        MouseDown="ClickButtonNewA"
                        Cursor="Hand"/>
             </Grid>
-            <Grid x:Name="Til" Grid.Row="0" Margin="100,1,200,10" Grid.Column="0">
+            <Grid x:Name="Til" Grid.Row="0" Margin="150,1,200,10" Grid.Column="0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -180,9 +180,10 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Número" Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
                 <Label Content="Fecha" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="20" Foreground="White" Height="34"/>
-                <Label Content="Total pagado" Grid.Column="2" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="20" Margin="0,0,-38,0"/>
+                <Label Content="Total pagado" Grid.Column="2" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="20" Margin="2
+                       "/>
             </Grid>
-            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="50,0,10,30">
+            <ScrollViewer x:Name="ScrViwer" Grid.Row="1" Margin="100,0,40,30">
                 <Border Name="Pp" Margin="5" VerticalAlignment="Top" SizeChanged="UpdateListA">
 
                 </Border>

@@ -27,6 +27,7 @@ namespace Telesi.Types
         private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
+        private List<Invoice> il = new List<Invoice>();
         private string[] dataInvoic;
         private string value_;
         private NewLines nl = new NewLines();
@@ -38,13 +39,14 @@ namespace Telesi.Types
         {
             InitializeComponent();
             dataInvoic = File.ReadAllLines(ap.Invo_());
-            NewGrids(ie.Invoices(ap.Invo_(), ap.ProdInvo_()));
+            il = ie.Invoices(ap.Invo_(), ap.ProdInvo_());
+            NewGrids(il);
         }
         public void NewGrids(List<Invoice> invoices_)
         {
             if (invoices_ != null)
             {
-                for (int i = 0; i < dataInvoic.Length; i++)
+                for (int i = 0; i < il.Count; i++)
                 {
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
 
@@ -68,8 +70,8 @@ namespace Telesi.Types
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 2);
 
-                    icons = new Image { Source = DelRef.Source, Name = "Prodss_" + i, VerticalAlignment = Alli.VerticalAlignment };
-                    text = new Label { Content = invoices_[i].Product.Count(), Name = "Prodsss_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
+                    icons = new Image { Source = DelRef.Source, Name = "Pro_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = il[i].Product.Count(), Name = "xProd_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     product_.Children.Add(icons);
                     text.SetValue(Grid.ColumnProperty, 3);
@@ -96,8 +98,12 @@ namespace Telesi.Types
         }
         private void i_view(object sender, MouseButtonEventArgs e)
         {
+            var c = e.OriginalSource as FrameworkElement;
+            string o = c.Name;
+            o = o.Replace("View_", "");
+            int oc = Int32.Parse(o);
             MainWindow s1 = new MainWindow();
-            Window1 s = new Window1();
+            InvoicePreView s = new InvoicePreView(il[oc]);
             s.Owner = s1.Owner;
             s.ShowDialog();
         }

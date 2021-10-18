@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using Telesi.Types;
+using Telesi.Helpers;
+
+namespace Telesi.Types
+{
+    /// <summary>
+    /// Lógica de interacción para InvoicePreView.xaml
+    /// </summary>
+    public partial class InvoicePreView : Window
+    {
+        private InveExtractor ie = new InveExtractor();
+        private DataLength dl = new DataLength();
+        private AllPaths ap = new AllPaths();
+        private NewLines nl = new NewLines();
+        private OneLine ol = new OneLine();
+        private string value_;
+        private int oc;
+        private Grid content_ = new Grid(), product_, ed;
+        private Image icons, acc;
+        private Label text;
+        public InvoicePreView(Invoice InvoiceList)
+        {
+            InitializeComponent();
+            No_F.Content = InvoiceList.number_;
+            Date_F.Content = InvoiceList.date_;
+            int t=0;
+            for (int i=0;i<InvoiceList.Product.Count;i++)
+            {
+                t += Int32.Parse(InvoiceList.Product[i].price_);
+            }
+            InvoTotal.Content = t.ToString();
+            NewGrids(InvoiceList.Product);
+        }
+        public void NewGrids(List<Products> inventory_)
+        {
+            if (inventory_ != null)
+            {
+                for (int i = 0; i < inventory_.Count; i++)
+                {
+                    content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
+
+                    product_ = new Grid { Name = "p" + i, Margin = MarginReference.Margin };
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = idRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = nameRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = countRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = priceRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
+
+                    text = new Label { Content = inventory_[i].id_, Name = "id_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 0);
+
+                    text = new Label { Content = inventory_[i].name_, Name = "name_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 1);
+
+                    text = new Label { Content = inventory_[i].count_, Name = "count_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 2);
+
+                    text = new Label { Content = inventory_[i].price_, Name = "price_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 3);
+
+                    icons = new Image { Source = DelRef.Source, Name = "Delete_" + i, Cursor = EditRef.Cursor };
+                    icons.MouseDown += new MouseButtonEventHandler(p_del);
+                    product_.Children.Add(icons);
+                    icons.SetValue(Grid.ColumnProperty, 5);
+
+                    product_.Background = BlackReference.Background;
+                    product_.SetValue(Grid.RowProperty, i);
+
+                    content_.Children.Add(product_);
+                }
+            }
+            Vew_.Children.Add(content_);
+        }
+        private void p_del(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+    }
+}

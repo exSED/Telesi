@@ -261,6 +261,15 @@ namespace Telesi.Types
                     nl2.writer(ol2.oneLine(ap2.Invo_()) + dr2, ap2.Invo_());
                     nl2.writer(ol2.oneLine(ap2.ProdInvo_()) + ol2.newPorsIvo_(lim2), ap2.ProdInvo_());
                     nl2.writer(ol2.newInven_(dataInve2), ap2.Inve_());
+                    lim2.Clear();
+                    TotalL2.Content = "0";
+                    PPP2.Children.Remove(content_2);
+                    PPP2.Children.Clear();
+                    content_2.RowDefinitions.Clear();
+                    content_2.Children.Clear();
+                    PPP2.Children.Add(content_2);
+                    No_Factura2.Text = "";
+                    Referencia2.Text = "";
                 }
                 else
                 {

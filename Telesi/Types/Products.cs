@@ -11,4 +11,7 @@ namespace Telesi.Types{
         public string count_ { get; set; }
         public string price_ { get; set; }
     }
+    public class PProds_{
+        public List<Products> lol { get; set; }
+    }
 }

@@ -15,7 +15,7 @@ namespace Telesi.Helpers
         private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
         private List<Invoice> ListInvoice = new List<Invoice>();
-        private List<Products> ListProds = new List<Products>();
+        private List<PProds_> ListPProds = new List<PProds_>();
         public List<Invoice> Invoices(string pathInvo_, string pathProds_)
         {
             try
@@ -24,17 +24,16 @@ namespace Telesi.Helpers
                 {
                     string[] dataInvoice1 = File.ReadAllLines(pathInvo_);
                     string[] dataProduct1 = File.ReadAllLines(pathProds_);
-                     
-                    if (dataInvoice1.Length > 0 && dataInvoice1[0] != String.Empty)
+
+                    if (dataProduct1.Length > 0 && dataProduct1[0] != String.Empty)
                     {
                         for (int i = 0; i < dataInvoice1.Length; i++)
                         {
-                            ListProds.Clear();
-                            string dI = dataInvoice1[i].Replace("\t", "\r\n");
-                            string[] dataInvoice = dI.Split("\r\n");
+                            List<Products> ListProds = new List<Products>();
                             string dP = dataProduct1[i].Replace("|", "\r\n");
                             string[] dataProduct = dP.Split("\r\n");
-                            for (int j = 0; j < dataProduct.Length; j++){
+                            for (int j = 0; j < dataProduct.Length; j++)
+                            {
                                 string dPr = dataProduct[j].Replace("-", "\r\n");
                                 string[] dataProd = dPr.Split("\r\n");
                                 ListProds.Add(new Products
@@ -45,12 +44,26 @@ namespace Telesi.Helpers
                                     price_ = dataProd[3]
                                 });
                             }
+                            ListPProds.Add(new PProds_{
+                                lol = ListProds
+                            });
+                            
+                        }
+                    }
+
+                    if (dataInvoice1.Length > 0 && dataInvoice1[0] != String.Empty)
+                    {
+                        for (int i = 0; i < dataInvoice1.Length; i++)
+                        {
+                            string dI = dataInvoice1[i].Replace("\t", "\r\n");
+                            string[] dataInvoice = dI.Split("\r\n");
+
                             ListInvoice.Add(new Invoice
                             {
                                 number_ = dataInvoice[0],
                                 date_ = dataInvoice[1],
                                 total_ = dataInvoice[2],
-                                Product = ListProds
+                                Product = ListPProds[i].lol
                             });
                         }
                         return ListInvoice;

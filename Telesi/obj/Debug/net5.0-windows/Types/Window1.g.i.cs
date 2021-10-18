@@ -53,7 +53,7 @@ namespace Telesi.Types {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Telesi;component/types/window1.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Telesi;V1.0.0.0;component/types/window1.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Types\Window1.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
