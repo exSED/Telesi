@@ -98,11 +98,11 @@ namespace Telesi.Types
                 for (int i = 0; i < lim2.Count; i++)
                 {
                     content_2.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference2.Width });
-                    d2 = lim2[i].id_ + "\t" + Cantidad2.Text + "\t\t$" + lim2[i].price_ + "\t" + lim2[i].name_ + "\r\n";
+                    d2 = lim2[i].id_ + "\t\t" + Cantidad2.Text + "\t\t$" + lim2[i].price_ + "\t" + lim2[i].name_ + "\r\n";
                     pin_2 = new Label { Content = d2, Name = "id_" + i };
                     pin_2.SetValue(Grid.RowProperty, i);
                     content_2.Children.Add(pin_2);
-                    TotalL2.Content = "$" + (Int32.Parse(TotalL2.Content.ToString().Replace("$", "")) + Int32.Parse(lim2[i].price_));
+                    TotalL2.Content = "$" + (Int32.Parse(TotalL2.Content.ToString().Replace("$", "")) + (Int32.Parse(dataInve2[f2].price_) * Int32.Parse(Cantidad2.Text)));
                 }
                 PPP2.Children.Add(content_2);
                 RetraRe.Visibility = Visibility.Visible;
