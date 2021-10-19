@@ -75,7 +75,7 @@ namespace Telesi.Types
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 2);
 
-                    icons = new Image { Source = ImageRef.Source, Name = "Pro_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    icons = new Image { Source = ImageRef.Source, Name = "Pro_" + i, VerticalAlignment = Alli.VerticalAlignment, HorizontalAlignment = Alli.HorizontalContentAlignment };
                     text = new Label { Content = il[i].Product.Count(), Name = "xProd_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     product_.Children.Add(icons);
@@ -87,7 +87,7 @@ namespace Telesi.Types
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 4);
 
-                    icons = new Image { Source = Ok.Source, Name = "View_" + i, Cursor = EditRef.Cursor, Margin = ImageRef.Margin };
+                    icons = new Image { Source = Ok.Source, Name = "View_" + i, Cursor = EditRef.Cursor, Margin = Ok.Margin };
                     icons.MouseDown += new MouseButtonEventHandler(i_view);
                     product_.Children.Add(icons);
                     icons.SetValue(Grid.ColumnProperty, 5);

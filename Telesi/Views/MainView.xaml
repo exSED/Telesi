@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
-        <ImageBrush ImageSource="/images/sinFondo.png" Stretch="Uniform" Opacity="0.6"/>
+        <ImageBrush ImageSource="/Image/LogoSinFondo.png" Stretch="Uniform" Opacity="0.6"/>
     </UserControl.Background>
     <Grid>
         <Grid.Background>
@@ -60,7 +60,7 @@
                     <Image x:Name="buttonMenuP" 
                            Grid.Column="1" 
                            Margin="1" 
-                           Source="/Image/OkFondoNegro.png" 
+                           Source="/Image/Menu2.png" 
                            Cursor="Hand" 
                            MouseEnter="FocusIconMenu"/>
                 </Grid>

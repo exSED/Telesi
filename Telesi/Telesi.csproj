@@ -13,8 +13,13 @@
     <None Remove="Image\GuardarFondoNegro.png" />
     <None Remove="Image\GuardarNegro.png" />
     <None Remove="Image\Inventario.png" />
+	<None Remove="Image\Inventario2.png" />
+	<None Remove="Image\Icono.png" />
+	<None Remove="Image\LapizVerde.png" />
+	<None Remove="Image\LogoSinFondo.png" />
     <None Remove="Image\MasFondoBlanco.png" />
     <None Remove="Image\MasFondoGris.png" />
+	<None Remove="Image\Menu2.png" />
     <None Remove="Image\NuevoDocumento.png" />
     <None Remove="Image\OjoChafa.png" />
     <None Remove="Image\Ok.png" />
@@ -22,6 +27,7 @@
     <None Remove="Image\OkFondoBlanco.png" />
     <None Remove="Image\OkFondoNegro.png" />
     <None Remove="Image\PalomaVerde.png" />
+	<None Remove="Image\TelaFondo.png" />
     <None Remove="Image\XBlanco.png" />
     <None Remove="Image\XNegro.png" />
   </ItemGroup>
@@ -32,8 +38,13 @@
     <Resource Include="Image\GuardarFondoNegro.png" />
     <Resource Include="Image\GuardarNegro.png" />
     <Resource Include="Image\Inventario.png" />
+	<Resource Include="Image\Inventario2.png" />
+	<Resource Include="Image\Icono.png" />
+	<Resource Include="Image\LapizVerde.png" />
+	<Resource Include="Image\LogoSinFondo.png" />
     <Resource Include="Image\MasFondoBlanco.png" />
     <Resource Include="Image\MasFondoGris.png" />
+	<Resource Include="Image\Menu2.png" />
     <Resource Include="Image\NuevoDocumento.png" />
     <Resource Include="Image\OjoChafa.png" />
     <Resource Include="Image\Ok.png" />
@@ -41,6 +52,7 @@
     <Resource Include="Image\OkFondoBlanco.png" />
     <Resource Include="Image\OkFondoNegro.png" />
     <Resource Include="Image\PalomaVerde.png" />
+	<Resource Include="Image\TelaFondo.png" />
     <Resource Include="Image\XBlanco.png" />
     <Resource Include="Image\XNegro.png" />
   </ItemGroup>

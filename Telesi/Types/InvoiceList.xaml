@@ -58,7 +58,7 @@
                 <ColumnDefinition x:Name="numRef" Width="110"/>
                 <ColumnDefinition x:Name="dateRef" Width="200"/>
                 <ColumnDefinition x:Name="totalRef" Width="1*"/>
-                <ColumnDefinition x:Name="prRef" Width="80"/>
+                <ColumnDefinition x:Name="prRef" Width="110"/>
                 <ColumnDefinition x:Name="editIconRef" Width="40"/>
                 <ColumnDefinition x:Name="delIconRef" Width="40"/>
                 <ColumnDefinition x:Name="newIconRef" Width="40"/>
@@ -69,8 +69,8 @@
         <Image x:Name="EditRef" Visibility="Hidden" Source="/Image/LapizVerde.png" Margin="5" Grid.Row="1" Cursor="Hand"/>
         <Image x:Name="MoreRef" Visibility="Hidden" Source="/Image/MasFondoBlanco.png" Margin="4 20" Grid.Row="1"/>
         <Image x:Name="Paloma" Visibility="Hidden" Source="/Image/PalomaVerde.png" Margin="4 20" Grid.Row="1"/>
-        <Image x:Name="Ok" Visibility="Hidden" Source="/Image/OjoChafa.png" Margin="0" Grid.Row="1"/>
-        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1" Source="/Image/Inventario.png"/>
+        <Image x:Name="Ok" Visibility="Hidden" Source="/Image/OjoChafa.png" Margin="5" Grid.Row="1"/>
+        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1" Source="/Image/Inventario2.png"/>
         <Label x:Name="Alli" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
         <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="1" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>

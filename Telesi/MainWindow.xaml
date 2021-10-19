@@ -14,13 +14,13 @@
         mc:Ignorable="d"
         Title="Fascinanate" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen" 
-        Icon="/images/F2.png" 
+        Icon="/Image/Icono.png" 
         ShowInTaskbar="False" 
         ScrollViewer.HorizontalScrollBarVisibility="Auto" 
         ScrollViewer.VerticalScrollBarVisibility="Auto" 
         Foreground="{x:Null}" >
     <Window.Background>
-        <ImageBrush ImageSource="/Images/backP.jpg" />
+        <ImageBrush ImageSource="/Image/TelaFondo.png" />
     </Window.Background>
 
     <Border x:Name="mainContainer"/>

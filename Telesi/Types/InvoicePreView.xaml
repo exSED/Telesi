@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Factura" Height="600
-        " Width="450" Icon="/Images/F2.png">
+        " Width="450" Icon="/Image/Icono.png">
     <Window.Resources>
         <ResourceDictionary>
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
@@ -87,7 +87,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="/Images/backP.jpg" Opacity="1"/>
+        <ImageBrush ImageSource="/Image/TelaFondo.png" Opacity="1"/>
     </Window.Background>
     <Grid Background="#7F7171FF">
         <Grid.RowDefinitions>
@@ -96,7 +96,7 @@
         </Grid.RowDefinitions>
         <Grid Margin="10" Grid.Row="0">
             <Grid.Background>
-                <ImageBrush ImageSource="/Images/sinFondo.png" Opacity="0.2" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/Image/LogoSinFondo.png" Opacity="0.2" Stretch="Uniform"/>
             </Grid.Background>
             <Grid x:Name="WaterMar">
                 <Grid.RowDefinitions>
