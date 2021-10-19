@@ -87,18 +87,18 @@ namespace Telesi.Types
                     id_ = dataInve[f].id_,
                     name_ = dataInve[f].name_,
                     count_ = Cantidad.Text,
-                    price_ = (Int32.Parse(dataInve[f].price_) - Int32.Parse(Descuento.Text)).ToString()
+                    price_ = ((Int32.Parse(dataInve[f].price_) * Int32.Parse(Cantidad.Text)) - Int32.Parse(Descuento.Text)).ToString()
                 });
                 TotalL.Content = "0";
                 PPP.Children.Remove(content_);
                 PPP.Children.Clear();
                 content_.RowDefinitions.Clear();
                 content_.Children.Clear();
-                string d2;
                 for (int i = 0; i < lim.Count; i++)
                 {
+                    string d2 = "";
                     content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                    d2 = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
+                    d2 = lim[i].id_ + "\t" + Cantidad.Text + "\t\t$" + lim[i].price_ + "\t" + lim[i].name_ + "\r\n";
                     pin_ = new Label { Content = d2, Name = "id_" + i };
                     pin_.SetValue(Grid.RowProperty, i);
                     content_.Children.Add(pin_);

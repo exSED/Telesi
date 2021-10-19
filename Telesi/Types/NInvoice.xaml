@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Telesi.Types"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="450">
+             d:DesignHeight="720" d:DesignWidth="1080">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
@@ -82,8 +82,16 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid Background="#62000000">
-        <Grid>
+    <Grid Margin="150 0">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#7F000000"/>
+                <GradientStop Color="#E5FF0000" Offset="1"/>
+                <GradientStop Color="#19F00000" Offset="0.207"/>
+                <GradientStop Color="#7FF90000" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
@@ -160,9 +168,16 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">
-                <Label Margin="10 0" Content="Referencia        Cantidad        Precio      Nombre" >
-                    
-                </Label>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Margin="10 0" Content="Referencia" Grid.Column="0"/>
+                <Label Margin="10 0" Content="Cantidad" Grid.Column="1"/>
+                <Label Margin="10 0" Content="Precio" Grid.Column="2"/>
+                <Label Margin="10 0" Content="Nombre" Grid.Column="3"/>
             </Grid>
             <Border  Margin="10,10,10,0" VerticalAlignment="Top" Grid.Row="3" CornerRadius="20,20,20,20">
                 <Grid x:Name="PPP">

@@ -93,7 +93,7 @@
                     <Grid x:Name="TemeSelected3">
                         <Image Source = "/Image/Documentos.png" 
                                Grid.Row="0"
-                               Margin="10 10 120 10"
+                               Margin="10 10 100 10"
                                Opacity="0.4"/>
                         <Label x:Name="InvoiceButton" 
                                Content="Facturas" 

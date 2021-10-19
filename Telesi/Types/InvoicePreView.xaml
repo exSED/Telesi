@@ -89,50 +89,58 @@
     <Window.Background>
         <ImageBrush ImageSource="/Image/TelaFondo.png" Opacity="1"/>
     </Window.Background>
-    <Grid Background="#7F7171FF">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#996161FD"/>
+                <GradientStop Color="#B2FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
-        <Grid Margin="10" Grid.Row="0">
-            <Grid.Background>
-                <ImageBrush ImageSource="/Image/LogoSinFondo.png" Opacity="0.2" Stretch="Uniform"/>
-            </Grid.Background>
-            <Grid x:Name="WaterMar">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition />
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Label x:Name="No_F" Content="0" Margin="10 0" FontWeight="Bold" FontSize="24" />
+        <Grid Margin="50 30" Grid.Row="0" Background="#66000000">
+            <Grid >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Image/LogoSinFondo.png" Opacity="0.2" Stretch="Uniform"/>
+                </Grid.Background>
+                <Grid x:Name="WaterMar">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition />
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Label x:Name="No_F" Content="0" Margin="10 0" FontWeight="Bold" FontSize="24" />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Label x:Name="Date_F" Content="0-0-0" Margin="10 0" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Column="1">
-                        <Label x:Name="Date_F" Content="0-0-0" Margin="10 0" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                    <Grid Grid.Row="1">
+                        <ScrollViewer x:Name="ScrViwe_" Grid.Row="1" Margin="-10,20,-10,30">
+                            <Border Margin="5" VerticalAlignment="Top">
+                                <Grid x:Name="Vew_">
+
+                                </Grid>
+                            </Border>
+                        </ScrollViewer>
                     </Grid>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <ScrollViewer x:Name="ScrViwe_" Grid.Row="1" Margin="-10,20,-10,30">
-                        <Border Margin="5" VerticalAlignment="Top">
-                            <Grid x:Name="Vew_">
-                                
-                            </Grid>
-                        </Border>
-                    </ScrollViewer>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Label x:Name="InvoTotal" Content="$0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
-                    <Image x:Name="PDF" 
+                    <Grid Grid.Row="2">
+                        <Label x:Name="InvoTotal" Content="$0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+                        <Image x:Name="PDF" 
                            Grid.Column="1" 
                            Margin="1" 
                            Source="/Image/GuardarFondoBlanco.png" 
                            Cursor="Hand" 
                            HorizontalAlignment="Right"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

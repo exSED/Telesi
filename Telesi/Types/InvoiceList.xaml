@@ -12,7 +12,7 @@
             <RowDefinition Height="0" />
         </Grid.RowDefinitions>
         <Grid x:Name="MarginReference" Visibility="Hidden" Grid.Row="1" Margin="50 10"/>
-        <Grid x:Name="WhiteReference" Visibility="Hidden" Grid.Row="1">
+        <Grid x:Name="WhiteReference" Visibility="Hidden" Grid.Row="1" Margin="100 0">
             <Grid.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#CCFFFFFF" Offset="0.15"/>
