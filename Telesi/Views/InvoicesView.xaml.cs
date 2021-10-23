@@ -26,14 +26,15 @@ namespace Telesi.Views
     {
         private string value_;
         private bool react_,relax_;
-        private InveExtractor ie = new InveExtractor();
+        private InvoExtractor ie = new InvoExtractor();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
-        private List<Products> list = new List<Products>();
+        private List<Invoice> list = new List<Invoice>();
         public InvoicesView()
         {
             InitializeComponent();
             ListaI = new InvoiceList();
+            list = ie.Invoices(ap.Invo_(), ap.ProdInvo_());
         }
         public UIElement ListaI
         {
@@ -84,17 +85,17 @@ namespace Telesi.Views
         }
         private void K(object sender, TextChangedEventArgs e)
         {
-            List<Products> s = new List<Products>();
-            for (int i = 0; i < list.Count(); i++)
+            List<Invoice> s = new List<Invoice>();
+            for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].id_ == Buscar.Text)
+                if (list[i].number_ == Buscar.Text)
                 {
                     s.Add(list[i]);
                 }
             }
             if (s.Count() != 0 && Buscar.Text != "")
             {
-                //ListaP = new SearchList(s);
+                ListaI = new SearchList2(s);
                 react_ = true;
             }
             else
