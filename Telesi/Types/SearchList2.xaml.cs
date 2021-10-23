@@ -1,6 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,27 +19,26 @@ using Telesi.Helpers;
 namespace Telesi.Types
 {
     /// <summary>
-    /// Lógica de interacción para InvoiceList.xaml
+    /// Lógica de interacción para SearchList.xaml
     /// </summary>
-    public partial class InvoiceList : UserControl
+    public partial class SearchList2 : UserControl
     {
         private InvoExtractor ie = new InvoExtractor();
         private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
         private List<Invoice> il = new List<Invoice>();
-        private string[] dataInvoic, dataProInvo;
+        private string[] dataInvoic;
         private string value_;
         private NewLines nl = new NewLines();
         private Grid content_ = new Grid(), product_;
         private Image icons;
         private Label text;
 
-        public InvoiceList()
+        public SearchList2()
         {
             InitializeComponent();
             dataInvoic = File.ReadAllLines(ap.Invo_());
-            dataProInvo = File.ReadAllLines(ap.ProdInvo_());
             il = ie.Invoices(ap.Invo_(), ap.ProdInvo_());
             NewGrids(il);
         }
@@ -68,7 +67,7 @@ namespace Telesi.Types
                     product_.Children.Add(text);
                     text.SetValue(Grid.ColumnProperty, 1);
 
-                    for (int ex=0; ex<il[i].Product.Count; ex++ )
+                    for (int ex = 0; ex < il[i].Product.Count; ex++)
                     {
                         y += Int32.Parse(il[i].Product[ex].price_);
                     }
@@ -77,7 +76,7 @@ namespace Telesi.Types
                     text.SetValue(Grid.ColumnProperty, 2);
 
                     icons = new Image { Source = ImageRef.Source, Name = "Pro_" + i, VerticalAlignment = Alli.VerticalAlignment, HorizontalAlignment = Alli.HorizontalContentAlignment };
-                    text = new Label { Content = il[i].Product.Count(), Name = "xProd_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment ,VerticalAlignment = Alli.VerticalAlignment };
+                    text = new Label { Content = il[i].Product.Count(), Name = "xProd_" + i, HorizontalAlignment = Alli.HorizontalContentAlignment, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
                     product_.Children.Add(icons);
                     text.SetValue(Grid.ColumnProperty, 3);
@@ -121,8 +120,9 @@ namespace Telesi.Types
             int ocl = Int32.Parse(o);
             if (MessageBox.Show("¿Desea eliminar permanentemente la factura?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                nl.writer(ol.NewInv(ap.Invo_(), dataInvoic[ocl]),  ap.Invo_());
-                nl.writer(ol.NewInv(ap.ProdInvo_(), dataProInvo[ocl]),  ap.ProdInvo_());
+                nl.writer(ol.NewInv(ap.Invo_(), dataInvoic[ocl]),
+                            ap.Invo_());
+
                 content_.RowDefinitions.Clear();
             }
         }
@@ -146,9 +146,12 @@ namespace Telesi.Types
         }
         private void NumberLim(object sender, KeyEventArgs e)
         {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9){
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            {
                 e.Handled = false;
-            }else{
+            }
+            else
+            {
                 e.Handled = true;
             }
         }

@@ -20,6 +20,9 @@
     <Compile Update="Types\SearchList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Types\SearchList2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Types\InventoryList.xaml">
@@ -38,6 +41,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Types\SearchList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Types\SearchList2.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

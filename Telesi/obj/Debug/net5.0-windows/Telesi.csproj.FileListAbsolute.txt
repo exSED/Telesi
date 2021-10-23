@@ -76,3 +76,5 @@ C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\T
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\NInvoiceP.baml
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\InvoicePreView.g.cs
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\InvoicePreView.baml
+C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\SearchList2.g.cs
+C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\SearchList2.baml
