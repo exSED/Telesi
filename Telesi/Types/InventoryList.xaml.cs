@@ -261,29 +261,58 @@ namespace Telesi.Types
         }
         private void accept(object sender, MouseButtonEventArgs e)
         {
-            nl.writer(ol.oneLine(ap.Inve_()) +
-                        id__.Text + "\t" +
-                        name__.Text + "\t" +
-                        count__.Text + "\t" +
-                        price__.Text,
-                        ap.Inve_());
-            content_.RowDefinitions.Clear();
+            if (id__.Text == "Ref" || name__.Text == "Nombre")
+            {
+                MessageBox.Show("Dato incorrecto, porfavor verificar");
+            }
+            else if (count__.Text == "Cantidad" || price__.Text == "Precio")
+            {
+                MessageBox.Show("Dato incorrecto, porfavor verificar");
+            }
+            else
+            {
+                nl.writer(ol.oneLine(ap.Inve_()) +
+                id__.Text + "\t" +
+                name__.Text + "\t" +
+                count__.Text + "\t" +
+                price__.Text,
+                ap.Inve_());
+                content_.RowDefinitions.Clear();
+            }
         }
         private void cam(object sender, MouseButtonEventArgs e)
         {
-            string o = id_E.Text + "\t" +
+            if (id_E.Text == "Ref" || name_E.Text == "Nombre")
+            {
+                MessageBox.Show("Dato incorrecto, porfavor verificar");
+            }
+            else if (count_E.Text == "Cantidad" || price_E.Text == "Precio")
+            {
+                MessageBox.Show("Dato incorrecto, porfavor verificar");
+            }
+            else
+            {
+                string o = id_E.Text + "\t" +
                 name_E.Text + "\t" +
                 count_E.Text + "\t" +
                 price_E.Text;
-            nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o, (oc + 1)),
-                      ap.Inve_());
-            content_.RowDefinitions.Clear();
+                nl.writer(ol.NewPro(ap.Inve_(), dataInventor[oc], o, (oc + 1)), ap.Inve_());
+                content_.RowDefinitions.Clear();
+            }
         }
         private void TBoxF(object sender, RoutedEventArgs e)
         {
             var c = e.OriginalSource as FrameworkElement;
             value_ = c.Name;
-            c.SetValue(TextBox.TextProperty, "");
+            string re = (c.GetValue(TextBox.TextProperty)).ToString();
+            if (re == "Ref" || re == "Cantidad")
+            {
+                c.SetValue(TextBox.TextProperty, "");
+            }
+            else if (re == "Precio" || re == "Nombre")
+            {
+                c.SetValue(TextBox.TextProperty, "");
+            }
         }
         private void TBoxLF(object sender, RoutedEventArgs e)
         {
