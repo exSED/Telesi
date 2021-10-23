@@ -120,26 +120,33 @@ namespace Telesi.Types
             }
             if (No_Factura2.Text != String.Empty && No_Factura2.Text != "No_Factura")
             {
-                for (int i = 0; i < dataInvo2.Count; i++)
+                if (dataInvo2 != null)
                 {
-                    if (No_Factura2.Text == dataInvo2[i].number_)
+                    for (int i = 0; i < dataInvo2.Count; i++)
                     {
-                        Referencia2.Visibility = Visibility.Hidden;
-                        Cantidad2.Visibility = Visibility.Hidden;
-                        NewInvoOk2.Visibility = Visibility.Hidden;
-                        lim2.Clear();
-                        TotalL2.Content = "0";
-                        PPP2.Children.Remove(content_2);
-                        PPP2.Children.Clear();
-                        content_2.RowDefinitions.Clear();
-                        content_2.Children.Clear();
-                        PPP2.Children.Add(content_2);
-                        break;
+                        if (No_Factura2.Text == dataInvo2[i].number_)
+                        {
+                            Referencia2.Visibility = Visibility.Hidden;
+                            Cantidad2.Visibility = Visibility.Hidden;
+                            NewInvoOk2.Visibility = Visibility.Hidden;
+                            lim2.Clear();
+                            TotalL2.Content = "0";
+                            PPP2.Children.Remove(content_2);
+                            PPP2.Children.Clear();
+                            content_2.RowDefinitions.Clear();
+                            content_2.Children.Clear();
+                            PPP2.Children.Add(content_2);
+                            break;
+                        }
+                        else
+                        {
+                            Referencia2.Visibility = Visibility.Visible;
+                        }
                     }
-                    else
-                    {
-                        Referencia2.Visibility = Visibility.Visible;
-                    }
+                }
+                else
+                {
+                    Referencia2.Visibility = Visibility.Visible;
                 }
             }
             else

@@ -124,7 +124,7 @@ namespace Telesi.Types
                 if (dataInvo != null)
                 {
                     for (int i = 0; i < dataInvo.Count; i++)
-                {
+                        {
                         if (No_Factura.Text == dataInvo[i].number_)
                         {
                             Referencia.Visibility = Visibility.Hidden;
@@ -145,6 +145,10 @@ namespace Telesi.Types
                             Referencia.Visibility = Visibility.Visible;
                         }
                     }
+                }
+                else
+                {
+                    Referencia.Visibility = Visibility.Visible;
                 }
             }            
             else
