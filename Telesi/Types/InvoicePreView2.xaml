@@ -4,9 +4,207 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Telesi.Types"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="InvoicePreView2" Height="450" Width="800">
+        Title="Factura" Height="600
+        " Width="450" Icon="/Image/Icono.png">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid x:Name="Grid">
+                                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" 
+                                           Height="Auto" Fill="Transparent"/>
+                                <Border x:Name="Rectangle1" CornerRadius="10 0 0 10" HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch" Width="Auto" Height="Auto" 
+                                        Background="{TemplateBinding Background}"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Tag" Value="Horizontal">
+                                    <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
+                                    <Setter TargetName="Rectangle1" Property="Height" Value="7"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--SCROLLBARS-->
+            <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                <Setter Property="Foreground" Value="#AAA8341A"/>
+                <Setter Property="Background" Value="DarkGray"/>
+                <Setter Property="Width" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid x:Name="GridRoot" Width="12" Background="{x:Null}">
+                                <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="False">
+                                    <Track.Thumb>
+                                        <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" 
+                                               Style="{DynamicResource ScrollThumbs}"/>
+                                    </Track.Thumb>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="False"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="False"/>
+                                    </Track.DecreaseRepeatButton>
+                                </Track>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                                <Trigger Property="Orientation" Value="Horizontal">
+                                    <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="-90"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="-90"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Width" Value="Auto"/>
+                                    <Setter Property="Height" Value="12"/>
+                                    <Setter TargetName="Thumb" Property="Tag" Value="Horizontal"/>
+                                    <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand"/>
+                                    <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/Image/TelaFondo.png" Opacity="1"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#996161FD"/>
+                <GradientStop Color="#B2FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="50 30" Grid.Row="0" Background="#66000000">
+            <Grid >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Image/LogoSinFondo.png" Opacity="0.2" Stretch="Uniform"/>
+                </Grid.Background>
+                <Grid x:Name="WaterMar">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition />
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Label x:Name="No_F" Content="0" Margin="10 0" FontWeight="Bold" FontSize="24" />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Label x:Name="Date_F" Content="0-0-0" Margin="10 0" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ScrollViewer x:Name="ScrViwe_" Grid.Row="1" Margin="-10,20,-10,30">
+                            <Border Margin="5" VerticalAlignment="Top">
+                                <Grid x:Name="Vew_">
+
+                                </Grid>
+                            </Border>
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Label x:Name="InvoTotal" Content="$0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+                        <Image x:Name="PDF" 
+                           Grid.Column="1" 
+                           Margin="1" 
+                           Source="/Image/GuardarFondoBlanco.png" 
+                           Cursor="Hand" 
+                           HorizontalAlignment="Right"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="MarginReference" Visibility="Hidden" Grid.Row="1" Margin="50 10"/>
+        <Grid x:Name="WhiteReference" Visibility="Hidden" Grid.Row="1">
+            <Grid.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#CCFFFFFF" Offset="0.183"/>
+                    <GradientStop Color="#00FF0000" Offset="1"/>
+                </RadialGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid x:Name="BlackReference" Visibility="Hidden" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#00000000" Offset="0"/>
+                    <GradientStop Color="#CCFFFFFF" Offset="0.3"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid x:Name="BRef" Visibility="Hidden" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#E5FF0000" Offset="0"/>
+                    <GradientStop Color="#E5000000" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid Visibility="Hidden" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ColumnReference" Width="50"/>
+                <ColumnDefinition x:Name="idRef" Width="1*"/>
+                <ColumnDefinition x:Name="nameRef" Width="1*"/>
+                <ColumnDefinition x:Name="countRef" Width="1*"/>
+                <ColumnDefinition x:Name="priceRef" Width="*"/>
+                <ColumnDefinition x:Name="editIconRef" Width="20"/>
+                <ColumnDefinition x:Name="delIconRef" Width="20"/>
+                <ColumnDefinition x:Name="newIconRef" Width="20"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Image x:Name="DelRef" Visibility="Hidden" Source="/Image/XNegro.png" Grid.Row="1" />
+        <Image x:Name="Deleted" Visibility="Hidden" Source="/Image/XBlanco.png" Grid.Row="1" Margin="20"/>
+        <Image x:Name="EditRef" Visibility="Hidden" Source="/Image/LapizVerde.png" Margin="5" Grid.Row="1" Cursor="Hand"/>
+        <Image x:Name="MoreRef" Visibility="Hidden" Source="/Image/MasFondoBlanco.png" Margin="4 20" Grid.Row="1"/>
+        <Image x:Name="Paloma" Visibility="Hidden" Source="/Image/PalomaVerde.png" Margin="4 20" Grid.Row="1"/>
+        <Image x:Name="Ok" Visibility="Hidden" Source="/Image/OkBlanco.png" Margin="0" Grid.Row="1"/>
+        <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1"/>
+        <Label x:Name="Alli" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
+        <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="1" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>
 </Window>

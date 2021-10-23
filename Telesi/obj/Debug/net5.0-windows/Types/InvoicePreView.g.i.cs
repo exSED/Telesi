@@ -277,7 +277,7 @@ namespace Telesi.Types {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Telesi;component/types/invoicepreview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Telesi;V1.0.0.0;component/types/invoicepreview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Types\InvoicePreView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
