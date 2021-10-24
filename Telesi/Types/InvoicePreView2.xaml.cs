@@ -1,4 +1,14 @@
-﻿using System;
+﻿using Paragraph = iText.Layout.Element.Paragraph;
+using ImageT = iText.Layout.Element.Image;
+using iText.IO.Image;
+using iText.Kernel.Pdf.Canvas.Draw;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using Table = iText.Layout.Element.Table;
+using iText.Layout.Borders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +21,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Telesi.Types;
+using Telesi.Helpers;
 
 namespace Telesi.Types
 {
@@ -20,10 +32,13 @@ namespace Telesi.Types
     public partial class InvoicePreView2 : Window
     {
         private Grid content_ = new Grid(), product_;
+        private AllPaths ap = new AllPaths();
+        private Invoice list = new Invoice();
         private Label text;
         public InvoicePreView2(Invoice InvoiceList)
         {
             InitializeComponent();
+            list = InvoiceList;
             No_F.Content = InvoiceList.number_;
             Date_F.Content = InvoiceList.date_;
             int t = 0;
@@ -34,6 +49,7 @@ namespace Telesi.Types
             InvoTotal.Content = t.ToString();
             NewGrids(InvoiceList.Product);
         }
+
         public void NewGrids(List<Products> inventory_)
         {
             if (inventory_ != null)
@@ -71,6 +87,192 @@ namespace Telesi.Types
                 }
             }
             Vew_.Children.Add(content_);
+        }
+        private void SevaPDDI_(object sender, MouseButtonEventArgs e)
+        {
+            var sfd = new Microsoft.Win32.SaveFileDialog();
+            sfd.FileName = "Inventario";
+            sfd.DefaultExt = ".pdf";
+            sfd.Filter = "TelesiDoc (.pdf)|*.pdf";
+
+            Nullable<bool> result = sfd.ShowDialog();
+
+            if (result == true)
+            {
+                string path = sfd.FileName;
+                PdfWriter writer = new PdfWriter(path);
+                PdfDocument pdf = new PdfDocument(writer);
+                Document document = new Document(pdf);
+
+                document.SetMargins(20, 60, 60, 100);
+
+                float[] pointColumnWidthsH = { 350F, 350F };
+                Table head_ = new Table(pointColumnWidthsH);
+
+                Paragraph header = new Paragraph("Fascinante")
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                    .SetFontSize(12);
+
+                Paragraph stre_ = new Paragraph("NIT: " +
+                    "\nCentro comercial Mundo del oro -Bogota DC-" +
+                    "\nCalle 9 No. 20A -10 Local 126" +
+                    "\nContactanos en: 3208655745" +
+                    "\n" + DateTime.Today.Day + "-" + DateTime.Today.Month + "-" + DateTime.Today.Year)
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                    .SetFontSize(6);
+
+                ImageT img = new ImageT(ImageDataFactory
+                    .Create(ap.Img1()))
+                    .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT)
+                    .SetWidth(120)
+                    .SetHeight(62);
+
+                float[] pointColumnWidthsHt = { 350F };
+                Table headT_ = new Table(pointColumnWidthsHt);
+
+                head_.AddCell(new Cell()
+                  .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                  .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                  .Add(headT_));
+
+                headT_.AddCell(new Cell()
+                  .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                  .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                  .Add(header));
+                headT_.AddCell(new Cell()
+                  .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                  .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                  .Add(stre_));
+
+
+                head_.AddCell(new Cell()
+                   .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                   .SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.RIGHT)
+                   .Add(img));
+
+                LineSeparator ls = new LineSeparator(new SolidLine());
+
+                Paragraph title_ = new Paragraph("\nInventario.\n\n")
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                    .SetFontSize(20);
+
+                float[] pointColumnWidths = { 100F, 300F, 75F, 150F };
+                Table table = new Table(pointColumnWidths);
+
+                table.AddCell(new Cell()
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.ORANGE)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                   .Add(new Paragraph("Ref.")));
+                table.AddCell(new Cell()
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.ORANGE)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                   .Add(new Paragraph("Nombre")));
+                table.AddCell(new Cell()
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.ORANGE)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                   .Add(new Paragraph("Cantidad")));
+                table.AddCell(new Cell()
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.ORANGE)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                   .Add(new Paragraph("Precio($)")));
+
+                for (int i = 0; i < list.Product.Count; i++)
+                {
+                    table.AddCell(new Cell()
+                       .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                       .Add(new Paragraph(list.Product[i].id_)));
+                    table.AddCell(new Cell()
+                       .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                       .Add(new Paragraph(list.Product[i].name_)));
+                    table.AddCell(new Cell()
+                       .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                       .Add(new Paragraph(list.Product[i].count_)));
+                    table.AddCell(new Cell()
+                       .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                       .Add(new Paragraph("$" + list.Product[i].price_)));
+                }
+                table.AddCell(new Cell()
+                   .SetBorder(iText.Layout.Borders.Border.NO_BORDER)
+                   .Add(new Paragraph("")));
+                table.AddCell(new Cell()
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.YELLOW)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                   .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                   .Add(new Paragraph("Totales:")));
+
+                int y = 0;
+
+                for (int i = 0; i < list.Product.Count; i++)
+                {
+                    y += Int32.Parse(list.Product[i].count_);
+                }
+                table.AddCell(new Cell()
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.YELLOW)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                   .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                   .Add(new Paragraph(y + "")));
+                int yx = 0;
+
+                for (int i = 0; i < list.Product.Count; i++)
+                {
+                    yx += Int32.Parse(list.Product[i].price_);
+                }
+                table.AddCell(new Cell()
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.YELLOW)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                   .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                   .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
+                   .Add(new Paragraph("$" + yx)));
+
+                document.Add(head_);
+                document.Add(ls);
+                document.Add(title_);
+                document.Add(table);
+
+
+                document.Close();
+            }
         }
     }
 }

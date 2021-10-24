@@ -108,6 +108,7 @@
                 <Grid x:Name="WaterMar">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition />
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
@@ -123,23 +124,50 @@
                             <Label x:Name="Date_F" Content="0-0-0" Margin="10 0" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
                         </Grid>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <ScrollViewer x:Name="ScrViwe_" Grid.Row="1" Margin="-10,20,-10,30">
-                            <Border Margin="5" VerticalAlignment="Top">
+                    <Grid x:Name="Tls" Grid.Row="1" Margin="40 5 65 5">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#00000000"/>
+                                <GradientStop Color="#B2620000" Offset="0.078"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="21*"/>
+                            <ColumnDefinition Width="39*"/>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="45*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Foreground="White" Height="34"/>
+                        <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Foreground="White" Height="34"/>
+                        <Label Content="Cant." Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" Height="34" Width="44" FontSize="15"/>
+                        <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <ScrollViewer x:Name="ScrViwe_" Grid.Row="1" Margin="-10,1,-10,10">
+                            <Border VerticalAlignment="Top">
                                 <Grid x:Name="Vew_">
 
                                 </Grid>
                             </Border>
                         </ScrollViewer>
                     </Grid>
-                    <Grid Grid.Row="2">
-                        <Label x:Name="InvoTotal" Content="$0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+                    <Grid Grid.Row="3">
+                        <Label x:Name="InvoTotal" Content="Total:   $0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
                         <Image x:Name="PDF" 
                            Grid.Column="1" 
                            Margin="1" 
                            Source="/Image/GuardarFondoBlanco.png" 
                            Cursor="Hand" 
-                           HorizontalAlignment="Right"/>
+                           HorizontalAlignment="Right" 
+                           MouseDown="SevaPDDI_"/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -191,7 +219,7 @@
                 <ColumnDefinition x:Name="idRef" Width="1*"/>
                 <ColumnDefinition x:Name="nameRef" Width="1*"/>
                 <ColumnDefinition x:Name="countRef" Width="1*"/>
-                <ColumnDefinition x:Name="priceRef" Width="*"/>
+                <ColumnDefinition x:Name="priceRef" Width="1*"/>
                 <ColumnDefinition x:Name="editIconRef" Width="20"/>
                 <ColumnDefinition x:Name="delIconRef" Width="20"/>
                 <ColumnDefinition x:Name="newIconRef" Width="20"/>

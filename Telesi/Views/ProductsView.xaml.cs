@@ -6,6 +6,8 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
+using Table = iText.Layout.Element.Table;
+using iText.Layout.Borders;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -23,8 +25,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telesi.Types;
 using Telesi.Helpers;
-using Table = iText.Layout.Element.Table;
-using iText.Layout.Borders;
 
 namespace Telesi.Views
 {
@@ -95,7 +95,7 @@ namespace Telesi.Views
                 float[] pointColumnWidthsH = { 350F, 350F };
                 Table head_ = new Table(pointColumnWidthsH);
 
-                Paragraph header = new Paragraph("Facinanate")
+                Paragraph header = new Paragraph("Fascinante")
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
                     .SetFontSize(12);
 
