@@ -46,7 +46,7 @@ namespace Telesi.Types
             {
                 t += Int32.Parse(InvoiceList.Product[i].price_);
             }
-            InvoTotal.Content = t.ToString();
+            InvoTotal.Content = "Total:\t$" + t;
             NewGrids(InvoiceList.Product);
         }
 
@@ -153,9 +153,42 @@ namespace Telesi.Types
 
                 LineSeparator ls = new LineSeparator(new SolidLine());
 
-                Paragraph title_ = new Paragraph("\nInventario.\n\n")
+                Paragraph printLn = new Paragraph("\n")
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
                     .SetFontSize(20);
+
+                float[] pointColumnWidthsDP = { 620F };
+                Table dataPri_ = new Table(pointColumnWidthsDP);
+
+                dataPri_.AddCell(new Cell()
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                   .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.ORANGE)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                   .Add(new Paragraph("Factura No.:\t" + list.number_)
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                    .SetFontSize(15)));
+
+                int yx = 0;
+
+                for (int i = 0; i < list.Product.Count; i++)
+                {
+                    yx += Int32.Parse(list.Product[i].price_);
+                }
+
+                dataPri_.AddCell(new Cell()
+                       .SetBorderLeft(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderRight(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
+                       .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 3))
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                   .Add(new Paragraph("Fecha de la factura:\t\t\t" + list.date_ +
+                    "\nTotal de productos:\t\t\t" + list.Product.Count +
+                    "\nPrecio total de la factura: \t\t $" + yx)
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                    .SetFontSize(8)));
 
                 float[] pointColumnWidths = { 100F, 300F, 75F, 150F };
                 Table table = new Table(pointColumnWidths);
@@ -242,6 +275,7 @@ namespace Telesi.Types
                 {
                     y += Int32.Parse(list.Product[i].count_);
                 }
+
                 table.AddCell(new Cell()
                    .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.YELLOW)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
@@ -250,12 +284,7 @@ namespace Telesi.Types
                    .SetBorderTop(iText.Layout.Borders.Border.NO_BORDER)
                    .SetBorder(new SolidBorder(iText.Kernel.Colors.ColorConstants.BLACK, 1))
                    .Add(new Paragraph(y + "")));
-                int yx = 0;
 
-                for (int i = 0; i < list.Product.Count; i++)
-                {
-                    yx += Int32.Parse(list.Product[i].price_);
-                }
                 table.AddCell(new Cell()
                    .SetBackgroundColor(iText.Kernel.Colors.ColorConstants.YELLOW)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
@@ -267,7 +296,9 @@ namespace Telesi.Types
 
                 document.Add(head_);
                 document.Add(ls);
-                document.Add(title_);
+                document.Add(printLn);
+                document.Add(dataPri_);
+                document.Add(printLn);
                 document.Add(table);
 
 

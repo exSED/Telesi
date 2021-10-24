@@ -132,17 +132,7 @@
 
             </Grid>
             <Grid Grid.Column="3">
-                <Image x:Name="SaveLogButton"
-                       Margin="5" 
-                       Source="/Image/GuardarNegro.png" 
-                       Opacity="0.8"
-                       MouseDown="ClickButtonSaveA"
-                       Cursor="Hand"/>
-                <Label Content="Guardar"
-                       VerticalAlignment="top"
-                       HorizontalAlignment="Center"
-                       Cursor="Hand"
-                       MouseDown="ClickButtonSaveA" FontSize="8"/>
+               <!-- Acá ba el boton de guardar .... pero ya no-->
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Margin="20 5 20 20">
