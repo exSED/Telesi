@@ -160,17 +160,31 @@
                        Visibility="Hidden"/>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid x:Name="Tls" Grid.Row="2" Margin="40 5 65 5">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#00000000"/>
+                        <GradientStop Color="#B2620000" Offset="0.078"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="39*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="45*"/>
                 </Grid.ColumnDefinitions>
-                <Label Margin="10 0" Content="Referencia" Grid.Column="0"/>
-                <Label Margin="10 0" Content="Cantidad" Grid.Column="1"/>
-                <Label Margin="10 0" Content="Precio" Grid.Column="2"/>
-                <Label Margin="10 0" Content="Nombre" Grid.Column="3"/>
+                <Label Content="Ref." Grid.Column="0"  VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Foreground="White" Height="34"/>
+                <Label Content="Nombre" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Foreground="White" Height="34"/>
+                <Label Content="Cant." Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" Foreground="White" Height="34" Width="44" FontSize="15"/>
+                <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
             <Border  Margin="10,10,10,0" VerticalAlignment="Top" Grid.Row="3" CornerRadius="20,20,20,20">
                 <Grid x:Name="PPP2">
