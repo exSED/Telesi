@@ -20,7 +20,6 @@ namespace Telesi.Types
     public partial class InvoicePreView2 : Window
     {
         private Grid content_ = new Grid(), product_;
-        private Image icons;
         private Label text;
         public InvoicePreView2(Invoice InvoiceList)
         {

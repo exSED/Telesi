@@ -43,6 +43,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "itext7": {
+              "target": "Package",
+              "version": "[7.1.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
