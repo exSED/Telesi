@@ -46,6 +46,8 @@ namespace Telesi.Types
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = nameRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = countRef.Width });
                     product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = priceRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = editIconRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
 
                     text = new Label { Content = inventory_[i].id_, Name = "id_" + i, VerticalAlignment = Alli.VerticalAlignment };
                     product_.Children.Add(text);
