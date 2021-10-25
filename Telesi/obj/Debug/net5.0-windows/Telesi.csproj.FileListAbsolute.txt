@@ -95,5 +95,3 @@ C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\bin\Debug\net5.0-windows\M
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyModel.dll
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
 C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
-C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\ProductosNInvoice.g.cs
-C:\Users\sebas\Desktop\•\Repositorios\Telesi\Telesi\obj\Debug\net5.0-windows\Types\ProductosNInvoice.baml

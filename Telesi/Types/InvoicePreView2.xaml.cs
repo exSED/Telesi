@@ -113,7 +113,7 @@ namespace Telesi.Types
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
                     .SetFontSize(12);
 
-                Paragraph stre_ = new Paragraph("NIT: " +
+                Paragraph stre_ = new Paragraph("NIT: 4922659-4" +
                     "\nCentro comercial Mundo del oro -Bogota DC-" +
                     "\nCalle 9 No. 20A -10 Local 126" +
                     "\nContactanos en: 3208655745" +

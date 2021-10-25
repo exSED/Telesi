@@ -18,7 +18,7 @@
         ShowInTaskbar="False" 
         ScrollViewer.HorizontalScrollBarVisibility="Auto" 
         ScrollViewer.VerticalScrollBarVisibility="Auto" 
-        Foreground="{x:Null}" >
+        Foreground="{x:Null}" Closing="R" >
     <Window.Background>
         <ImageBrush ImageSource="/Image/TelaFondo.png" />
     </Window.Background>

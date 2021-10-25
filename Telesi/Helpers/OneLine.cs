@@ -124,5 +124,15 @@ namespace Telesi.Helpers
             dr += PL[PL.Count-1].id_ + "\t" + PL[PL.Count-1].name_ + "\t" + PL[PL.Count-1].count_ + "\t" + PL[PL.Count-1].price_;
             return dr;
         }
+        public string sobrInvo_(List<Invoice> PL)
+        {
+            string dr = "";
+            for (int i = 0; i < PL.Count - 1; i++)
+            {
+                dr += PL[i].number_ + "\t" + PL[i].date_ + "\t" + PL[i].total_ + "\r\n";
+            }
+            dr += PL[PL.Count - 1].number_ + "\t" + PL[PL.Count - 1].date_+ "\t" + PL[PL.Count - 1].total_;
+            return dr;
+        }
     }
 }

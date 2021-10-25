@@ -31,5 +31,9 @@ namespace Telesi
             InitializeComponent();
             views = new MainView();
         }
+        private void R(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+        }
     }
 }

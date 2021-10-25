@@ -10,6 +10,7 @@ using iText.Layout.Properties;
 using Table = iText.Layout.Element.Table;
 using iText.Layout.Borders;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,14 +33,23 @@ namespace Telesi.Types
     /// </summary>
     public partial class InvoicePreView : Window
     {
-        private Grid content_ = new Grid(), product_;
+        private InvoExtractor ieo = new InvoExtractor();
+        private InveExtractor iee = new InveExtractor();
+        private DataLength dl = new DataLength();
         private AllPaths ap = new AllPaths();
+        private OneLine ol = new OneLine();
+        private NewLines nl = new NewLines();
+        private Grid content_ = new Grid(), product_;
         private Invoice list = new Invoice();
+        private List<Invoice> dataInvo;
+        private string[] dataPI;
         private Image icons;
         private Label text;
         public InvoicePreView(Invoice InvoiceList)
         {
             InitializeComponent();
+            dataInvo = ieo.Invoices(ap.Invo_(), ap.ProdInvo_());
+            dataPI = File.ReadAllLines(ap.ProdInvo_());
             list = InvoiceList;
             No_F.Content = InvoiceList.number_;
             Date_F.Content = InvoiceList.date_;
@@ -121,7 +131,7 @@ namespace Telesi.Types
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
                     .SetFontSize(12);
 
-                Paragraph stre_ = new Paragraph("NIT: " +
+                Paragraph stre_ = new Paragraph("NIT: 4922659-4" +
                     "\nCentro comercial Mundo del oro -Bogota DC-" +
                     "\nCalle 9 No. 20A -10 Local 126" +
                     "\nContactanos en: 3208655745" +
@@ -314,7 +324,37 @@ namespace Telesi.Types
         }
         private void p_del(object sender, MouseButtonEventArgs e)
         {
+            var c = e.OriginalSource as FrameworkElement;
+            string o = c.Name;
+            o = o.Replace("Delete_", "");
+            int ocl = Int32.Parse(o);
+            if (MessageBox.Show("¿Desea hacer esta devolución?", "devolución", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
             
+                int ion = dataInvo.IndexOf(list) + 1;
+                                
+                list.Product[ocl].price_ = "0";
+                list.total_ = "3";
+                dataInvo.Insert(ion, list);
+                dataInvo.RemoveAt(ion + 1);
+
+
+                nl.writer(ol.sobrInvo_(dataInvo), ap.Invo_());
+
+                string DPI = ol.newPorsIvo_(list.Product);
+
+                dataPI[ion] = DPI;
+                string DPIS="";
+                for (int i=0; i<dataPI.Length - 1; i++)
+                {
+                    DPIS += dataPI[i] + "\r\n";
+                }
+                DPIS += dataPI[dataPI.Length-1];
+
+                nl.writer(DPIS, ap.ProdInvo_());
+
+                content_.RowDefinitions.Clear();
+            }
         }
     }
 }
