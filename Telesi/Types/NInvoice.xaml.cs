@@ -337,7 +337,10 @@ namespace Telesi.Types
             if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 lim.RemoveAt(ocl);
+                PPP.Children.Remove(content_);
+                PPP.Children.Clear();
                 content_.RowDefinitions.Clear();
+                content_.Children.Clear();
                 NewGrids(lim);
             }
         }

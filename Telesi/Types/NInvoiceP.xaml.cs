@@ -90,7 +90,7 @@ namespace Telesi.Types
                     id_ = dataInve[f].id_,
                     name_ = dataInve[f].name_,
                     count_ = Cantidad.Text,
-                    price_ = ((Int32.Parse(dataInve[f].price_) * Int32.Parse(Cantidad.Text)) - Int32.Parse(Descuento.Text)).ToString()
+                    price_ = (Int32.Parse(dataInve[f].price_) * Int32.Parse(Cantidad.Text)).ToString()
                 });
                 TotalL.Content = "0";
                 PPP.Children.Remove(content_);
@@ -122,7 +122,6 @@ namespace Telesi.Types
                         {
                             Referencia.Visibility = Visibility.Hidden;
                             Cantidad.Visibility = Visibility.Hidden;
-                            Descuento.Visibility = Visibility.Hidden;
                             NewInvoOk.Visibility = Visibility.Hidden;
                             lim.Clear();
                             TotalL.Content = "0";
@@ -150,7 +149,6 @@ namespace Telesi.Types
                 {
                     Referencia.Visibility = Visibility.Hidden;
                     Cantidad.Visibility = Visibility.Hidden;
-                    Descuento.Visibility = Visibility.Hidden;
                     NewInvoOk.Visibility = Visibility.Hidden;
                     lim.Clear();
                     TotalL.Content = "0";
@@ -182,17 +180,15 @@ namespace Telesi.Types
                     else
                     {
                         Cantidad.Visibility = Visibility.Hidden;
-                        Descuento.Visibility = Visibility.Hidden;
                         NewInvoOk.Visibility = Visibility.Hidden;
                     }
                 }
             }
             else
             {
-                if (Cantidad != null && Descuento != null)
+                if (Cantidad != null)
                 {
                     Cantidad.Visibility = Visibility.Hidden;
-                    Descuento.Visibility = Visibility.Hidden;
                     NewInvoOk.Visibility = Visibility.Hidden;
                 }
             }
@@ -203,29 +199,13 @@ namespace Telesi.Types
             {
                 if (Cantidad.Text != "0")
                 {
-                    Descuento.Visibility = Visibility.Visible;
-                    RefDesT(null, null);
+                    NewInvoOk.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    Descuento.Visibility = Visibility.Hidden;
+
                     NewInvoOk.Visibility = Visibility.Hidden;
                 }
-            }
-            else
-            {
-                if (Descuento != null)
-                {
-                    Descuento.Visibility = Visibility.Hidden;
-                    NewInvoOk.Visibility = Visibility.Hidden;
-                }
-            }
-        }
-        private void RefDesT(object sender, TextChangedEventArgs e)
-        {
-            if (Descuento.Text != String.Empty && Descuento.Text != "Descuento")
-            {
-                NewInvoOk.Visibility = Visibility.Visible;
             }
             else
             {
@@ -338,7 +318,10 @@ namespace Telesi.Types
             if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 lim.RemoveAt(ocl);
+                PPP.Children.Remove(content_);
+                PPP.Children.Clear();
                 content_.RowDefinitions.Clear();
+                content_.Children.Clear();
                 NewGrids(lim);
             }
         }

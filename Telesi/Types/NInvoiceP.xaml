@@ -131,7 +131,6 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
-                    <ColumnDefinition />
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
@@ -149,13 +148,6 @@
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <TextBox x:Name="Descuento" Text="Descuento" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefDesT">
-                        <TextBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0.5"/>
-                        </TextBox.Background>
-                    </TextBox>
-                </Grid>
-                <Grid Grid.Column="3">
                     <Image x:Name="NewInvoOk" 
                        Margin="20 2"
                        Source="/Image/PalomaVerde.png" 
