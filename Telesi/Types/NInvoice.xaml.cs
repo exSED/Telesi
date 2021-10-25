@@ -29,9 +29,12 @@ namespace Telesi.Types
         private AllPaths ap = new AllPaths();
         private OneLine ol = new OneLine();
         private NewLines nl = new NewLines();
+        private List<Products> dataInventor = new List<Products>();
+        private Grid content_ = new Grid(), product_;
+        private Image icons;
+        private Label text;
         private List<Invoice> dataInvo;
         private List<Products> dataInve, lim;
-        private Grid content_ = new Grid();
         private Label pin_ = new Label();
         private string value_;
         private int f = 0;
@@ -94,17 +97,7 @@ namespace Telesi.Types
                 PPP.Children.Clear();
                 content_.RowDefinitions.Clear();
                 content_.Children.Clear();
-                for (int i = 0; i < lim.Count; i++)
-                {
-                    string d2 = "";
-                    content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                    d2 = lim[i].id_ + "\t\t" + Cantidad.Text + "\t\t$" + lim[i].price_ + "\t" + lim[i].name_ + "\r\n";
-                    pin_ = new Label { Content = d2, Name = "id_" + i };
-                    pin_.SetValue(Grid.RowProperty, i);
-                    content_.Children.Add(pin_);
-                    TotalL.Content = "$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
-                }
-                PPP.Children.Add(content_);
+                NewGrids(lim);
                 RetraRee.Visibility = Visibility.Visible;
             }
             else
@@ -241,34 +234,6 @@ namespace Telesi.Types
                 }
             }
         }
-        private void EresEnd(object sender, MouseButtonEventArgs e)
-        {
-            if (lim.Count == 0)
-            {
-                RetraRee.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                lim.Remove(lim.Last());
-                TotalL.Content = "0";
-                PPP.Children.Remove(content_);
-                PPP.Children.Clear();
-                content_.RowDefinitions.Clear();
-                content_.Children.Clear();
-                string d2;
-                for (int i = 0; i < lim.Count; i++)
-                {
-                    content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReference.Width });
-                    d2 = lim[i].id_ + "\t" + "\t" + Cantidad.Text + "\t" + Descuento.Text + "\t\t" + lim[i].name_ + "\r\n";
-                    pin_ = new Label { Content = d2, Name = "id_" + i };
-                    pin_.SetValue(Grid.RowProperty, i);
-                    content_.Children.Add(pin_);
-                    TotalL.Content = "$" + (Int32.Parse(TotalL.Content.ToString().Replace("$", "")) + Int32.Parse(lim[i].price_));
-                }
-                PPP.Children.Add(content_);
-                RetraRee.Visibility = Visibility.Visible;
-            }
-        }
         private void Acs(object sender, MouseButtonEventArgs e)
         {
             if (No_Factura.Text != "" && No_Factura.Text != "No_Factura")
@@ -316,6 +281,64 @@ namespace Telesi.Types
                 content_.RowDefinitions.Clear();
                 content_.Children.Clear();
                 PPP.Children.Add(content_);
+            }
+        }
+        public void NewGrids(List<Products> inventory_)
+        {
+            PPP.Children.Remove(content_);
+            if (inventory_ != null)
+            {
+                for (int i = 0; i < inventory_.Count; i++)
+                {
+                    content_.RowDefinitions.Add(new RowDefinition() { Height = ColumnReferencee.Width });
+
+                    product_ = new Grid { Name = "p" + i, Margin = MarginReference.Margin };
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = idRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = nameRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = countRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = priceRef.Width });
+                    product_.ColumnDefinitions.Add(new ColumnDefinition() { Width = delIconRef.Width });
+
+                    text = new Label { Content = inventory_[i].id_, Name = "id_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 0);
+
+                    text = new Label { Content = inventory_[i].name_, Name = "name_" + i, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 1);
+
+                    text = new Label { Content = inventory_[i].count_, Name = "count_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 2);
+
+                    text = new Label { Content = inventory_[i].price_, Name = "price_" + i, HorizontalAlignment = Alli.HorizontalAlignment, VerticalAlignment = Alli.VerticalAlignment };
+                    product_.Children.Add(text);
+                    text.SetValue(Grid.ColumnProperty, 3);
+
+                    icons = new Image { Source = DelRef.Source, Name = "Delete_" + i, Cursor = EditRef.Cursor };
+                    icons.MouseDown += new MouseButtonEventHandler(p_del);
+                    product_.Children.Add(icons);
+                    icons.SetValue(Grid.ColumnProperty, 4);
+
+                    product_.Background = BlackReference.Background;
+                    product_.SetValue(Grid.RowProperty, i);
+
+                    content_.Children.Add(product_);
+                }
+            }
+            PPP.Children.Add(content_);
+        }
+        private void p_del(object sender, MouseButtonEventArgs e)
+        {
+            var c = e.OriginalSource as FrameworkElement;
+            string o = c.Name;
+            o = o.Replace("Delete_", "");
+            int ocl = Int32.Parse(o);
+            if (MessageBox.Show("¿Desea eliminar permanentemente el producto?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                lim.RemoveAt(ocl);
+                content_.RowDefinitions.Clear();
+                NewGrids(lim);
             }
         }
     }

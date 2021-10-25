@@ -83,6 +83,10 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Margin="150 0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#7F000000"/>
@@ -91,7 +95,7 @@
                 <GradientStop Color="#7FF90000" Offset="0.5"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid>
+        <Grid Grid.Row="0" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
@@ -107,56 +111,57 @@
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBox x:Name="No_Factura2" Text="No_Factura" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF2" LostFocus="TBoxLF2" KeyDown="NumberLim2" TextChanged="NumInv2">
+                    <TextBox x:Name="No_Factura" Text="No_Factura" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" TextChanged="NumInv">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Label x:Name="DateL2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
+                    <Label x:Name="DateL" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <Label x:Name="TotalL2" Content="$0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
+                    <Label x:Name="TotalL" Content="$0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>
                 </Grid>
                 <Grid Grid.Column="3">
-                    <Image x:Name="CtlZ2"
-                           Margin="2,2,2,0"
-                           Source="/Image/XBlanco.png" 
-                           Opacity="0.8"
-                           Cursor="Hand" 
-                           MouseDown="EresEnd2" 
-                           Height="26" 
-                           VerticalAlignment="Top" />
+                    <!--boton imaginario (dejalo así)-->
                 </Grid>
             </Grid>
             <Grid Margin="10,10,10,10" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
+                    <ColumnDefinition />
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBox x:Name="Referencia2" Text="Referencia" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF2" LostFocus="TBoxLF2" KeyDown="NumberLim2" Visibility="Hidden" TextChanged="RefProdT2">
+                    <TextBox x:Name="Referencia" Text="Referencia" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefProdT">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <TextBox x:Name="Cantidad2" Text="Cantidad" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF2" LostFocus="TBoxLF2" KeyDown="NumberLim2" Visibility="Hidden" TextChanged="RefCountT2">
+                    <TextBox x:Name="Cantidad" Text="Cantidad" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefCountT">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <Image x:Name="NewInvoOk2" 
+                    <TextBox x:Name="Descuento" Text="Descuento" Margin="5 5" FontSize="16" FontFamily="Arial Rounded MT Bold" GotFocus="TBoxF" LostFocus="TBoxLF" KeyDown="NumberLim" Visibility="Hidden" TextChanged="RefDesT">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="White" Opacity="0.5"/>
+                        </TextBox.Background>
+                    </TextBox>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Image x:Name="NewInvoOk" 
                        Margin="20 2"
                        Source="/Image/PalomaVerde.png" 
                        Opacity="0.8"
                        Cursor="Hand" 
-                       MouseDown="AddProds2"
+                       MouseDown="AddProds"
                        Visibility="Hidden"/>
                 </Grid>
             </Grid>
@@ -172,7 +177,7 @@
                             </TransformGroup>
                         </LinearGradientBrush.RelativeTransform>
                         <GradientStop Color="#00000000"/>
-                        <GradientStop Color="#B2620000" Offset="0.078"/>
+                        <GradientStop Color="#E5620000" Offset="0.078"/>
                     </LinearGradientBrush>
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
@@ -187,38 +192,106 @@
                 <Label Content="Precio" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" FontSize="15" Background="{x:Null}" Foreground="White" Height="34" Width="74"/>
             </Grid>
             <Border  Margin="10,10,10,0" VerticalAlignment="Top" Grid.Row="3" CornerRadius="20,20,20,20">
-                <Grid x:Name="PPP2">
+                <Grid x:Name="PPP" Margin="-20,0,-35,0">
 
                 </Grid>
             </Border>
-            <Grid x:Name="RetraRe" Grid.Row="4" Margin="10" Visibility="Hidden" >
+            <Grid x:Name="RetraRee" Grid.Row="4" Margin="10" Visibility="Hidden">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="70"/>
                 </Grid.ColumnDefinitions>
+
                 <Grid Grid.Column="1" Margin="10">
-                    <Image x:Name="Descarte2"
+                    <Image x:Name="Descarte"
                        Margin="5" 
                        Source="/Image/XBlanco.png" 
                        Opacity="0.8"
                        Cursor="Hand" 
-                       MouseDown="Descart2"/>
+                       MouseDown="Descart"/>
                 </Grid>
                 <Grid Grid.Column="2" Margin="10">
-                    <Image x:Name="Can2"
+                    <Image x:Name="Can"
                        Margin="5" 
-                       Source="/Image/GuardarFondoNegro.png" 
+                       Source="/Image/GuardarFondoBlanco.png" 
                        Opacity="0.8"
                        Cursor="Hand" 
-                       MouseDown="Acs2"/>
+                       MouseDown="Acs"/>
                 </Grid>
             </Grid>
         </Grid>
         <Grid Visibility="Hidden" Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="ColumnReference2" Width="75"/>
+                <ColumnDefinition x:Name="ColumnReference" Width="75"/>
             </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid Grid.Row="1" Visibility="Hidden" x:Name="ProductsPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="0" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="MarginReference" Visibility="Hidden" Grid.Row="1" Margin="50 10"/>
+            <Grid x:Name="WhiteReference" Visibility="Hidden" Grid.Row="1">
+                <Grid.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#CCFFFFFF" Offset="0.183"/>
+                        <GradientStop Color="#00FF0000" Offset="1"/>
+                    </RadialGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid x:Name="BlackReference" Visibility="Hidden" Grid.Row="1">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#7F000000" Offset="0"/>
+                        <GradientStop Color="#CCFF0000" Offset="0.728"/>
+                        <GradientStop Color="#66FF0000" Offset="0.374"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid x:Name="BRef" Visibility="Hidden" Grid.Row="1">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="Red" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid Visibility="Hidden" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="ColumnReferencee" Width="75*"/>
+                    <ColumnDefinition x:Name="idRef" Width="21*"/>
+                    <ColumnDefinition x:Name="nameRef" Width="39*"/>
+                    <ColumnDefinition x:Name="countRef" Width="25*"/>
+                    <ColumnDefinition x:Name="priceRef" Width="45*"/>
+                    <ColumnDefinition x:Name="delIconRef" Width="40"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Image x:Name="DelRef" Visibility="Hidden" Source="/Image/XNegro.png" Grid.Row="1" />
+            <Image x:Name="Deleted" Visibility="Hidden" Source="/Image/XNegro.png" Grid.Row="1" Margin="20"/>
+            <Image x:Name="EditRef" Visibility="Hidden" Source="/Image/LapizVerde.png" Margin="5" Grid.Row="1" Cursor="Hand"/>
+            <Image x:Name="MoreRef" Visibility="Hidden" Source="/Image/MasFondoBlanco.png" Margin="4 20" Grid.Row="1"/>
+            <Image x:Name="Paloma" Visibility="Hidden" Source="/Image/PalomaVerde.png" Margin="4 20" Grid.Row="1"/>
+            <Image x:Name="Ok" Visibility="Hidden" Source="/Image/OkBlanco.png" Margin="0" Grid.Row="1"/>
+            <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1"/>
+            <Label x:Name="Alli" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
+            <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="1" Background="#3FFFFFFF" Margin="5 15"/>
         </Grid>
     </Grid>
 </UserControl>

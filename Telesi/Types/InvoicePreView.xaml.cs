@@ -99,7 +99,7 @@ namespace Telesi.Types
         private void SevaPDDI_(object sender, MouseButtonEventArgs e)
         {
             var sfd = new Microsoft.Win32.SaveFileDialog();
-            sfd.FileName = "Inventario";
+            sfd.FileName = "Factura(" + list.number_ + ")";
             sfd.DefaultExt = ".pdf";
             sfd.Filter = "TelesiDoc (.pdf)|*.pdf";
 
