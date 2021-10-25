@@ -119,7 +119,8 @@ namespace Telesi.Types
             string o = c.Name;
             o = o.Replace("Deletes_", "");
             int ocl = Int32.Parse(o);
-            if (MessageBox.Show("¿Desea eliminar permanentemente la factura?", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("¿Desea eliminar permanentemente la factura?" +
+                "\n\nLos productos de esta NO serán devueltos al inventario ", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 nl.writer(ol.NewInv(ap.Invo_(), dataInvoic[ocl]),  ap.Invo_());
                 nl.writer(ol.NewInv(ap.ProdInvo_(), dataProInvo[ocl]),  ap.ProdInvo_());
