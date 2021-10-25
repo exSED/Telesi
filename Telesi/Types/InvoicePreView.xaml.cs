@@ -338,7 +338,6 @@ namespace Telesi.Types
                 dataInvo.Insert(ion, list);
                 dataInvo.RemoveAt(ion + 1);
 
-
                 nl.writer(ol.sobrInvo_(dataInvo), ap.Invo_());
 
                 string DPI = ol.newPorsIvo_(list.Product);

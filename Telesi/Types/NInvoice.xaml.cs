@@ -202,8 +202,14 @@ namespace Telesi.Types
             {
                 if (Cantidad.Text != "0")
                 {
-                    Descuento.Visibility = Visibility.Visible;
-                    RefDesT(null,null);
+                    if (Int32.Parse(Cantidad.Text) <= Int32.Parse(dataInve[f].count_))
+                    {
+                        Descuento.Visibility = Visibility.Visible;
+                        RefDesT(null, null);
+                    }else if (Int32.Parse(Cantidad.Text) > Int32.Parse(dataInve[f].count_))
+                    {
+                        MessageBox.Show("No hay "+ dataInve[f].name_ +" suficientes en el inventario","Sin"+ dataInve[f].name_);
+                    }
                 }
                 else
                 {
