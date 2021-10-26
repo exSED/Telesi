@@ -232,6 +232,21 @@
         <Image x:Name="Paloma" Visibility="Hidden" Source="/Image/PalomaVerde.png" Margin="4 20" Grid.Row="1"/>
         <Image x:Name="Ok" Visibility="Hidden" Source="/Image/OkBlanco.png" Margin="0" Grid.Row="1"/>
         <Image x:Name="ImageRef" Visibility="Hidden" Grid.Row="1"/>
+        <Grid x:Name="entra" Visibility="Hidden" Grid.Row="1" >
+            <Grid.Background>
+                <ImageBrush ImageSource="/Image/Entrada.png"/>
+            </Grid.Background>
+        </Grid>
+        <Grid x:Name="salida" Visibility="Hidden" Grid.Row="1" >
+            <Grid.Background>
+                <ImageBrush ImageSource="/Image/Salida.png"/>
+            </Grid.Background>
+        </Grid>
+        <Grid x:Name="devo" Visibility="Hidden" Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Image/Devolución.png"/>
+            </Grid.Background>
+        </Grid>
         <Label x:Name="Alli" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"/>
         <TextBox  x:Name="TBoxRef" Text="" Visibility="Hidden" Grid.Row="1" Background="#3FFFFFFF" Margin="5 15"/>
     </Grid>

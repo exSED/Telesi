@@ -48,6 +48,18 @@ namespace Telesi.Types
         public InvoicePreView(Invoice InvoiceList)
         {
             InitializeComponent();
+            switch (Int32.Parse(InvoiceList.total_))
+            {
+                case 1:
+                    WaterMar.Background = entra.Background;
+                    break;
+                case 2:
+                    WaterMar.Background = salida.Background;
+                    break;
+                case 3:
+                    WaterMar.Background = devo.Background;
+                    break;
+            }
             dataInvo = ieo.Invoices(ap.Invo_(), ap.ProdInvo_());
             dataPI = File.ReadAllLines(ap.ProdInvo_());
             list = InvoiceList;
@@ -189,6 +201,27 @@ namespace Telesi.Types
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
                     .SetFontSize(15)));
 
+                Paragraph water2 = new Paragraph();
+
+                switch (Int32.Parse(list.total_))
+                {
+                    case 1:
+                        water2 = new Paragraph("Entrada")
+                            .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                            .SetFontSize(12);
+                        break;
+                    case 2:
+                        water2 = new Paragraph("Salida")
+                            .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                            .SetFontSize(12);
+                        break;
+                    case 3:
+                        water2 = new Paragraph("Devolución")
+                            .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT)
+                            .SetFontSize(12);
+                        break;
+                }
+
                 int yx = 0;
 
                 for (int i = 0; i < list.Product.Count; i++)
@@ -315,6 +348,7 @@ namespace Telesi.Types
                 document.Add(ls);
                 document.Add(printLn);
                 document.Add(dataPri_);
+                document.Add(water2);
                 document.Add(printLn);
                 document.Add(table);
 

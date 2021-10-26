@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\Devolución.png" />
     <None Remove="Image\Documentos.png" />
+    <None Remove="Image\Entrada.png" />
     <None Remove="Image\GuardarBlancopng.png" />
     <None Remove="Image\GuardarFondoBlanco.png" />
     <None Remove="Image\GuardarFondoNegro.png" />
@@ -28,17 +30,19 @@
     <None Remove="Image\OkFondoBlanco.png" />
     <None Remove="Image\OkFondoNegro.png" />
     <None Remove="Image\PalomaVerde.png" />
+    <None Remove="Image\Salida.png" />
 	<None Remove="Image\TelaFondo.png" />
     <None Remove="Image\XBlanco.png" />
     <None Remove="Image\XNegro.png" />
-    <None Remove="Views\Lupa.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="itext7" Version="7.1.16" />
   </ItemGroup>
 <ItemGroup>
+    <Resource Include="Image\Devolución.png" />
     <Resource Include="Image\Documentos.png" />
+    <Resource Include="Image\Entrada.png" />
     <Resource Include="Image\GuardarBlancopng.png" />
     <Resource Include="Image\GuardarFondoBlanco.png" />
     <Resource Include="Image\GuardarFondoNegro.png" />
@@ -59,9 +63,9 @@
     <Resource Include="Image\OkFondoBlanco.png" />
     <Resource Include="Image\OkFondoNegro.png" />
     <Resource Include="Image\PalomaVerde.png" />
+    <Resource Include="Image\Salida.png" />
 	<Resource Include="Image\TelaFondo.png" />
     <Resource Include="Image\XBlanco.png" />
     <Resource Include="Image\XNegro.png" />
-    <Resource Include="Image\Lupa.png" />
   </ItemGroup>
 </Project>

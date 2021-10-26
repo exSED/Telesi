@@ -231,7 +231,7 @@ namespace Telesi.Types
                             }
                         }
                     }
-                    string dr2 = No_Factura.Text + "\t" + DateL.Content.ToString() + "\t" + "0";
+                    string dr2 = No_Factura.Text + "\t" + DateL.Content.ToString() + "\t" + "1";
                     nl.writer(ol.oneLine(ap.Invo_()) + dr2, ap.Invo_());
                     nl.writer(ol.oneLine(ap.ProdInvo_()) + ol.newPorsIvo_(lim), ap.ProdInvo_());
                     nl.writer(ol.newInven_(dataInve), ap.Inve_());
