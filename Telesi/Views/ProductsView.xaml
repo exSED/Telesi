@@ -115,7 +115,7 @@
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="1" Background="#33FFFFFF">
-                    <Image />
+                    <Image Source="/Image/Lupa.png" />
                 </Grid>
                 <TextBox x:Name="Buscar"
                          Grid.Column="0" 
