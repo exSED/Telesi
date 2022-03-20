@@ -1,3 +1,3 @@
 # Telesi
 
-![image](https://user-images.githubusercontent.com/47431016/159143635-4d85acf0-b131-4460-ac82-32763c6fcdf7.png)
+![image](https://drive.google.com/file/d/1FBYA14zCisKOC9UDS-CoOy4iLA9PyalU/view?usp=sharing)
