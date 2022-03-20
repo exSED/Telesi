@@ -1,3 +1,3 @@
 # Telesi
 
-![image](http://drive.google.com/uc?export=view&id=1FBYA14zCisKOC9UDS-CoOy4iLA9PyalU)
+![image](http://drive.google.com/uc?export=view&id=1ahTgXI6p3Xy5Nihokk9E-LXf5fTGxgsB)
